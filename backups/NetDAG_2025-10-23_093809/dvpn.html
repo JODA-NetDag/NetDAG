@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — dVPN (Decentralized VPN)</title>
+  <meta name="description" content="NetDAG dVPN: secure, censorship-resistant internet access powered by a decentralized, incentivized node network." />
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- a11y: skip -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Ticker -->
+  <div class="announcement-ticker" role="status" aria-live="polite">
+    <div class="ticker-text">The NetDAG Presale is Coming Q4 2025! Join Our Community for the Official Date Announcement!</div>
+  </div>
+
+  <!-- Header / Top Nav -->
+  <header class="main-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="index.html" aria-label="Home">
+          <img src="images/ndg-logo.png" alt="NetDAG Logo" class="logo" />
+        </a>
+        <a href="index.html" class="nav-brand">NetDAG</a>
+      </div>
+
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="bonding-curve.html">Bonding Curve</a></li>
+          <li><a href="guardian.html">NetDAG Guardian</a></li>
+          <li><a href="provenance.html">Provenance</a></li>
+          <li><a href="dvpn.html" aria-current="page">dVPN</a></li>
+        </ul>
+
+        <!-- Theme & Language -->
+        <button id="theme-toggle" class="icon" type="button" aria-label="Toggle theme">☀️</button>
+        <button id="lang-btn" class="icon" type="button" aria-label="Change language">🌐</button>
+
+        <!-- Drawer (mobile) -->
+        <button id="open-menu-btn" class="icon" type="button" aria-label="Open menu">≡</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Drawer / Sidebar container (JS fills links) -->
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" type="button" aria-label="Close menu">✕</button>
+      <ul class="mobile-nav-links"><!-- populated by script.js --></ul>
+    </div>
+  </div>
+
+  <!-- HERO -->
+<section class="hero-banner"
+         style="background-image:url('images/ndg9.png'); background-position:center;">
+  <div class="hero-overlay">
+    <h1 class="hero-title">Your Privacy, Powered by the People</h1>
+    <p class="hero-subtitle">
+      A decentralized VPN for secure, censorship-resistant internet access.
+    </p>
+  </div>
+</section>
+
+  <!-- Content -->
+  <section class="dvpn-section">
+    <div class="dvpn-container">
+      <h2>What is a Decentralized VPN (dVPN)?</h2>
+      <p>
+        A dVPN replaces a single, vulnerable company server with a global, peer-to-peer network of independent nodes.
+        Node operators share bandwidth and earn NDG; users connect through encrypted, multi-hop routes with pricing and
+        rewards handled by smart contracts — no central logs, no single point of failure.
+      </p>
+
+      <ul class="dvpn-bullets">
+        <li><strong>Community-run nodes:</strong> Earn NDG by contributing bandwidth and reliability.</li>
+        <li><strong>Multi-hop privacy:</strong> Traffic is routed across independent nodes to reduce correlation risk.</li>
+        <li><strong>On-chain payments:</strong> Usage is settled automatically and transparently.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="dvpn-section">
+    <div class="dvpn-container">
+      <h2>How It Works: Secure Browsing in 3 Steps</h2>
+      <div class="dvpn-steps">
+        <article class="dstep">
+          <h3>1) Launch</h3>
+          <p>The app fetches a list of high-reputation nodes from the DAG network.</p>
+        </article>
+        <article class="dstep">
+          <h3>2) One-Click Connect</h3>
+          <p>The NetDAG Guardian selects a fast, trustworthy route across multiple nodes.</p>
+        </article>
+        <article class="dstep">
+          <h3>3) Pay-as-you-go</h3>
+          <p>Pay per minute or per-GB in NDG; rewards flow to node operators and the ecosystem reserve.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="dvpn-section">
+    <div class="dvpn-container">
+      <h2>The NetDAG Advantage</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Need</th>
+              <th>NetDAG Solution</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fast, real-time connections</td>
+              <td>DAG confirmations keep session setup snappy.</td>
+            </tr>
+            <tr>
+              <td>Fair, predictable pricing</td>
+              <td>Bonding Curve smooths volatility for stable usage costs.</td>
+            </tr>
+            <tr>
+              <td>Smart routing & fraud prevention</td>
+              <td>Guardian scores node reliability and avoids malicious routes.</td>
+            </tr>
+            <tr>
+              <td>True decentralization</td>
+              <td>P2P nodes; no central authority or single log store.</td>
+            </tr>
+            <tr>
+              <td>Healthy node incentives</td>
+              <td>NDG rewards grow a robust, global network.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">
+        The dVPN showcases NetDAG’s pillars working together: DAG for speed, the Bonding Curve for economic stability,
+        and the Guardian for predictive network health.
+      </p>
+    </div>
+  </section>
+
+  <!-- Optional full-width image near page end -->
+  <section aria-label="Feature image" style="padding:0; margin:0; border-top:1px solid var(--border);">
+    <img src="images/dvpn-feature.jpg" alt="dVPN feature visual"
+         style="display:block; width:100%; height:auto; max-height:70vh; object-fit:cover;">
+  </section>
+
+  <!-- Page-to-page navigation -->
+  <nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- Footer -->
+  <footer class="site-footer">© NetDAG — dVPN: privacy without permission.</footer>
+
+  <!-- Google Translate host (hidden by CSS) -->
+  <div id="google_translate_element" aria-hidden="true"></div>
+
+  <!-- Unified site script -->
+  <script src="script.js"></script>
+</body>
+</html>

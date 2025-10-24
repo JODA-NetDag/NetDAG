@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>NetDAG — Blog</title>
+  <meta name="description" content="News, updates, and deep-dives from the NetDAG team and community."/>
+  <link rel="icon" href="../images/favicon.ico"/>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    .blog-wrap { max-width: 1100px; margin: 0 auto; padding: 40px 5%; }
+    .blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .post-card { background:#0b0f24; border:1px solid #1c2549; border-radius:14px; padding:16px; display:flex; flex-direction:column; }
+    .post-card img { width:100%; height:160px; object-fit:cover; border-radius:10px; margin-bottom:12px; }
+    .post-card h3 { margin:6px 0 8px 0; }
+    .post-card p { color:#c8cce0; line-height:1.6; margin:0 0 10px 0; }
+    .post-meta { font-size:.9rem; color:#9aa3c0; margin-bottom:6px; }
+    .post-actions a { display:inline-block; padding:10px 14px; border:1px solid #2a366a; border-radius:10px; text-decoration:none; }
+    .post-actions a:hover { background:#16204a; }
+    @media (max-width: 1000px){ .blog-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 700px){ .blog-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="main-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="../index.html"><img src="../images/ndg-logo.png" alt="NetDAG Logo" class="logo"/></a>
+        <a href="../index.html" class="nav-brand">NetDAG</a>
+      </div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../bonding-curve.html">Bonding Curve</a></li>
+          <li><a href="../guardian.html">NetDAG Guardian</a></li>
+          <li><a href="../provenance.html">Provenance</a></li>
+          <li><a href="../dvpn.html">dVPN</a></li>
+        </ul>
+        <button id="theme-toggle" class="icon" type="button" aria-label="Toggle theme">🌙</button>
+        <button id="lang-btn" class="icon" type="button" aria-label="Change language">🌐</button>
+        <button id="open-menu-btn" class="mobile-menu-icon" type="button" aria-label="Open menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" aria-label="Close menu" type="button">&times;</button>
+      <ul class="mobile-nav-links"></ul>
+    </div>
+  </div>
+
+  <main id="main-content" role="main">
+    <section class="hero-banner" style="background-image:url('../images/ndg10.png'); background-position:center;">
+      <div class="hero-overlay">
+        <h1 class="hero-title">NetDAG Blog</h1>
+        <p class="hero-subtitle">Updates, releases, research notes, and community highlights.</p>
+      </div>
+    </section>
+
+    <div class="blog-wrap">
+      <!-- You can duplicate these post-cards and link to dedicated blog-post pages later -->
+      <div class="blog-grid">
+        <article class="post-card">
+          <img src="../images/ndg2.png" alt="Bonding curve visual"/>
+          <div class="post-meta">Nov 2025 • Engineering</div>
+          <h3>Why a Bonding Curve? Stabilizing Price With Math</h3>
+          <p>
+            The economic core of NDG is a curve that ties price to supply. Here is how it smooths volatility
+            and makes liquidity programmatic.
+          </p>
+          <div class="post-actions">
+            <a href="#" aria-label="Read more">Read more</a>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <img src="../images/ndg12.png" alt="Guardian neural illustration"/>
+          <div class="post-meta">Nov 2025 • Research</div>
+          <h3>Inside the Guardian: Predictive Stability for Web3</h3>
+          <p>
+            From telemetry to proposals: a look at how the Guardian turns raw data into actionable, auditable recommendations.
+          </p>
+          <div class="post-actions">
+            <a href="#" aria-label="Read more">Read more</a>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <img src="../images/QR-Example.png" alt="QR example"/>
+          <div class="post-meta">Oct 2025 • Product</div>
+          <h3>Provenance Pilots: Authenticity You Can Scan</h3>
+          <p>
+            We are onboarding brands for batch-level proof of origin, traceable with a simple scan and recorded on-chain.
+          </p>
+          <div class="post-actions">
+            <a href="#" aria-label="Read more">Read more</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">© NetDAG — Blog</footer>
+
+  <script src="../script.js"></script>
+
+  <!-- Google Translate -->
+  <div id="google_translate_element" style="display:none"></div>
+  <script>
+    function ndgGetLang(){try{return localStorage.getItem('ndg_lang')||'en';}catch(e){return'en';}}
+    function ndgLoadTranslate(cb){
+      if(window.google && window.google.translate){cb&&cb();return;}
+      window.googleTranslateElementInit=function(){
+        new google.translate.TranslateElement({pageLanguage:'en',autoDisplay:false},'google_translate_element');cb&&cb();
+      };
+      if(!document.getElementById('ndg-gt-script')){
+        var s=document.createElement('script');s.id='ndg-gt-script';
+        s.src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        s.defer=true;document.body.appendChild(s);
+      }
+    }
+    function ndgApplyGoogleLang(lang){
+      var map={en:'en',de:'de',fr:'fr'};var target=map[lang]||'en';
+      (function setCombo(){
+        var sel=document.querySelector('select.goog-te-combo');
+        if(!sel){setTimeout(setCombo,120);return;}
+        if(sel.value!==target){sel.value=target;sel.dispatchEvent(new Event('change'));}
+      })();
+    }
+    document.addEventListener('DOMContentLoaded',function(){
+      var lang=ndgGetLang();
+      if(lang!=='en'){
+        if('requestIdleCallback'in window){
+          requestIdleCallback(function(){ndgLoadTranslate(function(){ndgApplyGoogleLang(lang);});});
+        }else{
+          setTimeout(function(){ndgLoadTranslate(function(){ndgApplyGoogleLang(lang);});},400);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

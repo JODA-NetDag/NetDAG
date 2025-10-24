@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — A New Era of Trust and Stability</title>
+  <meta name="description" content="NetDAG: a crypto built with a mathematical shock absorber—designed to reduce volatility and reward real-world use. Presale 14 Dec 2025." />
+  <meta property="og:title" content="NetDAG — A New Era of Trust and Stability" />
+  <meta property="og:description" content="NetDAG: mathematical shock absorber, dVPN, and community-first tokenomics. Presale 14 Dec 2025." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Accessibility: skip link -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Site-wide announcement -->
+  <div class="announcement-ticker" role="status" aria-live="polite">
+    <div class="ticker-text">The NetDAG Presale is Coming Q4 2025! Join Our Community for the Official Date Announcement!</div>
+  </div>
+
+  <!-- Header / Navbar -->
+  <header class="main-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="index.html">
+          <img src="images/ndg-logo.png" alt="NetDAG Logo" class="logo" />
+        </a>
+        <a href="index.html" class="nav-brand">NetDAG</a>
+      </div>
+
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="bonding-curve.html">Bonding Curve</a></li>
+          <li><a href="guardian.html">NetDAG Guardian</a></li>
+          <li><a href="provenance.html">Provenance</a></li>
+          <li><a href="dvpn.html">dVPN</a></li>
+        </ul>
+
+        <!-- Theme + Language + Drawer buttons -->
+        <button id="theme-toggle" class="icon" type="button" aria-label="Toggle theme">🌙</button>
+        <button id="lang-btn" class="icon" type="button" aria-label="Change language">🌐</button>
+        <button id="open-menu-btn" class="icon" type="button" aria-label="Open menu">≡</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Desktop sidebar / Mobile drawer (starts hidden; JS controls visibility) -->
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" aria-label="Close menu" type="button">✕</button>
+      <ul class="mobile-nav-links"></ul>
+    </div>
+  </div>
+
+  <!-- Main hero -->
+  <main id="main-content" class="hero-section" role="main">
+    <div class="hero-content">
+      <h1 data-i18n="hero.title">NetDAG is the first crypto built with a <strong>mathematical shock absorber</strong>.</h1>
+      <p data-i18n="hero.subtitle">Our technology is designed to protect your investment from market volatility, reward real-world use, and build a Web3 economy you can finally trust.</p>
+
+      <div class="hero-ctas">
+        <button id="connect-wallet" class="hero-cta" type="button" data-i18n="buttons.connect_wallet">Connect Wallet</button>
+        <button id="buy-ndg-hero" class="hero-cta secondary" type="button" data-i18n="buttons.buy_ndg">Buy NDG</button>
+      </div>
+
+      <!-- Presale timer -->
+      <div class="presale-timer" id="presale-timer">
+        <h2 id="presale-title" data-i18n="timer.title_prefix">Presale Begins On</h2>
+        <div class="timer-display">
+          <div><span id="d">00</span><span class="unit" data-i18n="timer.days">Days</span></div>
+          <div><span id="h">00</span><span class="unit" data-i18n="timer.hours">Hours</span></div>
+          <div><span id="m">00</span><span class="unit" data-i18n="timer.mins">Mins</span></div>
+          <div><span id="s">00</span><span class="unit" data-i18n="timer.secs">Secs</span></div>
+        </div>
+        <p class="timer-subtext" data-i18n="timer.subtext">Join the Ecosystem — early birds rewards 10% every 2 weeks.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== Footer Image Slot (big banner) ===== -->
+  <section class="footer-banner">
+    <!-- CHANGE THIS PATH to your desired full-width image -->
+    <img loading="lazy" src="images/footer/index-banner.jpg" alt="NetDAG vision banner">
+    <div class="footer-banner-caption">Empowering a Decentralized Future — NetDAG</div>
+  </section>
+
+  <!-- ===== Optional: small gallery (remove if not needed) ===== -->
+  <section class="content-gallery">
+    <!-- Update paths or delete this block entirely -->
+    <figure><img loading="lazy" src="images/gallery/slot-01.jpg" alt=""></figure>
+    <figure><img loading="lazy" src="images/gallery/slot-02.jpg" alt=""></figure>
+    <figure><img loading="lazy" src="images/gallery/slot-03.jpg" alt=""></figure>
+  </section>
+
+  <!-- Lightbox (once per page) -->
+  <div class="lightbox" id="ndg-lightbox"><img alt=""></div>
+
+  <footer class="site-footer">
+    © NetDAG — Built with care. Presale date: 14.12.2025
+  </footer>
+
+  <!-- Your shared site logic (menu, i18n seed, timer, theme, etc.) -->
+  <script src="script.js"></script>
+
+  <!-- Invisible mount for Google Translate (kept hidden) -->
+  <div id="google_translate_element" style="display:none"></div>
+
+  <!-- Lazy Google Translate loader (unchanged) -->
+  <script>
+    function ndgGetLang(){ try{return localStorage.getItem('ndg_lang')||'en';}catch{return'en';} }
+    function ndgSetLang(c){ try{localStorage.setItem('ndg_lang',c);}catch{} }
+
+    function ndgLoadTranslate(cb){
+      if (window.google && window.google.translate) { cb && cb(); return; }
+      window.googleTranslateElementInit = function(){
+        new google.translate.TranslateElement(
+          { pageLanguage:'en', autoDisplay:false },
+          'google_translate_element'
+        );
+        cb && cb();
+      };
+      if (!document.getElementById('ndg-gt-script')) {
+        var s = document.createElement('script');
+        s.id = 'ndg-gt-script';
+        s.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        s.defer = true;
+        document.body.appendChild(s);
+      }
+    }
+
+    function ndgApplyGoogleLang(lang){
+      var map = { en:'en', de:'de', fr:'fr' };
+      var target = map[lang] || 'en';
+      function setCombo(){
+        var sel = document.querySelector('select.goog-te-combo');
+        if (!sel) { setTimeout(setCombo, 120); return; }
+        if (sel.value !== target) {
+          sel.value = target;
+          sel.dispatchEvent(new Event('change'));
+        }
+      }
+      setCombo();
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      var lang = ndgGetLang();
+      if (lang !== 'en') {
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(function(){ ndgLoadTranslate(function(){ ndgApplyGoogleLang(lang); }); });
+        } else {
+          setTimeout(function(){ ndgLoadTranslate(function(){ ndgApplyGoogleLang(lang); }); }, 400);
+        }
+      }
+    });
+
+    window.addEventListener('pageshow', function(){
+      var lang = ndgGetLang();
+      if (lang !== 'en' && !(window.google && window.google.translate)) {
+        ndgLoadTranslate(function(){ ndgApplyGoogleLang(lang); });
+      } else if (lang !== 'en') {
+        ndgApplyGoogleLang(lang);
+      }
+    });
+
+    // Hook into your existing language panel (items carry .lang-item[data-code])
+    document.addEventListener('click', function(e){
+      var item = e.target.closest('.lang-item');
+      if (!item) return;
+      var code = item.dataset.code || 'en';
+      ndgSetLang(code);
+      if (code === 'en') {
+        if (window.google && window.google.translate) ndgApplyGoogleLang('en');
+        return;
+      }
+      ndgLoadTranslate(function(){ ndgApplyGoogleLang(code); });
+    });
+
+    // Cross-tab sync
+    window.addEventListener('storage', function(e){
+      if (e.key === 'ndg_lang') {
+        var code = ndgGetLang();
+        if (code === 'en') {
+          if (window.google && window.google.translate) ndgApplyGoogleLang('en');
+        } else {
+          ndgLoadTranslate(function(){ ndgApplyGoogleLang(code); });
+        }
+      }
+    });
+  </script>
+
+  <!-- Page footer nav mount (script.js fills it; no house icon there) -->
+  <nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+</body>
+</html>

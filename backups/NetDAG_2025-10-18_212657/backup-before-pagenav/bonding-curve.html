@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — Bonding Curve</title>
+  <meta name="description" content="NetDAG’s bonding curve: a mathematical shock absorber that smooths volatility, builds on-chain liquidity, and replaces fear with predictable pricing." />
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Accessibility: skip link -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Header / Navbar -->
+  <header class="main-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="index.html"><img src="images/ndg-logo.png" alt="NetDAG Logo" class="logo" /></a>
+        <a href="index.html" class="nav-brand">NetDAG</a>
+      </div>
+
+      <div class="nav-right">
+        <!-- Desktop links -->
+        <ul class="nav-links">
+          <li><a href="bonding-curve.html" aria-current="page">Bonding Curve</a></li>
+          <li><a href="guardian.html">NetDAG Guardian</a></li>
+          <li><a href="provenance.html">Provenance</a></li>
+          <li><a href="dvpn.html">dVPN</a></li>
+        </ul>
+
+        <!-- Controls -->
+        <button id="theme-toggle" class="icon" type="button" aria-label="Toggle theme">🌙</button>
+        <button id="lang-btn" class="icon" type="button" aria-label="Change language">🌐</button>
+        <button id="open-menu-btn" class="mobile-menu-icon" type="button" aria-label="Open menu">☰</button>
+      </div>
+    </nav>
+  </header>
+<nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+
+  <!-- Desktop sidebar / Mobile drawer -->
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" aria-label="Close menu" type="button">×</button>
+      <ul class="mobile-nav-links"></ul>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <main id="main-content" role="main">
+    <section class="hero-banner" style="background-image:url('images/ndg5.png');">
+      <div class="hero-overlay">
+        <h1 class="hero-title">Stability by Design: The NetDAG Bonding Curve</h1>
+        <p class="hero-subtitle">A mathematical engine that turns hype-driven swings into smooth, predictable pricing.</p>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="curve-section">
+      <div class="curve-container">
+        <h2>What is a Bonding Curve?</h2>
+        <p>
+          A bonding curve is a pricing function that ties a token’s price directly to its supply. Instead of order books,
+          every buy or sell interacts with a smart contract that mints or burns tokens at the curve’s price.
+        </p>
+
+        <div class="curve-columns">
+          <div class="curve-card">
+            <h3>As buys increase</h3>
+            <p>More tokens are minted, supply rises, and the price moves up smoothly along a predictable curve.</p>
+          </div>
+          <div class="curve-card">
+            <h3>As sells occur</h3>
+            <p>Tokens are burned, supply falls, and the price moves down the same curve—gradually, not catastrophically.</p>
+          </div>
+        </div>
+
+        <div class="curve-quote">
+          Think of it like a self-balancing scale: every buy adds a little weight to the reserve and tips price up;
+          every sell removes weight, and price adjusts down—without collapse.
+        </div>
+      </div>
+
+      <!-- Learn more (math) -->
+      <details class="disclose">
+        <summary><strong>[+] Learn the Math Behind the Price</strong></summary>
+        <div class="disclose-body">
+          <p>For clarity, consider a simple linear form:</p>
+          <pre class="math">P(S) = a·S + b</pre>
+          <ul class="math-notes">
+            <li><strong>P(S)</strong> — price when total supply is <strong>S</strong></li>
+            <li><strong>a</strong> — slope (how quickly price rises with each token)</li>
+            <li><strong>b</strong> — base price when supply is zero</li>
+          </ul>
+          <p>When you mint <em>ΔS</em> tokens (from <em>S₁</em> to <em>S₂</em>), you pay the <em>area under the curve</em>:</p>
+          <pre class="math">Cost(ΔS) = ∫<sub>S₁</sub><sup>S₂</sup> P(S) dS</pre>
+          <p>This ensures part of every payment remains locked as backing, so NDG is asset-backed from the first purchase.</p>
+        </div>
+      </details>
+
+      <!-- Graph -->
+      <figure class="curve-figure">
+        <img src="images/BondingCurve.png" alt="Illustration of Bonding Curve buy/sell path" />
+        <figcaption>Price follows supply along the same predictable path—up when minting, down when burning.</figcaption>
+      </figure>
+    </section>
+
+    <section class="curve-section">
+      <div class="curve-container">
+        <h2>The Benefits: A Market Governed by Math</h2>
+        <ul class="benefits">
+          <li><strong>Dump-Resistant:</strong> Large holders can’t nuke the market in one move—each sale steps price along the curve.</li>
+          <li><strong>Volatility-Smoothed:</strong> Movements are predictable and formula-driven, not ruled by hype or fear.</li>
+          <li><strong>Self-Liquid:</strong> The contract is the market maker—there’s always a buyer and a seller on-chain.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="curve-section">
+      <div class="curve-container">
+        <h2>A Practical Example: Stability in Action</h2>
+        <p>Even with a 20% sell-off, the curve preserves value by stepping price down smoothly, not collapsing to zero.</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Token Supply (S)</th>
+                <th>Price (USD)</th>
+                <th>Comment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>10,000</td><td>$2.10</td><td>Early growth</td></tr>
+              <tr><td>100,000</td><td>$20.10</td><td>Mature stage</td></tr>
+              <tr><td>80,000</td><td><strong>$16.10</strong></td><td>After a 20% sell-off</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="curve-section">
+      <div class="curve-container">
+        <h2>The NetDAG Advantage</h2>
+        <p>
+          NetDAG enhances bonding curves with intelligent liquidity. Parameters like slope and reserve ratio are monitored
+          and proposed for adjustment by the <strong>NetDAG Guardian</strong> (AI). Changes are enacted via governance,
+          so the system adapts to conditions with transparent oversight.
+        </p>
+        <blockquote class="curve-tagline">“You can’t crash what the math already controls.”</blockquote>
+      </div>
+
+      <details class="disclose">
+        <summary><strong>[+] Advanced Curve Mechanics & Parameters</strong></summary>
+        <div class="disclose-body">
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>What it does</th>
+                  <th>Effect on the Ecosystem</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Reserve Ratio</strong></td>
+                  <td>Share of each buy kept as locked backing (e.g., 25–50%).</td>
+                  <td>Stronger price resilience; smoother volatility.</td>
+                </tr>
+                <tr>
+                  <td><strong>Fee Split</strong></td>
+                  <td>Small portion of trades to treasury/staking.</td>
+                  <td>Builds long-term reserves and funds growth.</td>
+                </tr>
+                <tr>
+                  <td><strong>Dynamic Slope</strong></td>
+                  <td>Adjust <em>a</em> over time or volume.</td>
+                  <td>Lower early slope for access; steeper later to deter flipping.</td>
+                </tr>
+                <tr>
+                  <td><strong>Buy-Only Phase</strong></td>
+                  <td>Temporarily disable sells during presale.</td>
+                  <td>Fills reserve and establishes a stable floor.</td>
+                </tr>
+                <tr>
+                  <td><strong>Vesting on Large Sells</strong></td>
+                  <td>Rate-limit outsized redemptions.</td>
+                  <td>Prevents rapid reserve drain; smooth absorption.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">Guardian proposals are enacted only after multisig/DAO approval — transparent, community-controlled.</p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">© NetDAG</footer>
+
+  <!-- Shared site logic -->
+  <script src="script.js"></script>
+
+  <!-- Invisible mount for Google Translate (kept hidden) -->
+  <div id="google_translate_element" style="display:none"></div>
+
+  <!-- Lazy Google Translate loader: load only for non-EN or on demand -->
+  <script>
+    function ndgGetLang(){ try{return localStorage.getItem('ndg_lang')||'en';}catch{return'en';} }
+    function ndgSetLang(c){ try{localStorage.setItem('ndg_lang',c);}catch{} }
+
+    function ndgLoadTranslate(cb){
+      if (window.google && window.google.translate) { cb && cb(); return; }
+      window.googleTranslateElementInit = function(){
+        new google.translate.TranslateElement(
+          { pageLanguage:'en', autoDisplay:false },
+          'google_translate_element'
+        );
+        cb && cb();
+      };
+      if (!document.getElementById('ndg-gt-script')) {
+        var s = document.createElement('script');
+        s.id = 'ndg-gt-script';
+        s.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        s.defer = true;
+        document.body.appendChild(s);
+      }
+    }
+
+    function ndgApplyGoogleLang(lang){
+      var map = { en:'en', de:'de', fr:'fr' };
+      var target = map[lang] || 'en';
+      function setCombo(){
+        var sel = document.querySelector('select.goog-te-combo');
+        if (!sel) { setTimeout(setCombo, 120); return; }
+        if (sel.value !== target) {
+          sel.value = target;
+          sel.dispatchEvent(new Event('change'));
+        }
+      }
+      setCombo();
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      var lang = ndgGetLang();
+      if (lang !== 'en') {
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(function(){ ndgLoadTranslate(function(){ ndgApplyGoogleLang(lang); }); });
+        } else {
+          setTimeout(function(){ ndgLoadTranslate(function(){ ndgApplyGoogleLang(lang); }); }, 400);
+        }
+      }
+    });
+
+    window.addEventListener('pageshow', function(){
+      var lang = ndgGetLang();
+      if (lang !== 'en' && !(window.google && window.google.translate)) {
+        ndgLoadTranslate(function(){ ndgApplyGoogleLang(lang); });
+      } else if (lang !== 'en') {
+        ndgApplyGoogleLang(lang);
+      }
+    });
+
+    // Hook into your language panel clicks (.lang-item[data-code])
+    document.addEventListener('click', function(e){
+      var item = e.target.closest('.lang-item');
+      if (!item) return;
+      var code = item.dataset.code || 'en';
+      ndgSetLang(code);
+      if (code === 'en') {
+        if (window.google && window.google.translate) ndgApplyGoogleLang('en');
+        return;
+      }
+      ndgLoadTranslate(function(){ ndgApplyGoogleLang(code); });
+    });
+
+    // Cross-tab sync
+    window.addEventListener('storage', function(e){
+      if (e.key === 'ndg_lang') {
+        var code = ndgGetLang();
+        if (code === 'en') {
+          if (window.google && window.google.translate) ndgApplyGoogleLang('en');
+        } else {
+          ndgLoadTranslate(function(){ ndgApplyGoogleLang(code); });
+        }
+      }
+    });
+  </script>
+</body>
+</html>

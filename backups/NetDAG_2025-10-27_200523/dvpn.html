@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — dVPN (Decentralized VPN)</title>
+  <meta name="description" content="NetDAG dVPN: peer-to-peer privacy with multi-hop routing, no central logs, and pay-as-you-go rewards." />
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body data-theme="dark">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="announcement-ticker" role="status" aria-live="polite">
+    <div class="ticker-text">The NetDAG Presale is Coming Q4 2025! Join Our Community for the Official Date Announcement!</div>
+  </div>
+
+  <!-- Header / Navbar -->
+  <header class="main-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="index.html"><img src="images/ndg-logo.png" alt="NetDAG Logo" class="logo" /></a>
+        <a href="index.html" class="nav-brand">NetDAG</a>
+      </div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="bonding-curve.html">Bonding Curve</a></li>
+          <li><a href="guardian.html">NetDAG Guardian</a></li>
+          <li><a href="provenance.html">Provenance</a></li>
+          <li><a href="dvpn.html">dVPN</a></li>
+         </ul>
+        <button id="open-menu-btn" class="mobile-menu-icon" type="button" aria-label="Open menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Drawer -->
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" aria-label="Close menu" type="button">×</button>
+      <ul class="mobile-nav-links"></ul>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero-banner" style="background-image: url('images/ndg18.png'); background-size: cover; background-position: center;">
+    <div class="hero-content">
+      <h1 class="hero-title">Your Privacy, <strong>Powered by the People</strong></h1>
+      <p class="hero-subtitle">A decentralized VPN for secure, censorship-resistant internet access.</p>
+    </div>
+    <div class="hero-overlay"></div>
+  </section>
+
+  <!-- Main -->
+  <main id="main">
+
+    <section class="curve-section">
+      <div class="curve-container">
+        <h2>What is a Decentralized VPN (dVPN)?</h2>
+        <p>A dVPN replaces a single, vulnerable company server with a global, peer-to-peer mesh. Node operators share bandwidth and earn NDG; users connect through encrypted, multi-hop routes; rewards are handled by smart contracts — no central logs, no single point of failure.</p>
+        <ul class="benefits">
+          <li><strong>Community-run nodes:</strong> Earn NDG by contributing bandwidth.</li>
+          <li><strong>Multi-hop privacy:</strong> Traffic is routed across independent nodes.</li>
+          <li><strong>On-chain payments:</strong> Usage is settled automatically and transparently.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="curve-section">
+      <div class="curve-container">
+        <h2>How It Works: Secure Browsing in 3 Steps</h2>
+        <div class="info-cards">
+          <article class="info-card">
+            <h3>1) Launch</h3>
+            <p>The app fetches a list of high-reputation nodes from the DAG network.</p>
+          </article>
+          <article class="info-card">
+            <h3>2) One-Click Connect</h3>
+            <p>The NetDAG Guardian selects a fast, trustworthy route across multiple nodes.</p>
+          </article>
+          <article class="info-card">
+            <h3>3) Pay-as-you-go</h3>
+            <p>Pay per minute or per-GiB in NDG; rewards flow to node operators and the ecosystem reserve.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="curve-section">
+      <div class="curve-container">
+        <h2>The NetDAG Advantage</h2>
+        <ul class="benefits">
+          <li><strong>Fast, real-time connections:</strong> DAG confirms keep session setup snappy.</li>
+          <li><strong>Fair, predictable pricing:</strong> Bonding curve smooths volatility for stable usage costs.</li>
+          <li><strong>Smart routing &amp; fraud prevention:</strong> Guardian scores node reliability and avoids malicious routes.</li>
+          <li><strong>True decentralization:</strong> P2P nodes; no central authority or single log store.</li>
+          <li><strong>Healthy node incentives:</strong> NDG rewards grow a robust, global network.</li>
+        </ul>
+        <p class="hero-caption">The dVPN showcases NetDAG’s pillars working together: DAG for speed, the Bonding Curve for economic stability, and the Guardian for predictive network health.</p>
+      </div>
+    </section>
+
+    <section class="curve-section">
+      <div class="curve-container">
+        <figure class="curve-figure">
+          <img class="home-figure-img" src="images/ndg9.png" alt="dVPN feature visual" />
+          <figcaption>dVPN feature visual</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+
+  <button class="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <!-- Footer (force-centered, self-contained) -->
+<footer class="site-footer" style="width:100%;border-top:1px solid #2a2a3a;padding:22px 5%;box-sizing:border-box;">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    
+    <!-- Social row -->
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;margin:12px 0;">
+      <a href="https://t.me/yourchannel" target="_blank" rel="noopener" aria-label="Telegram"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M9.04 15.49 9.2 18a1 1 0 0 0 1.7.67l2.25-2.2 3.9 2.85a1.5 1.5 0 0 0 2.35-.9l3.5-15.2a1 1 0 0 0-1.36-1.15L1.4 9.7a1 1 0 0 0 .06 1.9l5.6 1.85 12.9-8.15-10.92 10.2Z"/>
+        </svg>
+        Telegram
+      </a>
+
+      <a href="https://discord.gg/yourserver" target="_blank" rel="noopener" aria-label="Discord"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M20 6.5a17 17 0 0 0-4.3-1.3l-.2.4a12 12 0 0 1 2.9 1c-3-1.4-6.2-1.4-9.1 0 .9-.5 1.9-.9 2.9-1l-.2-.4A17 17 0 0 0 8 6.5C5.5 10.3 5 14 5.2 17.6a17 17 0 0 0 5.4 1.8l.7-1.6c-1.9-.5-3-1.3-3-1.3s.2.1.6.3a11 11 0 0 0 8.2 0l.6-.3s-1.1.8-3 1.3l.7 1.6a17 17 0 0 0 5.4-1.8C19 14 18.5 10.3 16 6.5ZM9.2 14.6c-.8 0-1.5-.8-1.5-1.9s.7-1.9 1.5-1.9c.9 0 1.6.8 1.6 1.9s-.7 1.9-1.6 1.9Zm5.6 0c-.9 0-1.6-.8-1.6-1.9s.7-1.9 1.6-1.9 1.5.8 1.5 1.9-.7 1.9-1.5 1.9Z"/>
+        </svg>
+        Discord
+      </a>
+
+      <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" aria-label="Instagram"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5Zm5.75-3.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25Z"/>
+        </svg>
+        Instagram
+      </a>
+
+      <a href="https://facebook.com/yourpage" target="_blank" rel="noopener" aria-label="Facebook"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M13 22v-9h3l.5-3H13V8.3c0-.8.2-1.3 1.4-1.3H17V4.2C16.6 4.1 15.5 4 14.4 4 12 4 10.4 5.3 10.4 7.9V10H8v3h2.4v9H13Z"/>
+        </svg>
+        Facebook
+      </a>
+
+      <a href="https://x.com/yourhandle" target="_blank" rel="noopener" aria-label="X"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M3 3h4.7l5.08 7.34L18.6 3H21l-7.7 9.47L21 21h-4.7l-5.3-7.64L5.4 21H3l7.9-9.53L3 3Z"/>
+        </svg>
+        X
+      </a>
+
+      <a href="https://youtube.com/@yourchannel" target="_blank" rel="noopener" aria-label="YouTube"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2.1.6 9.4.6 9.4.6s7.3 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.7 15.6V8.4l6.2 3.6-6.2 3.6Z"/>
+        </svg>
+        YouTube
+      </a>
+
+      <a href="mailto:info@netdag.com" aria-label="Email"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M2 5h20v14H2V5Zm10 7L3.7 7h16.6L12 12Z"/>
+        </svg>
+        info@netdag.com
+      </a>
+    </div>
+
+    <!-- Footer links row -->
+    <nav style="margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+      <a href="index.html">Home</a> ·
+      <a href="bonding-curve.html">Bonding Curve</a> ·
+      <a href="guardian.html">Guardian</a> ·
+      <a href="provenance.html">Provenance</a> ·
+      <a href="menu/tokenomics.html">Tokenomics</a> ·
+      <a href="menu/blog.html">Blog</a> ·
+      <a href="menu/whitepaper.html">Whitepaper</a> ·
+      <a href="menu/roadmap.html">Roadmap</a> ·
+      <a href="menu/contact.html">Contact</a> ·
+      <a href="menu/legal.html">Legal</a>
+    </nav>
+
+    <div style="margin-top:8px;font-size:.9rem;color:#a9acc0;">© NetDAG — Built with care.</div>
+  </div>
+</footer>
+
+
+  <div id="google_translate_element" style="display:none"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

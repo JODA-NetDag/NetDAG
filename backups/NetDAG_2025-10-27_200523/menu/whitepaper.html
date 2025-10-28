@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — Whitepaper</title>
+  <meta name="description" content="NetDAG Whitepaper: a decentralized framework for trust, stability, and real-world utility." />
+  <link rel="icon" href="../images/favicon.ico" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* Page-specific layout: content + sticky TOC on the right */
+    .wp-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:24px}
+    @media(min-width:1100px){.wp-wrap{grid-template-columns:minmax(0,1fr) 300px}}
+    .wp-main{min-width:0}
+    .wp-toc{
+      position:sticky; top: calc(var(--header-h,64px) + 18px);
+      align-self:start; border:1px solid var(--border); border-radius:12px;
+      background:#0f1120; padding:14px 14px 6px; max-height: calc(100vh - (var(--header-h,64px) + 36px));
+      overflow:auto;
+    }
+    .wp-toc h3{margin:0 0 8px; font-size:1rem; color:#fff}
+    .wp-toc a{display:block; padding:8px 10px; border-radius:8px; color:#cfd1d6; text-decoration:none; font-weight:600; font-size:.95rem}
+    .wp-toc a:hover{background:rgba(255,255,255,.08)}
+    .wp-section{padding:22px 0; border-top:1px solid var(--border)}
+    .wp-section:first-of-type{border-top:0}
+    .wp-section h2{margin:0 0 8px; color:#fff}
+    .wp-section p{color:var(--muted)}
+    .wp-hero-note{ text-align:center; margin:10px 0 0; color:#cfd1d6; font-weight:600}
+    .wp-hero-note span{ color:#ffb84d }
+  </style>
+</head>
+<body>
+
+  <!-- a11y: skip -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Ticker -->
+  <div class="announcement-ticker" role="status" aria-live="polite">
+    <div class="ticker-text">The NetDAG Presale is Coming Q4 2025! Join Our Community for the Official Date Announcement!</div>
+  </div>
+
+  <!-- Header / Top Nav -->
+  <header class="main-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="../index.html" aria-label="Home">
+          <img src="../images/ndg-logo.png" alt="NetDAG Logo" class="logo" />
+        </a>
+        <a href="../index.html" class="nav-brand">NetDAG</a>
+      </div>
+
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../bonding-curve.html">Bonding Curve</a></li>
+          <li><a href="../guardian.html">NetDAG Guardian</a></li>
+          <li><a href="../provenance.html">Provenance</a></li>
+          <li><a href="../dvpn.html">dVPN</a></li>
+         </ul>
+
+         <!-- Drawer (mobile) -->
+        <button id="open-menu-btn" class="icon" type="button" aria-label="Open menu">≡</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Drawer / Sidebar container (JS fills links) -->
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" type="button" aria-label="Close menu">✕</button>
+      <ul class="mobile-nav-links"><!-- populated by script.js --></ul>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <main id="main-content" class="hero-banner" role="main"
+        style="background-image:url('../images/DAG.png'); background-position:center;">
+    <div class="hero__overlay">
+      <h1 class="hero-title">NetDAG Whitepaper</h1>
+      <p class="hero-subtitle">A decentralized framework for trust, stability, and real-world utility.</p>
+    </div>
+  </main>
+  <p class="wp-hero-note">Background: <span>DAG</span> — directed acyclic graph topology</p>
+
+  <!-- Body + TOC -->
+  <section class="curve-section" style="padding-top:28px;">
+    <div class="wp-wrap">
+
+      <!-- Main document -->
+      <div class="wp-main">
+        <!-- Intro -->
+        <article id="abstract" class="wp-section">
+          <h2>Abstract</h2>
+          <p>
+            NetDAG proposes a resilient Web3 economy based on a high-throughput DAG ledger, an adaptive bonding-curve
+            market model, and an AI stability layer (the Guardian). Together these form a system that is fast, predictable,
+            and transparently governed. This paper outlines the architecture, economics, and governance.
+          </p>
+        </article>
+
+        <!-- 1 -->
+        <article id="vision" class="wp-section">
+          <h2>1. Vision & Rationale</h2>
+          <p>
+            Crypto adoption accelerates when networks are useful, stable, and human-aligned. NetDAG’s mission is to shift
+            value from speculation to service: private connectivity (dVPN), on-chain authenticity (Provenance), and a
+            predictable economy (Bonding Curve + Guardian).
+          </p>
+        </article>
+
+        <!-- 2 -->
+        <article id="dag" class="wp-section">
+          <h2>2. Network Layer: DAG Consensus</h2>
+          <p>
+            A directed acyclic graph allows concurrent validation and near-instant finality under load. Nodes confirm
+            multiple tips per event, increasing throughput as participation grows. The design targets micropayments and
+            low-latency dApps.
+          </p>
+        </article>
+
+        <!-- 3 -->
+        <article id="bonding" class="wp-section">
+          <h2>3. Market Layer: Adaptive Bonding Curve</h2>
+          <p>
+            Price is a function of supply; buys mint along the curve and lock reserve backing; sells burn along the same curve,
+            providing continuous, predictable liquidity. Parameters (slope, reserve ratio) are observable and adjustable
+            via governance.
+          </p>
+          <pre class="math">P(S) = a·S + b</pre>
+          <p class="note">Mint cost equals the area under the curve; part of the payment remains locked, backing NDG from genesis.</p>
+        </article>
+
+        <!-- 4 -->
+        <article id="guardian" class="wp-section">
+          <h2>4. Intelligence Layer: The NetDAG Guardian</h2>
+          <p>
+            A hybrid AI system monitors on-chain telemetry and proposes parameter updates (e.g., slope, fee split, reserve
+            ratio). Recommendations are executed only after multisig/DAO approval, pairing predictive analytics with
+            community oversight.
+          </p>
+        </article>
+
+        <!-- 5 -->
+        <article id="dvpn" class="wp-section">
+          <h2>5. Utility: Decentralized VPN</h2>
+          <p>
+            A peer-to-peer privacy network with on-chain payments and reputation. Users pay per minute/GB; nodes earn NDG;
+            the Guardian optimizes routing and detects anomalies. The bonding curve stabilizes pricing through volatility.
+          </p>
+        </article>
+
+        <!-- 6 -->
+        <article id="prov" class="wp-section">
+          <h2>6. Utility: Provenance (On-Chain Authenticity)</h2>
+          <p>
+            Producers register batches; proofs are immutably recorded; consumers scan to verify. Each scan contributes to
+            the liquidity engine and charity pool, creating a positive-sum loop between commerce and social impact.
+          </p>
+        </article>
+
+        <!-- 7 -->
+        <article id="token" class="wp-section">
+          <h2>7. Tokenomics Overview</h2>
+          <p>
+            Maximum supply: 1,000,000,000 NDG. Presale price from $0.03. Allocations include bonding-curve reserve,
+            ecosystem incentives, team (with vesting), community programs, and liquidity. Details in the Tokenomics chapter.
+          </p>
+        </article>
+
+        <!-- 8 -->
+        <article id="gov" class="wp-section">
+          <h2>8. Governance</h2>
+          <p>
+            A staged path from multisig to DAO. Critical parameter changes are proposed by the Guardian and ratified on-chain.
+            The goal is transparent, evidence-based adjustments that protect small holders and long-term builders.
+          </p>
+        </article>
+
+        <!-- 9 -->
+        <article id="roadmap" class="wp-section">
+          <h2>9. Roadmap</h2>
+          <p>
+            Milestones include the presale (30 Nov 2025), public curve activation, dVPN alpha/beta, Provenance pilots,
+            and progressive decentralization of governance and treasury management.
+          </p>
+        </article>
+
+        <!-- 10 -->
+        <article id="conclusion" class="wp-section">
+          <h2>10. Conclusion</h2>
+          <p>
+            You can’t crash what the math already controls. By aligning fast settlement, predictable liquidity, and
+            predictive governance, NetDAG aims to make Web3 practical, stable, and useful.
+          </p>
+        </article>
+
+        <!-- Optional full-width image near page end -->
+        <section aria-label="Feature image" style="padding:0; margin:12px 0 0; border-top:1px solid var(--border);">
+          <img src="../images/whitepaper-feature.jpg" alt="Whitepaper feature visual"
+               style="display:block; width:100%; height:auto; max-height:70vh; object-fit:cover;">
+        </section>
+      </div>
+
+      <!-- Sticky TOC -->
+      <aside class="wp-toc" aria-label="Contents">
+        <h3>Contents</h3>
+        <nav>
+          <a href="#abstract">Abstract</a>
+          <a href="#vision">1. Vision &amp; Rationale</a>
+          <a href="#dag">2. DAG Consensus</a>
+          <a href="#bonding">3. Bonding Curve</a>
+          <a href="#guardian">4. NetDAG Guardian</a>
+          <a href="#dvpn">5. dVPN</a>
+          <a href="#prov">6. Provenance</a>
+          <a href="#token">7. Tokenomics</a>
+          <a href="#gov">8. Governance</a>
+          <a href="#roadmap">9. Roadmap</a>
+          <a href="#conclusion">10. Conclusion</a>
+        </nav>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Page-to-page navigation -->
+  <nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- Footer (force-centered, self-contained) -->
+<footer class="site-footer" style="width:100%;border-top:1px solid #2a2a3a;padding:22px 5%;box-sizing:border-box;">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    
+    <!-- Social row -->
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;margin:12px 0;">
+      <a href="https://t.me/yourchannel" target="_blank" rel="noopener" aria-label="Telegram"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M9.04 15.49 9.2 18a1 1 0 0 0 1.7.67l2.25-2.2 3.9 2.85a1.5 1.5 0 0 0 2.35-.9l3.5-15.2a1 1 0 0 0-1.36-1.15L1.4 9.7a1 1 0 0 0 .06 1.9l5.6 1.85 12.9-8.15-10.92 10.2Z"/>
+        </svg>
+        Telegram
+      </a>
+
+      <a href="https://discord.gg/yourserver" target="_blank" rel="noopener" aria-label="Discord"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M20 6.5a17 17 0 0 0-4.3-1.3l-.2.4a12 12 0 0 1 2.9 1c-3-1.4-6.2-1.4-9.1 0 .9-.5 1.9-.9 2.9-1l-.2-.4A17 17 0 0 0 8 6.5C5.5 10.3 5 14 5.2 17.6a17 17 0 0 0 5.4 1.8l.7-1.6c-1.9-.5-3-1.3-3-1.3s.2.1.6.3a11 11 0 0 0 8.2 0l.6-.3s-1.1.8-3 1.3l.7 1.6a17 17 0 0 0 5.4-1.8C19 14 18.5 10.3 16 6.5ZM9.2 14.6c-.8 0-1.5-.8-1.5-1.9s.7-1.9 1.5-1.9c.9 0 1.6.8 1.6 1.9s-.7 1.9-1.6 1.9Zm5.6 0c-.9 0-1.6-.8-1.6-1.9s.7-1.9 1.6-1.9 1.5.8 1.5 1.9-.7 1.9-1.5 1.9Z"/>
+        </svg>
+        Discord
+      </a>
+
+      <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" aria-label="Instagram"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5Zm5.75-3.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25Z"/>
+        </svg>
+        Instagram
+      </a>
+
+      <a href="https://facebook.com/yourpage" target="_blank" rel="noopener" aria-label="Facebook"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M13 22v-9h3l.5-3H13V8.3c0-.8.2-1.3 1.4-1.3H17V4.2C16.6 4.1 15.5 4 14.4 4 12 4 10.4 5.3 10.4 7.9V10H8v3h2.4v9H13Z"/>
+        </svg>
+        Facebook
+      </a>
+
+      <a href="https://x.com/yourhandle" target="_blank" rel="noopener" aria-label="X"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M3 3h4.7l5.08 7.34L18.6 3H21l-7.7 9.47L21 21h-4.7l-5.3-7.64L5.4 21H3l7.9-9.53L3 3Z"/>
+        </svg>
+        X
+      </a>
+
+      <a href="https://youtube.com/@yourchannel" target="_blank" rel="noopener" aria-label="YouTube"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2.1.6 9.4.6 9.4.6s7.3 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.7 15.6V8.4l6.2 3.6-6.2 3.6Z"/>
+        </svg>
+        YouTube
+      </a>
+
+      <a href="mailto:info@netdag.com" aria-label="Email"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M2 5h20v14H2V5Zm10 7L3.7 7h16.6L12 12Z"/>
+        </svg>
+        info@netdag.com
+      </a>
+    </div>
+
+    <!-- Footer links row -->
+    <nav style="margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+      <a href="index.html">Home</a> ·
+      <a href="bonding-curve.html">Bonding Curve</a> ·
+      <a href="guardian.html">Guardian</a> ·
+      <a href="provenance.html">Provenance</a> ·
+      <a href="menu/tokenomics.html">Tokenomics</a> ·
+      <a href="menu/blog.html">Blog</a> ·
+      <a href="menu/whitepaper.html">Whitepaper</a> ·
+      <a href="menu/roadmap.html">Roadmap</a> ·
+      <a href="menu/contact.html">Contact</a> ·
+      <a href="menu/legal.html">Legal</a>
+    </nav>
+
+    <div style="margin-top:8px;font-size:.9rem;color:#a9acc0;">© NetDAG — Built with care.</div>
+  </div>
+</footer>
+
+  <!-- Google Translate host (hidden by CSS) -->
+  <div id="google_translate_element" aria-hidden="true"></div>
+
+  <!-- Unified site script -->
+  <script src="../script.js"></script>
+</body>
+</html>

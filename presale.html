@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NetDAG Presale | NDG Token</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background-color: #0b0b0b;
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      padding: 20px;
+      background: linear-gradient(90deg, #ff7b00, #ffae00);
+      color: #0b0b0b;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .timer {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      font-size: 1.3rem;
+    }
+
+    .timer div {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 15px 20px;
+    }
+
+    .table-container {
+      margin: 50px auto;
+      background: #141414;
+      border-radius: 15px;
+      padding: 20px;
+      border: 1px solid #222;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    th, td {
+      padding: 15px;
+      border-bottom: 1px solid #333;
+    }
+
+    th {
+      text-align: left;
+      color: #ffae00;
+    }
+
+    .btn {
+      background: #ff7b00;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 30px;
+    }
+
+    .btn:hover {
+      background: #ff9900;
+    }
+
+    footer {
+      margin-top: 70px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>NetDAG Token Presale</header>
+
+  <section>
+    <h1 class="title">Join the NDG Presale</h1>
+    <p>Presale starts on <strong>14.12.2025 at 00:00 CET</strong></p>
+
+    <div class="timer" id="countdown">
+      <div><span id="days">00</span><br>Days</div>
+      <div><span id="hours">00</span><br>Hours</div>
+      <div><span id="minutes">00</span><br>Minutes</div>
+      <div><span id="seconds">00</span><br>Seconds</div>
+    </div>
+
+    <div class="table-container">
+      <h2>Token Allocation</h2>
+      <table>
+        <tr><th>Presale</th><td>50%</td></tr>
+        <tr><th>Liquidity & Reserves</th><td>25%</td></tr>
+        <tr><th>Web3 Incentives</th><td>15%</td></tr>
+        <tr><th>Charity Fund</th><td>2%</td></tr>
+        <tr><th>R&D / Ecosystem Growth</th><td>8%</td></tr>
+      </table>
+    </div>
+
+    <p><strong>Vesting:</strong> 30 days lock, then 20% released every month (5 months total).</p>
+    <p><strong>Early Bird Bonus:</strong> +10% every 2 weeks for first adopters.</p>
+
+    <button class="btn">Buy NDG Tokens</button>
+  </section>
+
+  <footer>
+    © 2025 NetDAG. All rights reserved.
+  </footer>
+
+  <script>
+    const targetDate = new Date("Dec 14, 2025 00:00:00").getTime();
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+      document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML = "Presale is LIVE!";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

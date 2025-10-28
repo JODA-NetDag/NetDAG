@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — Bonding Curve</title>
+  <meta name="description" content="Stability by design: the NetDAG Bonding Curve smooths volatility with predictable, math-driven pricing." />
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- a11y: skip -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Ticker -->
+  <div class="announcement-ticker" role="status" aria-live="polite">
+    <div class="ticker-text">The NetDAG Presale is Coming Q4 2025! Join Our Community for the Official Date Announcement!</div>
+  </div>
+
+  <!-- Header / Top Nav -->
+  <header class="main-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="index.html" aria-label="Home">
+          <img src="images/ndg-logo.png" alt="NetDAG Logo" class="logo" />
+        </a>
+        <a href="index.html" class="nav-brand">NetDAG</a>
+      </div>
+
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="bonding-curve.html" aria-current="page">Bonding Curve</a></li>
+          <li><a href="guardian.html">NetDAG Guardian</a></li>
+          <li><a href="provenance.html">Provenance</a></li>
+          <li><a href="dvpn.html">dVPN</a></li>
+        </ul>
+         
+        <!-- Drawer (mobile) -->
+        <button id="open-menu-btn" class="icon" type="button" aria-label="Open menu">≡</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Drawer / Sidebar container (JS fills links) -->
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" type="button" aria-label="Close menu">✕</button>
+      <ul class="mobile-nav-links"><!-- populated by script.js --></ul>
+    </div>
+  </div>
+  
+  <!-- HERO -->
+<section class="hero-banner"
+         style="background-image:url('images/ndg6.png'); background-position:center;">
+  <div class="hero-overlay">
+    <h1 class="hero-title">Stability by Design: The NetDAG Bonding Curve</h1>
+    <p class="hero-subtitle">
+      A mathematical engine that turns hype-driven swings into smooth, predictable pricing.
+    </p>
+  </div>
+</section>
+
+  <!-- Content -->
+  <section class="curve-section">
+    <div class="curve-container">
+      <h2>What is a Bonding Curve?</h2>
+      <p>
+        A Bonding Curve is a pricing function that ties a token’s price directly to supply. Instead of an order book,
+        every buy/sell talks to a smart contract that mints/burns along the curve. Price moves smoothly — not in cliffs.
+      </p>
+
+      <div class="curve-columns">
+        <div class="curve-card">
+          <h3>When people buy</h3>
+          <p>Supply increases, and the price steps up along the curve. Payments add to on-chain reserves — asset backing from day one.</p>
+        </div>
+        <div class="curve-card">
+          <h3>When people sell</h3>
+          <p>Tokens are burned, supply decreases, and the price steps down the same curve — gradual, math-driven, dump-resistant.</p>
+        </div>
+      </div>
+
+      <div class="curve-quote">
+        Think of a self-balancing scale: every buy adds weight to reserves and tips price up; every sell removes weight and price eases down.
+      </div>
+
+      <!-- Graph slot -->
+      <figure class="curve-figure" style="margin-top:14px;">
+        <img src="images/BondingCurve.png" alt="Illustration of the NetDAG bonding-curve buy/sell path" style="max-width:100%; height:auto;" />
+        <figcaption>Price follows supply along the same predictable path — up when minting, down when burning.</figcaption>
+      </figure>
+
+      <!-- Details (math) -->
+      <details class="disclose">
+        <summary><strong>[+] Learn the Math Behind the Price</strong></summary>
+        <div class="disclose-body">
+          <p>For clarity, consider a simple linear function:</p>
+          <pre class="math">P(S) = a·S + b</pre>
+          <ul class="math-notes">
+            <li><strong>P(S)</strong> — price at total supply <strong>S</strong></li>
+            <li><strong>a</strong> — slope (how quickly price rises)</li>
+            <li><strong>b</strong> — base price when supply is zero</li>
+          </ul>
+          <p>Minting ΔS tokens (from S₁ to S₂) costs the area under the curve:</p>
+          <pre class="math">Cost(ΔS) = ∫<sub>S₁</sub><sup>S₂</sup> P(S) dS</pre>
+          <p>This preserves backing in the contract reserve, giving NDG a built-in price floor.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="curve-section">
+    <div class="curve-container">
+      <h2>The Benefits: A Market Governed by Math</h2>
+      <ul class="benefits">
+        <li><strong>Dump-Resistant:</strong> Big holders can’t nuke the price in one move — each trade steps along the curve.</li>
+        <li><strong>Volatility-Smoothed:</strong> Predictable, formula-driven moves instead of fear and FOMO.</li>
+        <li><strong>Self-Liquid:</strong> The contract is the market maker — there’s always a counterparty on-chain.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="curve-section">
+    <div class="curve-container">
+      <h2>A Practical Example</h2>
+      <p>Even with a 20% sell-off, the curve steps price down smoothly — no collapse to near zero.</p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Token Supply (S)</th>
+              <th>Price (USD)</th>
+              <th>Comment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>10,000</td><td>$2.10</td><td>Early growth</td></tr>
+            <tr><td>100,000</td><td>$20.10</td><td>Mature stage</td></tr>
+            <tr><td>80,000</td><td><strong>$16.10</strong></td><td>After 20% sell-off</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="curve-section">
+    <div class="curve-container">
+      <h2>The NetDAG Advantage</h2>
+      <p>
+        NetDAG enhances bonding curves with the <strong>NetDAG Guardian</strong> — an AI layer that forecasts liquidity
+        and proposes parameter updates (like slope or reserve ratio). Governance approves changes for transparent control.
+      </p>
+
+      <details class="disclose">
+        <summary><strong>[+] Advanced Curve Mechanics &amp; Parameters</strong></summary>
+        <div class="disclose-body">
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr><th>Parameter</th><th>What it does</th><th>Effect</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Reserve Ratio</strong></td><td>Portion of buys kept as locked backing.</td><td>Stronger price resilience; smoother moves.</td></tr>
+                <tr><td><strong>Fee Split</strong></td><td>Small % to treasury/staking.</td><td>Builds long-term reserves; funds growth.</td></tr>
+                <tr><td><strong>Dynamic Slope</strong></td><td>Adjusts “a” by volume/time.</td><td>Wide access early; more resistance later.</td></tr>
+                <tr><td><strong>Buy-Only Phase</strong></td><td>Disable sells during presale.</td><td>Fills reserve; creates a strong price floor.</td></tr>
+                <tr><td><strong>Vesting on Large Sells</strong></td><td>Rate-limit outsized redemptions.</td><td>Prevents rapid reserve drain.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">All proposals require multisig/DAO approval — community oversight built-in.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- Optional full-width image near page end -->
+  <section aria-label="Feature image" style="padding:0; margin:0; border-top:1px solid var(--border);">
+    <img src="images/bonding-feature.jpg" alt="Bonding curve feature visual"
+         style="display:block; width:100%; height:auto; max-height:70vh; object-fit:cover;">
+  </section>
+
+  <!-- Page-to-page navigation -->
+  <nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- Footer (force-centered, self-contained) -->
+<footer class="site-footer" style="width:100%;border-top:1px solid #2a2a3a;padding:22px 5%;box-sizing:border-box;">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    
+    <!-- Social row -->
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;margin:12px 0;">
+      <a href="https://t.me/yourchannel" target="_blank" rel="noopener" aria-label="Telegram"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M9.04 15.49 9.2 18a1 1 0 0 0 1.7.67l2.25-2.2 3.9 2.85a1.5 1.5 0 0 0 2.35-.9l3.5-15.2a1 1 0 0 0-1.36-1.15L1.4 9.7a1 1 0 0 0 .06 1.9l5.6 1.85 12.9-8.15-10.92 10.2Z"/>
+        </svg>
+        Telegram
+      </a>
+
+      <a href="https://discord.gg/yourserver" target="_blank" rel="noopener" aria-label="Discord"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M20 6.5a17 17 0 0 0-4.3-1.3l-.2.4a12 12 0 0 1 2.9 1c-3-1.4-6.2-1.4-9.1 0 .9-.5 1.9-.9 2.9-1l-.2-.4A17 17 0 0 0 8 6.5C5.5 10.3 5 14 5.2 17.6a17 17 0 0 0 5.4 1.8l.7-1.6c-1.9-.5-3-1.3-3-1.3s.2.1.6.3a11 11 0 0 0 8.2 0l.6-.3s-1.1.8-3 1.3l.7 1.6a17 17 0 0 0 5.4-1.8C19 14 18.5 10.3 16 6.5ZM9.2 14.6c-.8 0-1.5-.8-1.5-1.9s.7-1.9 1.5-1.9c.9 0 1.6.8 1.6 1.9s-.7 1.9-1.6 1.9Zm5.6 0c-.9 0-1.6-.8-1.6-1.9s.7-1.9 1.6-1.9 1.5.8 1.5 1.9-.7 1.9-1.5 1.9Z"/>
+        </svg>
+        Discord
+      </a>
+
+      <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" aria-label="Instagram"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5Zm5.75-3.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25Z"/>
+        </svg>
+        Instagram
+      </a>
+
+      <a href="https://facebook.com/yourpage" target="_blank" rel="noopener" aria-label="Facebook"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M13 22v-9h3l.5-3H13V8.3c0-.8.2-1.3 1.4-1.3H17V4.2C16.6 4.1 15.5 4 14.4 4 12 4 10.4 5.3 10.4 7.9V10H8v3h2.4v9H13Z"/>
+        </svg>
+        Facebook
+      </a>
+
+      <a href="https://x.com/yourhandle" target="_blank" rel="noopener" aria-label="X"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M3 3h4.7l5.08 7.34L18.6 3H21l-7.7 9.47L21 21h-4.7l-5.3-7.64L5.4 21H3l7.9-9.53L3 3Z"/>
+        </svg>
+        X
+      </a>
+
+      <a href="https://youtube.com/@yourchannel" target="_blank" rel="noopener" aria-label="YouTube"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2.1.6 9.4.6 9.4.6s7.3 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.7 15.6V8.4l6.2 3.6-6.2 3.6Z"/>
+        </svg>
+        YouTube
+      </a>
+
+      <a href="mailto:info@netdag.com" aria-label="Email"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M2 5h20v14H2V5Zm10 7L3.7 7h16.6L12 12Z"/>
+        </svg>
+        info@netdag.com
+      </a>
+    </div>
+
+    <!-- Footer links row -->
+    <nav style="margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+      <a href="index.html">Home</a> ·
+      <a href="bonding-curve.html">Bonding Curve</a> ·
+      <a href="guardian.html">Guardian</a> ·
+      <a href="provenance.html">Provenance</a> ·
+      <a href="menu/tokenomics.html">Tokenomics</a> ·
+      <a href="menu/blog.html">Blog</a> ·
+      <a href="menu/whitepaper.html">Whitepaper</a> ·
+      <a href="menu/roadmap.html">Roadmap</a> ·
+      <a href="menu/contact.html">Contact</a> ·
+      <a href="menu/legal.html">Legal</a>
+    </nav>
+
+    <div style="margin-top:8px;font-size:.9rem;color:#a9acc0;">© NetDAG — Built with care.</div>
+  </div>
+</footer>
+
+  <!-- Google Translate host (hidden by CSS) -->
+  <div id="google_translate_element" aria-hidden="true"></div>
+
+  <!-- Unified site script -->
+  <script src="script.js"></script>
+</body>
+</html>

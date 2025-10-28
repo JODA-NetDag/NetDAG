@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — Provenance (On-Chain Authenticity)</title>
+  <meta name="description" content="NetDAG Provenance: on-chain proof-of-origin you can scan. Authenticity, batch details, and certifiers — instantly verifiable." />
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body data-theme="dark">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Announcement -->
+  <div class="announcement-ticker" role="status" aria-live="polite">
+    <div class="ticker-text">The NetDAG Presale is Coming Q4 2025! Join Our Community for the Official Date Announcement!</div>
+  </div>
+
+  <!-- Header / Navbar (unchanged) -->
+  <header class="main-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="index.html"><img src="images/ndg-logo.png" alt="NetDAG Logo" class="logo" /></a>
+        <a href="index.html" class="nav-brand">NetDAG</a>
+      </div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="bonding-curve.html">Bonding Curve</a></li>
+          <li><a href="guardian.html">NetDAG Guardian</a></li>
+          <li><a href="provenance.html">Provenance</a></li>
+          <li><a href="dvpn.html">dVPN</a></li>
+        </ul>
+        <button id="lang-btn" class="icon" type="button" aria-label="Change language">🌐</button>
+        <button id="theme-toggle" class="icon" type="button" aria-label="Toggle theme">☀️</button>
+        <button id="open-menu-btn" class="mobile-menu-icon" type="button" aria-label="Open menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Sidebar / Drawer (JS fills links) -->
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" aria-label="Close menu" type="button">×</button>
+      <ul class="mobile-nav-links"></ul>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero-banner" style="background-image: url('images/ndg19.png'); background-size: cover; background-position: center;">
+    <div class="hero-content">
+      <h1 class="hero-title">Trust Written in Code: <strong>NetDAG Provenance</strong></h1>
+      <p class="hero-subtitle">Authenticity as on-chain proof — scannable by anyone, instantly.</p>
+    </div>
+   
+  </section>
+
+  <!-- Main -->
+  <main id="main">
+
+    <section class="prov-section">
+      <div class="prov-container">
+        <h2>What is NetDAG Provenance?</h2>
+       <p> <strong>NetDAG Provenance</strong> is a proof-of-origin system. When a buyer scans a product’s QR tag, they see immutable data from the blockchain — where it was made, when it shipped, and who certified it — not a marketing page.</p>
+      </div>
+    </section>
+
+    <section class="curve-section">
+      <div class="curve-container">
+        <h2>How It Works: The Journey to Verifiable Trust</h2>
+        <div class="info-cards">
+          <article class="info-card">
+            <h3>1) Registration</h3>
+            <p>Verified producers upload batch details and documents to the Provenance Portal.</p>
+          </article>
+          <article class="info-card">
+            <h3>2) Blockchain Record</h3>
+            <p>A smart contract secures the record (hash + metadata). Certifiers co-sign where required.</p>
+          </article>
+          <article class="info-card">
+            <h3>3) Instant Verification</h3>
+            <p>Consumers scan the product’s QR to reveal batch data, certifiers, timestamps — and a tamper-evident audit trail.</p>
+          </article>
+          <article class="info-card">
+            <h3>4) Value Loop</h3>
+            <p>Each scan triggers a tiny NDG tip back to the ecosystem — rewarding honest producers and network validators.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="curve-section">
+      <div class="curve-container">
+        <figure class="curve-figure">
+          <img class="home-figure-img" src="images/ndg20.png" alt="Example authenticity receipt after scan" />
+          <figcaption>Example authenticity receipt a user sees after scanning.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Page nav (auto from script.js) -->
+  <nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+
+  <button class="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <footer class="site-footer">© NetDAG — Built with care.</footer>
+
+  <!-- Hidden Google Translate mount (script.js handles it) -->
+  <div id="google_translate_element" style="display:none"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

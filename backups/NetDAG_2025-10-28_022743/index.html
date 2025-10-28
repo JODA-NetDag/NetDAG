@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — A New Era of Trust and Stability</title>
+  <meta name="description" content="NetDAG is the first crypto built with a mathematical shock absorber—designed to reduce volatility and reward real-world use. Presale 14 Dec 2025." />
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Skip link -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Announcement ticker -->
+  <div class="announcement-ticker" role="status" aria-live="polite">
+    <div class="ticker-text">The NetDAG's Presale is Coming 14.Dec.2025! Join Our Community for the Official Date Announcement!</div>
+  </div>
+
+  <!-- Header / Navbar -->
+  <header class="main-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="index.html"><img src="images/ndg-logo.png" alt="NetDAG Logo" class="logo" /></a>
+        <a href="index.html" class="nav-brand">NetDAG</a>
+      </div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="bonding-curve.html">Bonding Curve</a></li>
+          <li><a href="guardian.html">NetDAG Guardian</a></li>
+          <li><a href="provenance.html">Provenance</a></li>
+          <li><a href="dvpn.html">dVPN</a></li>
+         </ul>
+        <button id="open-menu-btn" class="mobile-menu-icon" type="button" aria-label="Open menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile/desktop drawer (JS fills links) -->
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" aria-label="Close menu" type="button">×</button>
+      <ul class="mobile-nav-links"></ul>
+    </div>
+  </div>
+
+  <!-- MAIN HERO (full-bleed background) -->
+<section id="main-content" class="hero-banner" role="main"
+         style="background-image:url('images/ndg21.png'); background-position:center;">
+  <div class="hero-overlay">
+    <h1 class="hero-title">NetDAG is the first crypto built with a <strong>mathematical shock absorber</strong>.</h1>
+    <p class="hero-subtitle">Our next-gen technology is designed to protect your investment from market volatility, reward real-world use, and build a Web3 economy you can finally trust.</p>
+
+    <div class="hero-ctas">
+      <button id="connect-wallet" class="hero-cta" type="button">Connect Wallet</button>
+      <button id="buy-ndg-hero" class="hero-cta secondary" type="button">Buy NDG</button>
+    </div>
+
+    <!-- Presale timer -->
+    <div class="presale-timer" id="presale-timer">
+      <h2 id="presale-title">Presale Begins On 14 December 2025, 00:00 CET</h2>
+      <div class="timer-display">
+        <div><span id="d">00</span><span class="unit">Days</span></div>
+        <div><span id="h">00</span><span class="unit">Hours</span></div>
+        <div><span id="m">00</span><span class="unit">Mins</span></div>
+        <div><span id="s">00</span><span class="unit">Secs</span></div>
+      </div>
+      <p class="timer-subtext">Join the Ecosystem — early birds rewards 10% every 2 weeks.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Presale Stats (right under countdown) -->
+<section class="curve-section" id="presale-stats" aria-labelledby="stats-heading">
+  <div class="curve-container">
+    <h2 id="stats-heading">Presale Status</h2>
+
+    <div class="info-card" style="margin-top:12px">
+      <div class="stats-grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+        <div class="stat">
+          <div class="stat-label">Current Stage</div>
+          <div class="stat-value" id="stat-stage">Stage 1 of 10</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Token Price</div>
+          <div class="stat-value" id="stat-price">$0.025</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Tokens Sold</div>
+          <div class="stat-value" id="stat-sold">0</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Total Raised</div>
+          <div class="stat-value" id="stat-raised">$0</div>
+        </div>
+      </div>
+
+      <!-- progress -->
+      <div style="margin-top:16px">
+        <div class="stat-label">Progress</div>
+        <div style="height:10px;background:#1e2030;border:1px solid var(--border);border-radius:8px;overflow:hidden">
+          <div id="stat-progress" style="height:100%;width:0%;background:var(--accent);transition:width .4s ease"></div>
+        </div>
+      </div>
+    </div>
+    
+    <p class="timer-subtext" style="text-align:center;margin-top:10px">
+      Min buy: $50 • Accepted: BNB, USDT, USDC • Contract Address:
+      <code>0x8834Aa98987c170C0F36E087a7fFa08070C1aD4B</code>
+    </p>
+  </div>
+</section>
+
+<!-- ==== Bonding Curve (preview on home) ==== -->
+<section id="bonding-curve-preview" class="hero-banner" style="background-image:url('images/ndg24.png')">
+  <div class="hero-content">
+    <h2 class="hero-title">Stability by Design: <strong>The NetDAG Bonding Curve</strong></h2>
+<p class="hero-subtitle">Our Ecosystem is built on a blend of DAG architecture, AI Neuron Intelligence (Guardian) and the Bonding Curve economics. It is a mathematical engine that turns hype-driven swings into smooth, predictable action.</p>
+<p class="hero-subtitle">The Bonding Curve is more than a shock-absorber — it is the heartbeat of NetDAG’s economy. Each transaction subtly recalibrates supply and demand, ensuring that value grows 
+  organically with community activity rather than speculation. It transforms volatility into momentum and turns NDG into a self-adjusting asset.</p>
+  
+    <p><a class="hero-cta" href="bonding-curve.html">Learn more</a></p>
+  </div>
+  <div class="hero-overlay"></div>
+</section>
+
+<!-- ==== Guardian (preview on home) ==== -->
+<section id="guardian-preview" class="hero-banner" style="background-image:url('images/ndg28.png')">
+  <div class="hero-content">
+    <h2 class="hero-title">Intelligence at the Core: <strong>NetDAG Guardian</strong></h2>
+      <p class="hero-subtitle">Learns from the market behavior, predicts liquidity needs, detects anomalies, and proposes optimizations.</p>
+    <p class="hero-subtitle">Our Guardian is AI layer built to complements the Bonding Curve and transforms it into a living equilibrum engine.</p>
+    <p><a class="hero-cta" href="guardian.html">Learn more</a></p>
+  </div>
+  <div class="hero-overlay"></div>
+</section>
+
+<!-- ==== Provenance (preview on home) ==== -->
+<section id="provenance-preview" class="hero-banner" style="background-image:url('images/provenance1.png')">
+  <div class="hero-content">
+    <h2 class="hero-title">Trust Written in Code: <strong>On-Chain Provenance</strong></h2>
+    <p class="hero-subtitle">Real-world authenticity you can scan. Ownership, batch, and certifiers — instantly verifiable. 
+      From delicacy to essential medicines, in a world flooded with counterfeits and false claims, authenticity has become luxury. 
+    NetDAG Provenance brings truth back to products. In the age of misinformation, authenticity isn't optional</p>
+    <p class="hero-subtitle">Register in the app, mint a QR tag, anchor proof on-chain.</p>
+    <p><a class="hero-cta" href="provenance.html">How it works</a></p>
+  </div>
+  <div class="hero-overlay"></div>
+</section>
+
+<!-- ===== Tokenomics (preview on home) ===== -->
+<section id="tokenomics" class="curve-section" aria-labelledby="tokenomics-title">
+  <div class="curve-container">
+
+    <!-- Image / mini-hero -->
+    <div class="section-hero">
+      <img src="images/ndg7.png" alt="NetDAG Tokenomics overview" />
+      <div class="section-hero-overlay">
+        <h2 id="tokenomics-title" class="hero-title">Tokenomics</h2>
+        <p class="hero-subtitle">
+          <strong>Community-first distribution designed for stability and growth.</strong>
+        </p>
+        <div class="hero-ctas">
+          <a class="hero-cta" href="menu/tokenomics.html">View full Tokenomics</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick facts -->
+    <div class="info-card" style="margin-top:16px;">
+      <ul class="tokenomics-list">
+        <li><span>Presale</span><strong>50%</strong></li>
+        <li><span>Locked Liquidity Reserve</span><strong>22%</strong></li>
+        <li><span>Staking & Vesting (HODL rewards)</span><strong>10%</strong></li>
+        <li><span>Partnerships & Marketing</span><strong>10%</strong></li>
+        <li><span>Ecosystem Incentives</span><strong>5%</strong></li>
+        <li><span>Team</span><strong>3%</strong></li>
+      </ul>
+      <p class="timer-subtext">Total supply: 500,000,000 NDG </p>
+<p class="timer-subtext">Charity: 2% of all NetDAG's ecosystem revenue is permanently allocated to verified global charitable causes and projects 
+  that align with our values of transparency, innovation, and social impact. </p> 
+    </div>
+  </div>
+</section>
+
+  <!-- (1) Short explainer right after the timer -->
+  <section class="curve-section" aria-label="About NetDAG">
+    <div class="curve-container">
+      <h2>What is NetDAG?</h2>
+      <p><strong>NetDAG</strong> is a (next-gen) stability-first crypto economy designed to smooth volatility, reward real use, and anchor trust on-chain for real-world use. 
+        We combine the fast DAG technology, the Adaptive Bonding Curve mathematics, the <em>NetDAG Guardian</em> (AI) and a huge Bonding Curve Reserve (permanently locked) to create a predictable, transparent environment where value is protected by math, not speculation. 
+        NDG, the NetDAG token is at the middle of it all...</p>
+      <ul class="benefits">
+  <li><strong>Shock Absorber:</strong> Our bonding curve links price to supply and locks reserve backing on every buy.</li>
+  <li><strong>Predictive Stability:</strong> The Guardian forecasts liquidity needs and proposes parameter updates via governance.</li>
+  <li><strong>Real Utility:</strong> dVPN for privacy, Provenance for product authenticity, and a charity-first model baked into activity.</li>
+  <li><strong>Product Authenticity:</strong> NetDAG works with your regular manufacturers and distributors to deliver instant, immutable proof-of-origin from the blockchain.</li>
+</ul>
+    </div>
+  </section>
+
+  <!-- (2) Replaceable image block (you can swap the src file anytime) -->
+  <section class="curve-section" aria-label="Illustration">
+    <div class="curve-container">
+      <figure class="curve-figure">
+        <!-- Pick any image you have in /images; ndg5.png exists in your project -->
+        <img class="home-figure-img" src="images/BondingCurve.png" alt="NetDAG concept">
+        <figcaption>“You can’t crash what the math already controls.”</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- (3) Latest from the Blog (manual list, newest first) -->
+  <section class="curve-section" aria-labelledby="home-blog-title">
+    <div class="curve-container">
+      <h2 id="home-blog-title">Latest from the Blog</h2>
+
+      <!-- Newest first: post-3, then post-2, then post-1 -->
+      <div class="info-cards">
+        <article class="info-card">
+          <h3><a href="blog/post-3.html">Bonding Curves vs. Order Books — Why Predictable Liquidity Wins</a></h3>
+          <p class="meta">Published · Oct 2025</p>
+          <p>How an always-on automated market (the curve) prevents panic crashes and keeps pricing rational in all market conditions.</p>
+        </article>
+
+        <article class="info-card">
+          <h3><a href="blog/post-2.html">Inside NetDAG Guardian: Proactive Liquidity &amp; Risk Signals</a></h3>
+          <p class="meta">Published · Oct 2025</p>
+          <p>Our AI monitors flows, detects anomalies, and proposes curve parameter updates for smoother, more resilient markets.</p>
+        </article>
+
+        <article class="info-card">
+          <h3><a href="blog/post-1.html">Why a “Mathematical Shock Absorber” Matters</a></h3>
+          <p class="meta">Published · Oct 2025</p>
+          <p>The core idea: reserve-backed pricing and supply-linked valuation to replace hype cycles with predictable progression.</p>
+        </article>
+      </div>
+
+      <!-- (4) Room for future posts: duplicate one of the cards above and update the link/title -->
+      <p class="hero-caption" style="margin-top:12px;">More posts on the <a href="menu/blog.html">Blog</a>.</p>
+    </div>
+  </section>
+
+  <!-- Page navigation container (Prev • Home • Next) -->
+  <nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+
+  <!-- Back to top -->
+  <button class="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+<!-- Footer (force-centered, self-contained) -->
+<footer class="site-footer" style="width:100%;border-top:1px solid #2a2a3a;padding:22px 5%;box-sizing:border-box;">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    
+    <!-- Social row -->
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;margin:12px 0;">
+      <a href="https://t.me/yourchannel" target="_blank" rel="noopener" aria-label="Telegram"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M9.04 15.49 9.2 18a1 1 0 0 0 1.7.67l2.25-2.2 3.9 2.85a1.5 1.5 0 0 0 2.35-.9l3.5-15.2a1 1 0 0 0-1.36-1.15L1.4 9.7a1 1 0 0 0 .06 1.9l5.6 1.85 12.9-8.15-10.92 10.2Z"/>
+        </svg>
+        Telegram
+      </a>
+
+      <a href="https://discord.gg/yourserver" target="_blank" rel="noopener" aria-label="Discord"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M20 6.5a17 17 0 0 0-4.3-1.3l-.2.4a12 12 0 0 1 2.9 1c-3-1.4-6.2-1.4-9.1 0 .9-.5 1.9-.9 2.9-1l-.2-.4A17 17 0 0 0 8 6.5C5.5 10.3 5 14 5.2 17.6a17 17 0 0 0 5.4 1.8l.7-1.6c-1.9-.5-3-1.3-3-1.3s.2.1.6.3a11 11 0 0 0 8.2 0l.6-.3s-1.1.8-3 1.3l.7 1.6a17 17 0 0 0 5.4-1.8C19 14 18.5 10.3 16 6.5ZM9.2 14.6c-.8 0-1.5-.8-1.5-1.9s.7-1.9 1.5-1.9c.9 0 1.6.8 1.6 1.9s-.7 1.9-1.6 1.9Zm5.6 0c-.9 0-1.6-.8-1.6-1.9s.7-1.9 1.6-1.9 1.5.8 1.5 1.9-.7 1.9-1.5 1.9Z"/>
+        </svg>
+        Discord
+      </a>
+
+      <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" aria-label="Instagram"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5Zm5.75-3.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25Z"/>
+        </svg>
+        Instagram
+      </a>
+
+      <a href="https://facebook.com/yourpage" target="_blank" rel="noopener" aria-label="Facebook"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M13 22v-9h3l.5-3H13V8.3c0-.8.2-1.3 1.4-1.3H17V4.2C16.6 4.1 15.5 4 14.4 4 12 4 10.4 5.3 10.4 7.9V10H8v3h2.4v9H13Z"/>
+        </svg>
+        Facebook
+      </a>
+
+      <a href="https://x.com/yourhandle" target="_blank" rel="noopener" aria-label="X"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M3 3h4.7l5.08 7.34L18.6 3H21l-7.7 9.47L21 21h-4.7l-5.3-7.64L5.4 21H3l7.9-9.53L3 3Z"/>
+        </svg>
+        X
+      </a>
+
+      <a href="https://youtube.com/@yourchannel" target="_blank" rel="noopener" aria-label="YouTube"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2.1.6 9.4.6 9.4.6s7.3 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.7 15.6V8.4l6.2 3.6-6.2 3.6Z"/>
+        </svg>
+        YouTube
+      </a>
+
+      <a href="mailto:info@netdag.com" aria-label="Email"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M2 5h20v14H2V5Zm10 7L3.7 7h16.6L12 12Z"/>
+        </svg>
+        info@netdag.com
+      </a>
+    </div>
+
+    <!-- Footer links row -->
+    <nav style="margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+      <a href="index.html">Home</a> ·
+      <a href="bonding-curve.html">Bonding Curve</a> ·
+      <a href="guardian.html">Guardian</a> ·
+      <a href="provenance.html">Provenance</a> ·
+      <a href="menu/tokenomics.html">Tokenomics</a> ·
+      <a href="menu/blog.html">Blog</a> ·
+      <a href="menu/whitepaper.html">Whitepaper</a> ·
+      <a href="menu/roadmap.html">Roadmap</a> ·
+      <a href="menu/contact.html">Contact</a> ·
+      <a href="menu/legal.html">Legal</a>
+    </nav>
+
+    <div style="margin-top:8px;font-size:.9rem;color:#a9acc0;">© NetDAG — Built with care.</div>
+  </div>
+</footer>
+
+
+  <!-- Google Translate container (hidden UI; script.js manages it) -->
+  <div id="google_translate_element" style="display:none"></div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

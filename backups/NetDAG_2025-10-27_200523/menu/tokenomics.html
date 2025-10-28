@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — Tokenomics</title>
+  <meta name="description" content="NetDAG Tokenomics: 1B max supply with presale, permanent reserve lock for bonding-curve stability, staking/vesting, partnerships, ecosystem incentives, and team alignment." />
+  <link rel="icon" href="../images/favicon.ico" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* Page-specific helpers */
+    .tok-wrap{max-width:1100px;margin:0 auto;padding:40px 0;display:flex;flex-direction:column;gap:26px}
+    .tok-card{background:#0f1120;border:1px solid var(--border);border-radius:12px;padding:22px 24px;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+    .tok-card h2{margin:0 0 10px;color:#fff}
+    .tok-grid{display:grid;gap:16px}
+    @media(min-width:980px){.tok-grid{grid-template-columns:1.1fr .9fr}}
+
+    /* Pie (conic-gradient) */
+    .pie-wrap{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+    .token-pie{
+      width:260px;height:260px;border-radius:50%;
+      background:
+        conic-gradient(
+          #F59E0B 0% 50%,   /* 50% Presale */
+          #22C55E 50% 70%,  /* 22% Permanent Reserve */
+          #3B82F6 70% 80%,  /* 10% Staking/Vesting */
+          #A855F7 80% 90%,  /* 10% Partnerships */
+          #EC4899 90% 95%,  /* 5% Ecosystem */
+          #F43F5E 96% 100%  /* 3% Team */
+        );
+      position:relative;border:1px solid var(--border);
+      box-shadow:0 2px 12px rgba(0,0,0,.22);
+    }
+    .token-pie::after{
+      content:"";position:absolute;inset:18%;
+      background:#0f1120;border-radius:50%;border:1px solid var(--border);
+    }
+    .pie-legend{display:grid;gap:8px;min-width:260px}
+    .leg{display:flex;align-items:center;gap:10px;color:var(--muted)}
+    .dot{width:14px;height:14px;border-radius:3px;border:1px solid var(--border)}
+    .d-presale{background:#F59E0B}
+    .d-reserve{background:#22C55E}
+    .d-stake{background:#3B82F6}
+    .d-partner{background:#A855F7}
+    .d-eco{background:#EC4899}
+    .d-team{background:#F43F5E}
+
+    /* Tables */
+    .data-table th small{opacity:.8;font-weight:600}
+    .note{color:#aeb3c2;font-size:.95rem;margin-top:8px}
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <div class="announcement-ticker" role="status" aria-live="polite">
+    <div class="ticker-text">The NetDAG Presale is Coming Q4 2025! Join Our Community for the Official Date Announcement!</div>
+  </div>
+
+  <header class="main-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="../index.html" aria-label="Home">
+          <img src="../images/ndg-logo.png" alt="NetDAG Logo" class="logo" />
+        </a>
+        <a href="../index.html" class="nav-brand">NetDAG</a>
+      </div>
+
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../bonding-curve.html">Bonding Curve</a></li>
+          <li><a href="../guardian.html">NetDAG Guardian</a></li>
+          <li><a href="../provenance.html">Provenance</a></li>
+          <li><a href="../dvpn.html">dVPN</a></li>
+        </ul>
+         <button id="open-menu-btn" class="icon" type="button" aria-label="Open menu">≡</button>
+      </div>
+    </nav>
+  </header>
+
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" type="button" aria-label="Close menu">✕</button>
+      <ul class="mobile-nav-links"><!-- populated by script.js --></ul>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <main id="main-content" class="hero-banner" role="main"
+        style="background-image:url('../images/ndg7.png'); background-position:center;">
+    <div class="hero__overlay">
+      <h1 class="hero-title">Tokenomics</h1>
+      <p class="hero-subtitle">Transparent allocation. Permanent on-chain reserve for bonding-curve stability. Vesting that rewards long-term builders.</p>
+    </div>
+  </main>
+
+  <!-- Body -->
+  <section class="curve-section" style="padding-top:28px;">
+    <div class="tok-wrap">
+
+      <!-- Overview -->
+      <article class="tok-card">
+        <h2>Overview</h2>
+        <p>
+          <strong>Max Supply:</strong> 1,000,000,000 NDG<br/>
+          <strong>Presale Price (start):</strong> $0.025<br/>
+          <strong>Listing:</strong> Upon presale completion (up to 500M tokens are available during presale).<br/>
+          <strong>Stability:</strong> 20% of supply is <em>locked forever</em> in the on-chain bonding-curve reserve
+          — our mathematical shock absorber for deep, continuous liquidity.
+        </p>
+      </article>
+
+      <!-- Distribution (Pie + Legend) -->
+      <section class="tok-card">
+        <h2>Distribution</h2>
+        <div class="tok-grid">
+          <div class="pie-wrap">
+            <div class="token-pie" role="img" aria-label="Token allocation pie chart: 50% Presale, 20% Permanent Reserve, 10% Staking/Vesting, 10% Partnerships, 5% Ecosystem Incentives, 5% Team"></div>
+            <div class="pie-legend" aria-label="Legend">
+              <div class="leg"><span class="dot d-presale"></span><strong>50%</strong>&nbsp;Presale</div>
+              <div class="leg"><span class="dot d-reserve"></span><strong>22%</strong>&nbsp;Permanent Reserve (bonding-curve security pot)</div>
+              <div class="leg"><span class="dot d-stake"></span><strong>10%</strong>&nbsp;Staking &amp; Vesting (HODL rewards)</div>
+              <div class="leg"><span class="dot d-partner"></span><strong>10%</strong>&nbsp;Partnerships &amp; Integration (milestone-based unlocks)</div>
+              <div class="leg"><span class="dot d-eco"></span><strong>5%</strong>&nbsp;Ecosystem Incentives (usage-linked unlocks)</div>
+              <div class="leg"><span class="dot d-team"></span><strong>3%</strong>&nbsp;Team &amp; Core Contributors (1-year lock, linear unlock)</div>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Allocation</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Presale</td>
+                  <td><strong>50%</strong></td>
+                  <td>Starts at <strong>$0.025</strong>; up to 500M tokens available across the sale.</td>
+                </tr>
+                <tr>
+                  <td>Permanent Reserve</td>
+                  <td><strong>22%</strong></td>
+                  <td>Locked forever on-chain to back bonding-curve liquidity; enables buy-backs, shock-absorption, stability.</td>
+                </tr>
+                <tr>
+                  <td>Staking &amp; Vesting</td>
+                  <td><strong>10%</strong></td>
+                  <td>HODL rewards; emissions aligned to network health.</td>
+                </tr>
+                <tr>
+                  <td>Partnerships &amp; Integration</td>
+                  <td><strong>10%</strong></td>
+                  <td>Strategic unlock on milestone completion (audited and announced).</td>
+                </tr>
+                <tr>
+                  <td>Ecosystem Incentives</td>
+                  <td><strong>5%</strong></td>
+                  <td>Gradual unlock linked to real network activity (dVPN sessions, Provenance scans, etc.).</td>
+                </tr>
+                <tr>
+                  <td>Team &amp; Core Contributors</td>
+                  <td><strong>3%</strong></td>
+                  <td>2-year lock with linear unlock thereafter; aligns incentives with long-term growth.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="note">Exact on-chain parameters (reserve contracts, timelocks, vesting schedules) will be published with audits prior to activation.</p>
+      </section>
+
+      <!-- Vesting & Release -->
+      <section class="tok-card">
+        <h2>Vesting &amp; Release Model</h2>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Pool</th>
+                <th>Lock Period</th>
+                <th>Release Model</th>
+                <th>Mechanics</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Staking / Vesting Pool</td>
+                <td>30 days</td>
+                <td>20% per month × 5 months</td>
+                <td>Linear monthly unlock after initial lock; balances can compound into staking.</td>
+              </tr>
+              <tr>
+                <td>Partnerships &amp; Integration</td>
+                <td>Milestone-based</td>
+                <td>Strategic unlocks</td>
+                <td>Subject to public disclosures; monthly cap to avoid market shocks.</td>
+              </tr>
+              <tr>
+                <td>Ecosystem Incentives</td>
+                <td>Usage-linked</td>
+                <td>Programmatic trickle</td>
+                <td>Unlocks tied to verifiable activity (KPIs) and reviewed by governance.</td>
+              </tr>
+              <tr>
+                <td>Team &amp; Core Contributors</td>
+                <td>2 years</td>
+                <td>Linear after lock</td>
+                <td>Timelocked smart contracts; transparency dashboards track all flows.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">
+          The <strong>Permanent Reserve (20%)</strong> is locked forever to the bonding-curve reserve contract and is not part of any vesting stream.
+          It functions as an ever-present, on-chain liquidity and stability buffer.
+        </p>
+      </section>
+
+      <!-- Listing note -->
+      <section class="tok-card">
+        <h2>Listing</h2>
+        <p>
+          Listing occurs when the presale is complete and contracts are live with audit reports.
+          During presale, up to <strong>500,000,000 NDG</strong> are available according to the bonding-curve schedule.
+          Timelines and exchange partners will be announced on official channels.
+        </p>
+      </section>
+
+      <!-- Optional full-width image near page end -->
+      <section aria-label="Feature image" style="padding:0; margin:12px 0 0; border-top:1px solid var(--border);">
+        <img src="../images/tokenomics-feature.jpg" alt="Tokenomics feature visual"
+             style="display:block; width:100%; height:auto; max-height:70vh; object-fit:cover;">
+      </section>
+
+    </div>
+  </section>
+
+  <nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+ <!-- Footer (force-centered, self-contained) -->
+<footer class="site-footer" style="width:100%;border-top:1px solid #2a2a3a;padding:22px 5%;box-sizing:border-box;">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    
+    <!-- Social row -->
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;margin:12px 0;">
+      <a href="https://t.me/yourchannel" target="_blank" rel="noopener" aria-label="Telegram"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M9.04 15.49 9.2 18a1 1 0 0 0 1.7.67l2.25-2.2 3.9 2.85a1.5 1.5 0 0 0 2.35-.9l3.5-15.2a1 1 0 0 0-1.36-1.15L1.4 9.7a1 1 0 0 0 .06 1.9l5.6 1.85 12.9-8.15-10.92 10.2Z"/>
+        </svg>
+        Telegram
+      </a>
+
+      <a href="https://discord.gg/yourserver" target="_blank" rel="noopener" aria-label="Discord"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M20 6.5a17 17 0 0 0-4.3-1.3l-.2.4a12 12 0 0 1 2.9 1c-3-1.4-6.2-1.4-9.1 0 .9-.5 1.9-.9 2.9-1l-.2-.4A17 17 0 0 0 8 6.5C5.5 10.3 5 14 5.2 17.6a17 17 0 0 0 5.4 1.8l.7-1.6c-1.9-.5-3-1.3-3-1.3s.2.1.6.3a11 11 0 0 0 8.2 0l.6-.3s-1.1.8-3 1.3l.7 1.6a17 17 0 0 0 5.4-1.8C19 14 18.5 10.3 16 6.5ZM9.2 14.6c-.8 0-1.5-.8-1.5-1.9s.7-1.9 1.5-1.9c.9 0 1.6.8 1.6 1.9s-.7 1.9-1.6 1.9Zm5.6 0c-.9 0-1.6-.8-1.6-1.9s.7-1.9 1.6-1.9 1.5.8 1.5 1.9-.7 1.9-1.5 1.9Z"/>
+        </svg>
+        Discord
+      </a>
+
+      <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" aria-label="Instagram"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5Zm5.75-3.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25Z"/>
+        </svg>
+        Instagram
+      </a>
+
+      <a href="https://facebook.com/yourpage" target="_blank" rel="noopener" aria-label="Facebook"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M13 22v-9h3l.5-3H13V8.3c0-.8.2-1.3 1.4-1.3H17V4.2C16.6 4.1 15.5 4 14.4 4 12 4 10.4 5.3 10.4 7.9V10H8v3h2.4v9H13Z"/>
+        </svg>
+        Facebook
+      </a>
+
+      <a href="https://x.com/yourhandle" target="_blank" rel="noopener" aria-label="X"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M3 3h4.7l5.08 7.34L18.6 3H21l-7.7 9.47L21 21h-4.7l-5.3-7.64L5.4 21H3l7.9-9.53L3 3Z"/>
+        </svg>
+        X
+      </a>
+
+      <a href="https://youtube.com/@yourchannel" target="_blank" rel="noopener" aria-label="YouTube"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2.1.6 9.4.6 9.4.6s7.3 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.7 15.6V8.4l6.2 3.6-6.2 3.6Z"/>
+        </svg>
+        YouTube
+      </a>
+
+      <a href="mailto:info@netdag.com" aria-label="Email"
+         style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #2a2a3a;border-radius:8px;
+                background:rgba(255,255,255,.06);color:#e9ecff;text-decoration:none;font-weight:600;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;flex:0 0 auto;fill:currentColor;pointer-events:none;">
+          <path d="M2 5h20v14H2V5Zm10 7L3.7 7h16.6L12 12Z"/>
+        </svg>
+        info@netdag.com
+      </a>
+    </div>
+
+    <!-- Footer links row -->
+    <nav style="margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+      <a href="index.html">Home</a> ·
+      <a href="bonding-curve.html">Bonding Curve</a> ·
+      <a href="guardian.html">Guardian</a> ·
+      <a href="provenance.html">Provenance</a> ·
+      <a href="menu/tokenomics.html">Tokenomics</a> ·
+      <a href="menu/blog.html">Blog</a> ·
+      <a href="menu/whitepaper.html">Whitepaper</a> ·
+      <a href="menu/roadmap.html">Roadmap</a> ·
+      <a href="menu/contact.html">Contact</a> ·
+      <a href="menu/legal.html">Legal</a>
+    </nav>
+
+    <div style="margin-top:8px;font-size:.9rem;color:#a9acc0;">© NetDAG — Built with care.</div>
+  </div>
+</footer>
+
+  <div id="google_translate_element" aria-hidden="true"></div>
+  <script src="../script.js"></script>
+</body>
+</html>

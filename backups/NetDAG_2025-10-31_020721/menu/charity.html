@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — Charity</title>
+  <meta name="description" content="NetDAG Charity: a protocol-level, always-on giving model. 2% of ecosystem revenues flow on-chain to social impact with full transparency and community governance." />
+  <link rel="icon" href="../images/favicon.ico" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* Page-specific helpers (kept tiny) */
+    .char-wrap{max-width:1100px;margin:0 auto;padding:40px 0;display:flex;flex-direction:column;gap:26px}
+    .char-card{background:#0f1120;border:1px solid var(--border);border-radius:12px;padding:22px 24px;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+    .char-card h2{margin:0 0 10px;color:#fff}
+    .char-grid{display:grid;gap:16px}
+    @media(min-width:980px){.char-grid{grid-template-columns:1fr 1fr}}
+    .char-list{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}
+    .char-list li{background:#0f1120;border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+    .mini{opacity:.95}
+    .callout{border-left:4px solid var(--accent); padding:12px 14px; background:#10132a; border-radius:8px}
+  </style>
+</head>
+
+<body>
+<div id="sidebar-placeholder"></div>
+<div id="ticker-placeholder"></div>
+ <a class="skip-link" href="#main-content">Skip to content</a>
+
+ <!-- Header / Top Nav -->
+  <header class="main-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="../index.html" aria-label="Home">
+          <img src="../images/ndg-logo.png" alt="NetDAG Logo" class="logo" />
+        </a>
+        <a href="../index.html" class="nav-brand">NetDAG</a>
+      </div>
+
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../bonding-curve.html">Bonding Curve</a></li>
+          <li><a href="../guardian.html">NetDAG Guardian</a></li>
+          <li><a href="../provenance.html">Provenance</a></li>
+          <li><a href="../dvpn.html">dVPN</a></li>
+         </ul>
+        <button id="open-menu-btn" class="icon" type="button" aria-label="Open menu">≡</button>
+      </div>
+    </nav>
+  </header>
+
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" type="button" aria-label="Close menu">✕</button>
+      <ul class="mobile-nav-links"><!-- populated by script.js --></ul>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <main id="main-content" class="hero-banner" role="main"
+        style="background-image:url('../images/ndg8.png'); background-position:center;">
+    <div class="hero__overlay">
+      <h1 class="hero-title">Growth with a Purpose: The NetDAG Charity Initiative</h1>
+      <p class="hero-subtitle">A protocol-level commitment: as the network grows, a share of value flows to real-world impact — transparently, on-chain.</p>
+    </div>
+  </main>
+
+  <!-- Body -->
+  <section class="charity-section" style="padding-top:28px;">
+    <div class="char-wrap">
+
+      <!-- What it is -->
+      <article class="char-card">
+        <h2>The Charity-First Model</h2>
+        <p>
+          Philanthropy isn’t an afterthought in NetDAG — it’s embedded in code. Our protocol routes a fixed share of
+          network revenue into a dedicated <strong>on-chain Charity Pool</strong>, making social good a continuous,
+          measurable outcome of ecosystem activity.
+        </p>
+        <div class="callout mini"><strong>Key idea:</strong> Every time someone uses NetDAG — dVPN sessions, Provenance scans, or future apps —
+          a small portion contributes to the Charity Pool automatically.</div>
+      </article>
+
+      <!-- 2% Model + How it flows -->
+      <section class="char-card">
+        <h2>How It Works: The 2% Contribution Model</h2>
+        <div class="char-grid">
+          <div>
+            <ul class="char-list">
+              <li><strong>Protocol Level:</strong> <em>2%</em> of eligible revenue/fees is routed to the Charity Pool by smart contracts.</li>
+              <li><strong>Continuous Flow:</strong> Not a one-off donation — an always-on, usage-driven mechanism.</li>
+              <li><strong>Backed by Math:</strong> Amounts, timing, and recipients are fully auditable on-chain.</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="char-list">
+              <li><strong>dVPN:</strong> A portion of per-minute/GB fees channels into the pool.</li>
+              <li><strong>Provenance:</strong> Each verification fee contributes a small share.</li>
+              <li><strong>Future dApps:</strong> New modules can opt-in to the same giving policy.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="mini">Exact fee splits per product are disclosed in contracts and dashboards at launch.</p>
+      </section>
+
+      <!-- Transparency & Governance -->
+      <section class="char-card">
+        <h2>Transparency and Trust, On-Chain</h2>
+        <div class="char-grid">
+          <div>
+            <ul class="char-list">
+              <li><strong>Traceable Donations:</strong> Pool inflows and outflows are recorded on-chain.</li>
+              <li><strong>Public Reporting:</strong> Periodic summaries of amounts, recipients, and impact KPIs.</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="char-list">
+              <li><strong>Community Governance:</strong> The DAO approves recipient lists and disbursement schedules.</li>
+              <li><strong>Compliance:</strong> Partner charities complete verification to qualify for on-chain disbursements.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Impact examples -->
+      <section class="char-card">
+        <h2>Turning Commerce into Contribution</h2>
+        <div class="char-grid">
+          <div>
+            <h3>Businesses</h3>
+            <p>Using NetDAG Provenance? Part of each verification fee supports vetted causes, creating brand goodwill
+               and measurable impact.</p>
+          </div>
+          <div>
+            <h3>Everyday Users</h3>
+            <p>Browsing privately on dVPN? Your session contributes a fraction to the Charity Pool — privacy with purpose.</p>
+          </div>
+        </div>
+        <p class="mini">
+          Over time, predictable contributions compound into substantial, verifiable impact — the flywheel of utility → liquidity → social good.
+        </p>
+      </section>
+
+      <!-- Get involved -->
+      <section class="char-card">
+        <h2>Get Involved</h2>
+        <ul class="char-list">
+          <li><strong>Suggest a Cause:</strong> Propose charities for the DAO shortlist via our community channels.</li>
+          <li><strong>Track the Pool:</strong> Follow inflows/outflows on public dashboards once live.</li>
+          <li><strong>Become a Partner:</strong> NGOs and foundations can contact us to join the verified recipients list.</li>
+        </ul>
+        <p class="mini">For partnership and verification inquiries, email <strong>charity@netdag.com</strong>.</p>
+      </section>
+
+      <!-- Optional full-width image near page end -->
+      <section aria-label="Feature image" style="padding:0; margin:12px 0 0; border-top:1px solid var(--border);">
+        <img src="../images/charity-feature.jpg" alt="Charity feature visual"
+             style="display:block; width:100%; height:auto; max-height:70vh; object-fit:cover;">
+      </section>
+     </div>
+  </section>
+
+  <nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+   <button class="back-to-top" aria-label="Back to top">↑</button>
+
+<div id="footer-placeholder"></div>
+  <script src="../script.js"></script>
+</body>
+</html>

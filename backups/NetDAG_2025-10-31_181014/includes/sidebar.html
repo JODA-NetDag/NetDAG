@@ -1,0 +1,63 @@
+<!-- /includes/sidebar.html -->
+
+<!-- TOP NAVBAR -->
+<header class="main-header" role="banner">
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-left">
+      <a data-rel="index.html" href="#"><img src="images/ndg-logo.png" alt="NetDAG Logo" class="logo" /></a>
+      <a data-rel="index.html" href="#" class="nav-brand">NetDAG</a>
+    </div>
+
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a data-rel="bonding-curve.html" href="#">Bonding Curve</a></li>
+        <li><a data-rel="guardian.html" href="#">NetDAG Guardian</a></li>
+        <li><a data-rel="provenance.html" href="#">Provenance</a></li>
+        <li><a data-rel="dvpn.html" href="#">dVPN</a></li>
+        <li><a data-rel="menu/tokenomics.html" href="#">Tokenomics</a></li>
+      </ul>
+      <button id="open-menu-btn" class="mobile-menu-btn" type="button" aria-label="Open menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<!-- MOBILE DRAWER (JS fills links) -->
+<div id="mobile-menu-container" class="mobile-menu" hidden aria-hidden="true">
+  <div class="mobile-menu-content" role="menu">
+    <button id="close-menu-btn" class="close-btn" type="button" aria-label="Close menu">×</button>
+    <ul class="mobile-nav-links"></ul>
+  </div>
+</div>
+
+<!-- LEFT SIDEBAR (desktop) -->
+<nav class="side-menu">
+  <a data-rel="index.html" href="#">Home</a>
+  <a data-rel="bonding-curve.html" href="#">Bonding Curve</a>
+  <a data-rel="guardian.html" href="#">NetDAG Guardian</a>
+  <a data-rel="provenance.html" href="#">Provenance</a>
+  <a data-rel="dvpn.html" href="#">dVPN</a>
+  <a data-rel="menu/whitepaper.html" href="#">Whitepaper</a>
+  <a data-rel="menu/vision.html" href="#">Vision</a>
+  <a data-rel="menu/faq.html" href="#">FAQ</a>
+  <a data-rel="menu/roadmap.html" href="#">Roadmap</a>
+  <a data-rel="menu/tokenomics.html" href="#">Tokenomics</a>
+  <a data-rel="menu/ambassador.html" href="#">Ambassador</a>
+  <a data-rel="menu/charity.html" href="#">Charity</a>
+  <a data-rel="menu/blog.html" href="#">Blog</a>
+  <a data-rel="menu/partners.html" href="#">Partners</a>
+  <a data-rel="menu/contact.html" href="#">Contact</a>
+  <a data-rel="menu/legal.html" href="#">Legal</a>
+</nav>
+
+<!-- Fix relative links no matter root or /menu/ -->
+<script>
+(function () {
+  var inMenu = location.pathname.replace(/\\/g,'/').includes('/menu/');
+  var prefix = inMenu ? '../' : './';
+  var root = document.currentScript.parentElement;
+  root.querySelectorAll('a[data-rel]').forEach(function(a){
+    var rel = a.getAttribute('data-rel');
+    if (rel) a.href = prefix + rel;
+  });
+})();
+</script>

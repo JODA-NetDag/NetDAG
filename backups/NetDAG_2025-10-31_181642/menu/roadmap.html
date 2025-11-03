@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — Roadmap</title>
+  <meta name="description" content="NetDAG roadmap from presale to global adoption: phases, milestones, and deliverables across the next 5+ years." />
+  <link rel="icon" href="../images/favicon.ico" />
+  <link rel="stylesheet" href="../style.css" />
+<style>
+    .rm-wrap{max-width:1100px;margin:0 auto;padding:40px 0;display:flex;flex-direction:column;gap:26px}
+    .rm-intro{border:1px solid var(--border);border-radius:12px;background:#0f1120;padding:22px 24px}
+    .phase{border:1px solid var(--border);border-radius:12px;background:#0f1120;padding:22px 24px;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+    .phase h2{margin:0 0 8px;color:#fff}
+    .phase time{opacity:.85;font-weight:700;color:var(--accent)}
+    .phase ul{margin:12px 0 0;padding-left:1.2rem;color:var(--muted)}
+    .phase li{margin:6px 0}
+    .done{color:#77dfa6}
+    .planned{color:#f6d06f}
+    .note{color:#aeb3c2;font-size:.95rem;margin-top:8px}
+    .milestone-grid{display:grid;gap:14px}
+    @media(min-width:960px){.milestone-grid{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+
+<body>
+<div id="ticker-placeholder"></div>
+<div id="sidebar-placeholder"></div>
+  <!-- a11y: skip -->
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<!-- Drawer / Sidebar container (JS fills links) -->
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" type="button" aria-label="Close menu">✕</button>
+      <ul class="mobile-nav-links"><!-- populated by script.js --></ul>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <main id="main-content" class="hero-banner" role="main"
+        style="background-image:url('../images/ndg10.png'); background-position:center;">
+    <div class="hero__overlay">
+      <h1 class="hero-title">NetDAG Roadmap</h1>
+      <p class="hero-subtitle">From presale to mainstream utility — measured milestones that prioritize stability, transparency, and real-world use.</p>
+    </div>
+  </main>
+
+  <!-- Body -->
+  <section class="curve-section" style="padding-top:28px;">
+    <div class="rm-wrap">
+
+      <div class="rm-intro">
+        <p>
+          We publish clear phases so the community can verify progress. Dates reflect target windows and may shift to
+          prioritize security, audits, and partner readiness. Major changes are announced on the site.
+        </p>
+        <p class="note">Legend: <span class="done">● delivered/complete</span> · <span class="planned">● planned/target</span></p>
+      </div>
+
+      <!-- Phase 0 -->
+      <section class="phase">
+        <h2>Phase 0 — Foundations <time>(Q3–Q4 2025)</time></h2>
+        <ul>
+          <li class="done">Whitepaper, site architecture, branding, and i18n scaffolding</li>
+          <li class="planned">Tokenomics finalization: 1B max, presale at $0.03, reserve &amp; vesting parameters</li>
+          <li class="planned">Smart contract specs for bonding curve &amp; reserve safety</li>
+          <li class="planned">Guardian design doc: data pipeline, anomaly classes, governance flow</li>
+          <li class="planned">Presale infrastructure &amp; audit kickoff</li>
+        </ul>
+      </section>
+
+      <!-- Phase 1 -->
+      <section class="phase">
+        <h2>Phase 1 — Presale & Public Curve Activation <time>(Nov–Dec 2025)</time></h2>
+        <ul>
+          <li class="planned">Ambassador program launch and community education</li>
+          <li class="planned">Presale opens (target <strong>30 Nov 2025</strong>)</li>
+          <li class="planned">Public curve activation (site countdown targets <strong>14 Dec 2025, 00:00 CET</strong>)</li>
+          <li class="planned">Reserve locking (22% permanent shock-absorber backing)</li>
+          <li class="planned">Initial partner pilots for Provenance</li>
+        </ul>
+      </section>
+
+      <!-- Phase 2 -->
+      <section class="phase">
+        <h2>Phase 2 — Guardian Beta & Provenance Pilots <time>(H1 2026)</time></h2>
+        <ul>
+          <li class="planned">Guardian beta (read-only proposals; DAO/multisig approval required)</li>
+          <li class="planned">Public dashboards: liquidity, curve state, anomaly insights</li>
+          <li class="planned">Provenance pilot launches (food, fashion, pharma)</li>
+          <li class="planned">dVPN closed alpha (node registration, staking, basic routing)</li>
+          <li class="planned">Security audits — iterative hardening</li>
+        </ul>
+      </section>
+
+      <!-- Phase 3 -->
+      <section class="phase">
+        <h2>Phase 3 — Utility Expansion & dVPN Apps <time>(H2 2026–H1 2027)</time></h2>
+        <ul>
+          <li class="planned">Provenance self-serve portal for brands and 3rd-party integrators</li>
+          <li class="planned">dVPN mobile + desktop apps (pay-as-you-go via NDG)</li>
+          <li class="planned">Guardian routing &amp; quality scoring for dVPN nodes</li>
+          <li class="planned">Treasury &amp; ecosystem grants (education, dev tooling)</li>
+        </ul>
+      </section>
+
+      <!-- Phase 4 -->
+      <section class="phase">
+        <h2>Phase 4 — Governance Maturation <time>(2027–2028)</time></h2>
+        <ul>
+          <li class="planned">DAO phase-in for curve parameters &amp; treasury proposals</li>
+          <li class="planned">Guardian v2 (predictive stress-testing; structured policy bundles)</li>
+          <li class="planned">Deeper exchange &amp; wallet integrations</li>
+          <li class="planned">Regulatory readiness and disclosures per jurisdiction</li>
+        </ul>
+      </section>
+
+      <!-- Phase 5 -->
+      <section class="phase">
+        <h2>Phase 5 — Global Adoption & Enterprise Integrations <time>(2028–2030+)</time></h2>
+        <ul>
+          <li class="planned">Enterprise APIs for Provenance and payments settlements</li>
+          <li class="planned">Commerce plugins (POS, e-commerce, logistics platforms)</li>
+          <li class="planned">Guardian v3 (multi-market signals; broader anomaly models)</li>
+          <li class="planned">Cross-ecosystem partnerships and L2/rollup bridges if beneficial</li>
+        </ul>
+        <p class="note">Throughout all phases: 2% charity flow, transparency reports, continuous audits.</p>
+      </section>
+
+      <!-- Milestone Snapshot -->
+      <section class="phase">
+        <h2>Key Near-Term Milestones</h2>
+        <div class="milestone-grid">
+          <ul>
+            <li class="planned"><strong>Presale launch</strong> &amp; public curve activation</li>
+            <li class="planned"><strong>Guardian beta</strong> (advisory mode) with dashboards</li>
+            <li class="planned"><strong>Provenance pilots</strong> in at least 2 verticals</li>
+          </ul>
+          <ul>
+            <li class="planned"><strong>dVPN alpha</strong> (node staking &amp; routing)</li>
+            <li class="planned"><strong>Audit reports</strong> and live transparency pages</li>
+            <li class="planned"><strong>Ambassador growth</strong> across key regions</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Optional full-width image near page end -->
+      <section aria-label="Feature image" style="padding:0; margin:12px 0 0; border-top:1px solid var(--border);">
+        <img src="../images/roadmap-feature.jpg" alt="Roadmap feature visual"
+             style="display:block; width:100%; height:auto; max-height:70vh; object-fit:cover;">
+      </section>
+
+    </div>
+  </section>
+
+  <nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+<div id="footer-placeholder"></div>
+  <!-- Unified site script -->
+  <script src="../script.js"></script>
+</body>
+</html>

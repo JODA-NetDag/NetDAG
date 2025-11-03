@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — Whitepaper</title>
+  <meta name="description" content="NetDAG Whitepaper: a decentralized framework for trust, stability, and real-world utility." />
+  <link rel="icon" href="../images/favicon.ico" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* Page-specific layout: content + sticky TOC on the right */
+    .wp-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:24px}
+    @media(min-width:1100px){.wp-wrap{grid-template-columns:minmax(0,1fr) 300px}}
+    .wp-main{min-width:0}
+    .wp-toc{
+      position:sticky; top: calc(var(--header-h,64px) + 18px);
+      align-self:start; border:1px solid var(--border); border-radius:12px;
+      background:#0f1120; padding:14px 14px 6px; max-height: calc(100vh - (var(--header-h,64px) + 36px));
+      overflow:auto;
+    }
+    .wp-toc h3{margin:0 0 8px; font-size:1rem; color:#fff}
+    .wp-toc a{display:block; padding:8px 10px; border-radius:8px; color:#cfd1d6; text-decoration:none; font-weight:600; font-size:.95rem}
+    .wp-toc a:hover{background:rgba(255,255,255,.08)}
+    .wp-section{padding:22px 0; border-top:1px solid var(--border)}
+    .wp-section:first-of-type{border-top:0}
+    .wp-section h2{margin:0 0 8px; color:#fff}
+    .wp-section p{color:var(--muted)}
+    .wp-hero-note{ text-align:center; margin:10px 0 0; color:#cfd1d6; font-weight:600}
+    .wp-hero-note span{ color:#ffb84d }
+  </style>
+</head>
+
+<body>
+<div id="footer-placeholder"></div>
+<div id="sidebar-placeholder"></div>
+<div id="ticker-placeholder"></div>
+  <!-- a11y: skip -->
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Header / Top Nav -->
+  <header class="main-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="../index.html" aria-label="Home">
+          <img src="../images/ndg-logo.png" alt="NetDAG Logo" class="logo" />
+        </a>
+        <a href="../index.html" class="nav-brand">NetDAG</a>
+      </div>
+
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../bonding-curve.html">Bonding Curve</a></li>
+          <li><a href="../guardian.html">NetDAG Guardian</a></li>
+          <li><a href="../provenance.html">Provenance</a></li>
+          <li><a href="../dvpn.html">dVPN</a></li>
+         </ul>
+
+         <!-- Drawer (mobile) -->
+        <button id="open-menu-btn" class="icon" type="button" aria-label="Open menu">≡</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Drawer / Sidebar container (JS fills links) -->
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" type="button" aria-label="Close menu">✕</button>
+      <ul class="mobile-nav-links"><!-- populated by script.js --></ul>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <main id="main-content" class="hero-banner" role="main"
+        style="background-image:url('../images/ndg19.png'); background-position:center;">
+    <div class="hero__overlay">
+      <h1 class="hero-title">NetDAG Whitepaper</h1>
+      <p class="hero-subtitle">A decentralized framework for trust, stability, and real-world utility.</p>
+    </div>
+  </main>
+  <p class="wp-hero-note">Background: <span>DAG</span> — directed acyclic graph topology</p>
+
+  <!-- Body + TOC -->
+  <section class="curve-section" style="padding-top:28px;">
+    <div class="wp-wrap">
+
+      <!-- Main document -->
+      <div class="wp-main">
+        <!-- Intro -->
+        <article id="abstract" class="wp-section">
+          <h2>Abstract</h2>
+          <p>
+            NetDAG proposes a resilient Web3 economy based on a high-throughput DAG ledger, an adaptive bonding-curve
+            market model, and an AI stability layer (the Guardian). Together these form a system that is fast, predictable,
+            and transparently governed. This paper outlines the architecture, economics, and governance.
+          </p>
+        </article>
+
+        <!-- 1 -->
+        <article id="vision" class="wp-section">
+          <h2>1. Vision & Rationale</h2>
+          <p>
+            Crypto adoption accelerates when networks are useful, stable, and human-aligned. NetDAG’s mission is to shift
+            value from speculation to service: private connectivity (dVPN), on-chain authenticity (Provenance), and a
+            predictable economy (Bonding Curve + Guardian).
+          </p>
+        </article>
+
+        <!-- 2 -->
+        <article id="dag" class="wp-section">
+          <h2>2. Network Layer: DAG Consensus</h2>
+          <p>
+            A directed acyclic graph allows concurrent validation and near-instant finality under load. Nodes confirm
+            multiple tips per event, increasing throughput as participation grows. The design targets micropayments and
+            low-latency dApps.
+          </p>
+        </article>
+
+        <!-- 3 -->
+        <article id="bonding" class="wp-section">
+          <h2>3. Market Layer: Adaptive Bonding Curve</h2>
+          <p>
+            Price is a function of supply; buys mint along the curve and lock reserve backing; sells burn along the same curve,
+            providing continuous, predictable liquidity. Parameters (slope, reserve ratio) are observable and adjustable
+            via governance.
+          </p>
+          <pre class="math">P(S) = a·S + b</pre>
+          <p class="note">Mint cost equals the area under the curve; part of the payment remains locked, backing NDG from genesis.</p>
+        </article>
+
+        <!-- 4 -->
+        <article id="guardian" class="wp-section">
+          <h2>4. Intelligence Layer: The NetDAG Guardian</h2>
+          <p>
+            A hybrid AI system monitors on-chain telemetry and proposes parameter updates (e.g., slope, fee split, reserve
+            ratio). Recommendations are executed only after multisig/DAO approval, pairing predictive analytics with
+            community oversight.
+          </p>
+        </article>
+
+        <!-- 5 -->
+        <article id="dvpn" class="wp-section">
+          <h2>5. Utility: Decentralized VPN</h2>
+          <p>
+            A peer-to-peer privacy network with on-chain payments and reputation. Users pay per minute/GB; nodes earn NDG;
+            the Guardian optimizes routing and detects anomalies. The bonding curve stabilizes pricing through volatility.
+          </p>
+        </article>
+
+        <!-- 6 -->
+        <article id="prov" class="wp-section">
+          <h2>6. Utility: Provenance (On-Chain Authenticity)</h2>
+          <p>
+            Producers register batches; proofs are immutably recorded; consumers scan to verify. Each scan contributes to
+            the liquidity engine and charity pool, creating a positive-sum loop between commerce and social impact.
+          </p>
+        </article>
+
+        <!-- 7 -->
+        <article id="token" class="wp-section">
+          <h2>7. Tokenomics Overview</h2>
+          <p>
+            Maximum supply: 1,000,000,000 NDG. Presale price from $0.03. Allocations include bonding-curve reserve,
+            ecosystem incentives, team (with vesting), community programs, and liquidity. Details in the Tokenomics chapter.
+          </p>
+        </article>
+
+        <!-- 8 -->
+        <article id="gov" class="wp-section">
+          <h2>8. Governance</h2>
+          <p>
+            A staged path from multisig to DAO. Critical parameter changes are proposed by the Guardian and ratified on-chain.
+            The goal is transparent, evidence-based adjustments that protect small holders and long-term builders.
+          </p>
+        </article>
+
+        <!-- 9 -->
+        <article id="roadmap" class="wp-section">
+          <h2>9. Roadmap</h2>
+          <p>
+            Milestones include the presale (30 Nov 2025), public curve activation, dVPN alpha/beta, Provenance pilots,
+            and progressive decentralization of governance and treasury management.
+          </p>
+        </article>
+
+        <!-- 10 -->
+        <article id="conclusion" class="wp-section">
+          <h2>10. Conclusion</h2>
+          <p>
+            You can’t crash what the math already controls. By aligning fast settlement, predictable liquidity, and
+            predictive governance, NetDAG aims to make Web3 practical, stable, and useful.
+          </p>
+        </article>
+
+        <!-- Optional full-width image near page end -->
+        <section aria-label="Feature image" style="padding:0; margin:12px 0 0; border-top:1px solid var(--border);">
+          <img src="../images/ndg1.png" alt="Whitepaper feature visual"
+               style="display:block; width:100%; height:auto; max-height:100vh; object-fit:cover;">
+        </section>
+      </div>
+
+      <!-- Sticky TOC -->
+      <aside class="wp-toc" aria-label="Contents">
+        <h3>Contents</h3>
+        <nav>
+          <a href="#abstract">Abstract</a>
+          <a href="#vision">1. Vision &amp; Rationale</a>
+          <a href="#dag">2. DAG Consensus</a>
+          <a href="#bonding">3. Bonding Curve</a>
+          <a href="#guardian">4. NetDAG Guardian</a>
+          <a href="#dvpn">5. dVPN</a>
+          <a href="#prov">6. Provenance</a>
+          <a href="#token">7. Tokenomics</a>
+          <a href="#gov">8. Governance</a>
+          <a href="#roadmap">9. Roadmap</a>
+          <a href="#conclusion">10. Conclusion</a>
+        </nav>
+      </aside>
+    </div>
+   </section>
+  <!-- Page-to-page navigation -->
+  <nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+
+   <!-- Back to Top -->
+    <button class="back-to-top" aria-label="Back to top">↑</button>
+  <!-- Google Translate host (hidden by CSS) -->
+  <div id="google_translate_element" aria-hidden="true"></div>
+
+  <!-- Footer include -->
+<div id="footer-placeholder"></div>
+<script>
+(function () {
+  var isInMenu = location.pathname.replace(/\\/g,'/').includes('/menu/');
+  var footerPath = isInMenu ? '../includes/footer.html' : './includes/footer.html';
+
+  fetch(footerPath)
+    .then(r => r.text())
+    .then(html => {
+      var box = document.getElementById('footer-placeholder');
+      box.innerHTML = html;
+
+      // Fix relative paths automatically
+      var prefix = isInMenu ? '../' : './';
+      box.querySelectorAll('a[data-rel]').forEach(function(a){
+        var rel = a.getAttribute('data-rel');
+        if (rel) a.href = prefix + rel;
+      });
+    })
+    .catch(console.error);
+})();
+</script>
+  <!-- Unified site script -->
+  <script src="../script.js"></script>
+</body>
+</html>

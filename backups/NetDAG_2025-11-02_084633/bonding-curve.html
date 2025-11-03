@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — Bonding Curve</title>
+  <meta name="description" content="Stability by design: the NetDAG Bonding Curve smooths volatility with predictable, math-driven pricing." />
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+ </head>
+
+<body>
+<div id="ticker-placeholder"></div>
+<div id="nav-placeholder"></div>     <!-- add this line -->
+<div id="sidebar-placeholder"></div>
+
+  <!-- a11y: skip -->
+ <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Drawer / Sidebar container (JS fills links) -->
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" type="button" aria-label="Close menu">✕</button>
+      <ul class="mobile-nav-links"><!-- populated by script.js --></ul>
+    </div>
+  </div>
+  
+  <!-- HERO -->
+<section
+  class="hero-banner"
+  style="background-image:url('images/ndg32.png'); background-position:center;
+         min-height:130vh; padding:80px 0;">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1 class="hero-title">
+      Stability by Design: <strong>The NetDAG Bonding Curve</strong>
+    </h1>
+      <p class="hero-subtitle">
+        A mathematical engine that turns hype-driven swings into smooth, predictable pricing.
+      </p>
+    </div>
+  </div>
+</section>
+
+  <!-- Content -->
+  <section class="curve-section">
+    <div class="curve-container">
+      <section class="curve-section" id="ndg-advantage">
+  <div class="curve-container">
+
+    <h2>🚀 The NDG Advantage: Mathematically Guaranteed Growth &amp; Unrivaled Stability</h2>
+
+    <p>To our earliest investors, we present not just a token, but a <strong>mathematically reinforced financial architecture</strong> designed for sustained, long-term growth.</p>
+
+    <p>The core of the NDG economic model is our <strong>Bonding Curve</strong>, stabilized by an unprecedented commitment: we are dedicating a massive <strong style="color:var(--accent)">22% of all platform revenue</strong> directly into a <strong>buy-back reserve pot - forever</strong>.</p>
+
+    <hr style="margin:24px 0;border-color:var(--border);opacity:.4;">
+
+    <h3>The Bonding Curve: Your Stability Engine</h3>
+
+    <p>While most crypto projects rely on volatile external markets, NDG builds its own intrinsic value. Our token price (<em>P</em>) is a <strong>deterministic function</strong> of its circulating supply (<em>S</em>), defined by the curve:</p>
+
+    <p style="text-align:center;font-size:1.2rem;font-weight:700;">P = f(S)</p>
+
+    <ul class="benefits">
+      <li><strong>Guaranteed Liquidity:</strong> The <strong style="color:var(--accent)">22% reserve pot</strong> acts as the guaranteed counterparty for all sales. Any token holder is assured a sell price based on the current point on the curve, effectively eliminating the risk of a “rug pull” or catastrophic liquidity collapse.</li>
+      <li><strong>Predictable Price Action:</strong> As platform revenue flows into the reserve, the curve ensures that the price increases <strong>predictably and algorithmically</strong>, rewarding early adopters while continuously raising the price floor for later investors.</li>
+    </ul>
+
+    <div class="table-wrap" style="margin-top:20px;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Curve Mechanism</th>
+            <th>Price Determinism</th>
+            <th>Resulting Stability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Buying (Minting)</strong></td>
+            <td>S ↑ ⇒ P<sub>next</sub> ↑</td>
+            <td>Continuously rewards early adopters and raises the price floor.</td>
+          </tr>
+          <tr>
+            <td><strong>Selling (Burning)</strong></td>
+            <td>S ↓ ⇒ P<sub>sale</sub> guaranteed</td>
+            <td>Eliminates liquidity risk and checks rapid price falls.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr style="margin:24px 0;border-color:var(--border);opacity:.4;">
+
+    <h3>The Future of Tokenomics: NDG’s Triple-Tech Stack</h3>
+
+    <p>NDG is pioneering a triple-layer innovation — a <strong>worldwide first</strong> — that establishes true decentralized management:</p>
+
+    <ul class="benefits">
+      <li><strong>Smart Contract Governance:</strong> Management rules are encoded directly into the smart contract using Bonding Curve principles for transparent and immutable execution.</li>
+      <li><strong>DAG Scalability:</strong> NDG merges its robust token economy with Directed Acyclic Graph (DAG) technology, ensuring unparalleled transaction speed and scalability.</li>
+      <li><strong>AI Monitoring:</strong> An intelligent Guardian layer audits market behavior and automatically adjusts key parameters within mathematically defined safe limits, proactively protecting investor value.</li>
+    </ul>
+
+    <p><strong>Investing in NDG means securing a position in a project where token value is not a matter of hope, but a function of guaranteed revenue and mathematically superior architecture.</strong></p>
+   <p>Think of a self-balancing scale: every buy adds weight to reserves and tips price up; every sell removes weight and price eases down.</p>
+  </div>
+</section>
+      
+      <!-- Graph slot -->
+      <figure class="curve-figure" style="margin-top:14px;">
+        <img src="images/ndg15.png" alt="Illustration of the NetDAG bonding-curve buy/sell path" style="max-width:100%; height:auto;" />
+        <figcaption>Price follows supply along the same predictable path — up when minting, down when burning.</figcaption>
+      </figure>
+
+      <!-- Details (math) -->
+      <details class="disclose">
+        <summary><strong>[+] Learn the Math Behind the Price</strong></summary>
+        <div class="disclose-body">
+          <p>For clarity, consider a simple linear function:</p>
+          <pre class="math">P(S) = a·S + b</pre>
+          <ul class="math-notes">
+            <li><strong>P(S)</strong> — price at total supply <strong>S</strong></li>
+            <li><strong>a</strong> — slope (how quickly price rises)</li>
+            <li><strong>b</strong> — base price when supply is zero</li>
+          </ul>
+          <p>Minting ΔS tokens (from S₁ to S₂) costs the area under the curve:</p>
+          <pre class="math">Cost(ΔS) = ∫<sub>S₁</sub><sup>S₂</sup> P(S) dS</pre>
+          <p>This preserves backing in the contract reserve, giving NDG a built-in price floor.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="curve-section">
+    <div class="curve-container">
+      <h2>The Benefits: A Market Governed by Math</h2>
+      <ul class="benefits">
+        <li><strong>Dump-Resistant:</strong> Big holders can’t nuke the price in one move — each trade steps along the curve.</li>
+        <li><strong>Volatility-Smoothed:</strong> Predictable, formula-driven moves instead of fear and FOMO.</li>
+        <li><strong>Self-Liquid:</strong> The contract is the market maker — there’s always a counterparty on-chain.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="curve-section">
+    <div class="curve-container">
+      <h2>A Practical Example</h2>
+    <p>Even with a 20% sell-off, the curve steps price down smoothly — no collapse to near zero.</p>
+              <th>Token Supply (S)</th>
+              <th>Price (USD)</th>
+              <th>Comment</th>
+            
+            <tr><td>10,000</td><td>$2.10</td><td>Early growth</td></tr>
+            <tr><td>100,000</td><td>$20.10</td><td>Mature stage</td></tr>
+          <tr><td>80,000</td><td><strong>$16.10</strong></td><td>After 20% sell-off</td></tr>
+    </div>
+  </section>
+
+  <section class="curve-section">
+    <div class="curve-container">
+      <h2>The NetDAG Advantage</h2>
+      <p>
+        NetDAG enhances bonding curves with the <strong>NetDAG Guardian</strong> — an AI layer that forecasts liquidity
+        and proposes parameter updates (like slope or reserve ratio). Governance approves changes for transparent control.
+      </p>
+
+      <details class="disclose">
+        <summary><strong>[+] Advanced Curve Mechanics &amp; Parameters</strong></summary>
+        <div class="disclose-body">
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr><th>Parameter</th><th>What it does</th><th>Effect</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Reserve Ratio</strong></td><td>Portion of buys kept as locked backing.</td><td>Stronger price resilience; smoother moves.</td></tr>
+                <tr><td><strong>Fee Split</strong></td><td>Small % to treasury/staking.</td><td>Builds long-term reserves; funds growth.</td></tr>
+                <tr><td><strong>Dynamic Slope</strong></td><td>Adjusts “a” by volume/time.</td><td>Wide access early; more resistance later.</td></tr>
+                <tr><td><strong>Buy-Only Phase</strong></td><td>Disable sells during presale.</td><td>Fills reserve; creates a strong price floor.</td></tr>
+                <tr><td><strong>Vesting on Large Sells</strong></td><td>Rate-limit outsized redemptions.</td><td>Prevents rapid reserve drain.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">All proposals require multisig/DAO approval — community oversight built-in.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- Optional full-width image near page end -->
+  <section aria-label="Feature image" style="padding:0; margin:0; border-top:1px solid var(--border);">
+    <img src="images/BondingCurve.png"
+  alt="Bonding curve feature visual"
+  style="display:block; margin:0 auto; width:70%; height:auto; max-height:100vh; object-fit:cover;">
+  </section>
+
+  <!-- Page-to-page navigation -->
+  <nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+
+  <!-- Back to Top -->
+   <button class="back-to-top" aria-label="Back to top">↑</button>
+  <div id="phn-placeholder"></div>
+<div id="footer-placeholder"></div>
+  <!-- Unified site script -->
+  <script src="script.js"></script>
+</body>
+</html>

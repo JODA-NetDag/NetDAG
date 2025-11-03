@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Legal | NetDAG</title>
+  <meta name="description" content="Legal notice for NetDAG websites, apps, and materials." />
+  <link rel="icon" href="../images/favicon.ico" />
+  <!-- Use the same site styles and fonts -->
+  <link rel="stylesheet" href="../style.css" />
+  <!-- Light extras to ensure readability if style.css lacks them -->
+  <style>
+    html { scroll-behavior: smooth; }
+    .page-wrap { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    .legal-card {
+      background: rgba(17, 24, 39, 0.75);
+      border: 1px solid rgba(59, 130, 246, 0.15);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.35);
+      backdrop-filter: blur(2px) saturate(1.1);
+    }
+    .legal-card h2 { font-size: 1.2rem; margin: 1rem 0 .4rem; }
+    .legal-muted { color: #a9acc0; }
+    .return-links {
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:center;
+      margin-top: 18px; font-size: .95rem;
+    }
+    .return-links a { text-decoration:none; padding:6px 10px; border-radius:10px;
+      background:rgba(255,255,255,.06); border:1px solid #2a2a3a; color:#e9ecff; }
+    .return-links a:hover { background:#1a2438; }
+    .hero-ovr { min-height: 38vh; } /* a bit shorter hero for legal */
+    .hero-content .hero-title { margin-bottom: .4rem; }
+  </style>
+</head>
+
+<body>
+<div id="ticker-placeholder"></div>
+<div id="nav-placeholder"></div>     <!-- add this line -->
+<div id="sidebar-placeholder"></div>
+
+  <!-- a11y: skip -->
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Mobile drawer (script.js will handle it) -->
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" aria-label="Close menu" type="button">×</button>
+      <ul class="mobile-nav-links"></ul>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero-ovr" style="background-image:url('../images/ndg30.png'); background-position:center;">
+    <div class="hero-content">
+      <h1 class="hero-title">Legal Notice</h1>
+      <p class="hero-subtitle">Please read this page carefully before using NetDAG websites, apps, or materials.</p>
+      <p style="margin-top:10px;">
+        <a class="hero-btn" href="../index.html">← Back to Home</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="page-wrap">
+    <article class="legal-card" id="legal">
+      <section id="general">
+        <h2>1. General Information</h2>
+        <p>This website is operated by <strong>NetDAG</strong>, a decentralized technology initiative building blockchain and AI-driven financial infrastructure. By accessing or using this site, you agree to this Legal Notice. If you do not agree, please discontinue use immediately.</p>
+      </section>
+
+      <section id="advice">
+        <h2>2. No Investment Advice</h2>
+        <p>All content, including whitepapers, token descriptions, metrics, and roadmaps, is provided for <strong>informational and educational purposes only</strong>. Nothing here constitutes financial, investment, legal, or tax advice. You should conduct your own research and consult licensed professionals.</p>
+      </section>
+
+      <section id="token">
+        <h2>3. Token and Platform Disclaimer</h2>
+        <p>The <strong>NDG token</strong> is a <strong>utility token</strong> for participation and governance within the NetDAG ecosystem. It is <strong>not intended</strong> to be a security, share, or financial instrument under any jurisdiction. You are responsible for ensuring compliance with local laws before purchasing or interacting with NDG tokens or services.</p>
+      </section>
+
+      <section id="risk">
+        <h2>4. Risk Disclosure</h2>
+        <ul>
+          <li>Digital assets are highly volatile and may lose value rapidly.</li>
+          <li>Smart contracts and networks may fail, be exploited, or become unavailable.</li>
+          <li>Regulatory changes can affect availability and legality of services.</li>
+        </ul>
+        <p class="legal-muted">Only risk capital you can afford to lose.</p>
+      </section>
+
+      <section id="warranty">
+        <h2>5. No Warranty</h2>
+        <p>All materials are provided <strong>“as is”</strong> without any warranties, express or implied, including accuracy, completeness, fitness for a particular purpose, or uninterrupted availability.</p>
+      </section>
+
+      <section id="liability">
+        <h2>6. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by law, NetDAG, its contributors, and affiliates shall <strong>not be liable</strong> for any direct, indirect, incidental, special, or consequential damages arising from your use of this site, tokens, or materials.</p>
+      </section>
+
+      <section id="ip">
+        <h2>7. Intellectual Property</h2>
+        <p>All logos, graphics, text, and designs are protected intellectual property. You may not reproduce, modify, or distribute materials without prior written consent from NetDAG.</p>
+      </section>
+
+      <section id="links">
+        <h2>8. External Links</h2>
+        <p>Third-party links (exchanges, social networks, partners) are provided for convenience. NetDAG does not control or endorse these sites and assumes no responsibility for their content or policies.</p>
+      </section>
+
+      <section id="privacy">
+        <h2>9. Privacy</h2>
+        <p>NetDAG respects user privacy and minimizes data collection to what is necessary for communication, analytics, and technical operation. Data is handled under applicable laws and is not sold to third parties.</p>
+      </section>
+
+      <section id="changes">
+        <h2>10. Changes to this Notice</h2>
+        <p>We may update this Legal Notice at any time. Continued use of the site constitutes acceptance of the latest version. You are encouraged to check this page periodically.</p>
+      </section>
+    </article>
+
+ <!-- Back to top -->
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+ <!-- room before PHN -->
+<div class="below-content-spacer"></div>
+
+<!-- PHN goes here (JS will build it) -->
+<div id="phn-placeholder"></div>
+
+<!-- footer include -->
+<div id="footer-placeholder"></div>
+
+<!-- unified site script -->
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — Whitepaper</title>
+  <meta name="description" content="NetDAG whitepaper: the architecture, economics, governance, and roadmap behind a trust-first Web3 stack (DAG + Bonding Curve + Guardian AI)." />
+  <link rel="icon" href="../images/favicon.ico" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Page-specific tweaks for reading comfort */
+    .wp-hero .hero-overlay { background: linear-gradient(to bottom, rgba(3,5,26,.55), rgba(3,5,26,.85)); }
+    .whitepaper-wrap { display: grid; grid-template-columns: 1fr 320px; gap: 28px; padding: 48px 5%; max-width: 1400px; margin: 0 auto; }
+    .whitepaper-content { min-width: 0; }
+    .whitepaper-content h2 { margin-top: 28px; }
+    .whitepaper-content h3 { margin-top: 20px; }
+    .whitepaper-content p { color: var(--text-secondary, #c0c0c0); }
+    .whitepaper-content .callout { background:#0f132d; border:1px solid #243054; border-radius:12px; padding:16px 18px; margin:18px 0; }
+
+    .toc { position: sticky; top: calc(var(--header-h,72px) + 16px); align-self:start; background:#0b0f24; border:1px solid #1c2549; border-radius:14px; padding:16px; max-height: calc(100vh - var(--header-h,72px) - 32px); overflow:auto; }
+    .toc h3 { margin: 0 0 10px; font-size: 1.05rem; }
+    .toc a { color:#cfd6ff; text-decoration:none; display:block; padding:6px 6px; border-radius:8px; }
+    .toc a:hover { background:#141a39; }
+    .toc .lvl1 { font-weight:600; margin-top:6px; }
+    .toc .lvl2 { padding-left:14px; font-size:.95rem; opacity:.9; }
+    .toc .lvl3 { padding-left:24px; font-size:.92rem; opacity:.85; }
+
+    /* narrow screens => stack */
+    @media (max-width: 1024px){
+      .whitepaper-wrap { grid-template-columns: 1fr; }
+      .toc { position: relative; max-height: none; top: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Accessibility -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Header / Navbar -->
+  <header class="main-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="../index.html"><img src="../images/ndg-logo.png" alt="NetDAG Logo" class="logo" /></a>
+        <a href="../index.html" class="nav-brand">NetDAG</a>
+      </div>
+
+      <div class="nav-right">
+        <!-- Desktop links (top-level) -->
+        <ul class="nav-links">
+          <li><a href="../bonding-curve.html">Bonding Curve</a></li>
+          <li><a href="../guardian.html">NetDAG Guardian</a></li>
+          <li><a href="../provenance.html">Provenance</a></li>
+          <li><a href="../dvpn.html">dVPN</a></li>
+        </ul>
+
+        <!-- Controls -->
+        <button id="theme-toggle" class="icon" type="button" aria-label="Toggle theme">🌙</button>
+        <button id="lang-btn"   class="icon" type="button" aria-label="Change language">🌐</button>
+        <button id="open-menu-btn" class="mobile-menu-icon" type="button" aria-label="Open menu">☰</button>
+      </div>
+    </nav>
+  </header>
+<nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+
+  <!-- Desktop sidebar / Mobile drawer -->
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" aria-label="Close menu" type="button">×</button>
+      <ul class="mobile-nav-links"></ul>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <main id="main-content" role="main">
+    <section class="hero-banner wp-hero" style="background-image:url('../images/DAG.png'); background-position:center;">
+      <div class="hero-overlay">
+        <h1 class="hero-title">NetDAG Whitepaper</h1>
+        <p class="hero-subtitle">A decentralized framework for trust, stability, and real-world utility.</p>
+      </div>
+    </section>
+
+    <!-- Reading area -->
+    <div class="whitepaper-wrap">
+      <!-- Main content -->
+      <article class="whitepaper-content">
+        <section id="abstract">
+          <h2>Abstract</h2>
+          <p>
+            NetDAG is a trust-first Web3 stack built on three pillars: a high-throughput Directed Acyclic Graph (DAG),
+            a mathematically governed Bonding Curve that acts as a price shock absorber, and the NetDAG Guardian—an AI
+            stability layer that analyzes network conditions and proposes parameter updates with governance oversight.
+            Together they create predictable liquidity, low-latency settlement, and a permissionless platform for real-world
+            utility such as Provenance and dVPN.
+          </p>
+          <div class="callout">
+            <strong>Mission:</strong> Replace speculative fragility with verifiable, human-aligned utility. Build a crypto
+            economy people can trust.
+          </div>
+        </section>
+
+        <section id="vision">
+          <h2>Vision &amp; Principles</h2>
+          <p>
+            The NetDAG vision is a secure, intelligent, and human-aligned digital economy. Our design principles are:
+            (1) <em>Transparency by default</em>—rules live in code; (2) <em>Predictability</em>—price/liquidity shaped by math;
+            (3) <em>Utility before speculation</em>—products that solve real problems; (4) <em>Governance in the open</em>—changes
+            proposed by the Guardian and ratified by community controls.
+          </p>
+        </section>
+
+        <section id="architecture">
+          <h2>System Architecture</h2>
+
+          <h3 id="dag">1) DAG Consensus</h3>
+          <p>
+            The DAG structure enables concurrent validation rather than strict sequential blocks. As activity rises, throughput
+            scales and confirmation latency remains low—ideal for micropayments, telemetry, and high-IO dApps.
+          </p>
+
+          <h3 id="bonding-curve">2) Adaptive Bonding Curve</h3>
+          <p>
+            Price is a function of supply, e.g. <code>P(S) = a·S + b</code>. Every buy mints new tokens and locks the quote
+            asset in a reserve; every sell burns tokens and releases from the reserve. The curve smooths volatility and ensures
+            protocol-native liquidity without an order book.
+          </p>
+
+          <h3 id="guardian">3) NetDAG Guardian (AI)</h3>
+          <p>
+            The Guardian consumes on-chain telemetry (volume, buy/sell pressure, app usage, node quality), forecasts liquidity
+            needs, detects anomalies, and proposes parameter updates (slope <em>a</em>, reserve ratio, fees). Proposals are gated by
+            multisig/DAO—automation with human oversight.
+          </p>
+        </section>
+
+        <section id="economics">
+          <h2>Economics &amp; Token Model</h2>
+          <h3>Supply &amp; Allocations</h3>
+          <p>
+            <strong>Max supply:</strong> 1,000,000,000 NDG (1B). Illustrative allocation (subject to final governance ratification):
+          </p>
+          <ul>
+            <li>Bonding Curve Reserve: <strong>22%</strong> (liquidity floor and stability)</li>
+            <li>Ecosystem &amp; Incentives (users, nodes, ambassadors): <strong>30%</strong></li>
+            <li>Community &amp; Treasury (grants, growth): <strong>18%</strong></li>
+            <li>Presale/Public: <strong>23%</strong> (starts at $0.03; staged increases)</li>
+            <li>Team: <strong>7%</strong> (vesting and cliff safeguards)</li>
+          </ul>
+
+          <h3>Curve Mechanics</h3>
+          <p>
+            Buyers pay the area under the curve between supply states; a portion remains locked as reserve backing. Advanced
+            safeguards include presale buy-only phases, vesting on large sells, and dynamic slope scheduling across growth epochs.
+          </p>
+
+          <h3>Fees &amp; Charity</h3>
+          <p>
+            A protocol fee funds treasury, long-term reserves, and a charity pool (e.g., 2% of network revenue streams), aligning
+            growth with impact. Disbursements are on-chain and community-auditable.
+          </p>
+        </section>
+
+        <section id="products">
+          <h2>Reference Applications</h2>
+
+          <h3 id="provenance">NetDAG Provenance</h3>
+          <p>
+            A QR-based authenticity layer: producers register batches; logistics append events; consumers scan to verify on-chain
+            proof. Each scan contributes marginal liquidity via the bonding curve and a small share to the charity pool.
+          </p>
+
+          <h3 id="dvpn">NetDAG dVPN</h3>
+          <p>
+            A peer-to-peer privacy network with automatic route selection by the Guardian. Node operators stake, earn NDG, and
+            are scored by uptime/latency. Sessions settle quickly on the DAG; pricing remains predictable via the curve.
+          </p>
+        </section>
+
+        <section id="governance">
+          <h2>Governance</h2>
+          <p>
+            Changes to economic parameters and critical modules flow through proposal → review → on-chain approval. Early phases
+            use a community-controlled multisig; long-term control transitions to a DAO. Guardian proposals are advisory until ratified.
+          </p>
+        </section>
+
+        <section id="security">
+          <h2>Security &amp; Risk</h2>
+          <ul>
+            <li>Independent audits for core contracts and Guardian interfaces</li>
+            <li>Formal verification targets for curve math and reserve accounting</li>
+            <li>Rate limits &amp; anomaly flags for extreme flow conditions</li>
+            <li>Transparent incident response and public post-mortems</li>
+          </ul>
+        </section>
+
+        <section id="roadmap">
+          <h2>Roadmap (High-Level)</h2>
+          <ul>
+            <li><strong>Q4 2025:</strong> Presale from $0.03; Guardian v1 monitoring; Provenance pilot</li>
+            <li><strong>H1 2026:</strong> dVPN beta; Guardian proposals → multisig; first charities onboarded</li>
+            <li><strong>H2 2026:</strong> Mainnet growth; DAO bootstrap; ecosystem grants</li>
+            <li><strong>2027–2029:</strong> Enterprise integrations, mobile SDKs, multi-region partnerships</li>
+          </ul>
+        </section>
+
+        <section id="conclusion">
+          <h2>Conclusion</h2>
+          <p>
+            NetDAG aligns performance, economics, and governance to build a durable, human-centric crypto economy. With a
+            scalable DAG, a shock-absorbing bonding curve, and the predictive Guardian, NetDAG turns volatility into usable,
+            transparent infrastructure for the next wave of Web3 adoption.
+          </p>
+        </section>
+      </article>
+
+      <!-- Table of contents -->
+      <aside class="toc" aria-label="Table of contents">
+        <h3>Contents</h3>
+        <nav>
+          <a href="#abstract"  class="lvl1">Abstract</a>
+          <a href="#vision"    class="lvl1">Vision & Principles</a>
+            <a href="#architecture" class="lvl1">System Architecture</a>
+              <a href="#dag"           class="lvl2">DAG Consensus</a>
+              <a href="#bonding-curve" class="lvl2">Adaptive Bonding Curve</a>
+              <a href="#guardian"      class="lvl2">NetDAG Guardian (AI)</a>
+          <a href="#economics" class="lvl1">Economics & Token Model</a>
+          <a href="#products"  class="lvl1">Reference Applications</a>
+            <a href="#provenance" class="lvl2">Provenance</a>
+            <a href="#dvpn"       class="lvl2">dVPN</a>
+          <a href="#governance" class="lvl1">Governance</a>
+          <a href="#security"   class="lvl1">Security & Risk</a>
+          <a href="#roadmap"    class="lvl1">Roadmap (High-Level)</a>
+          <a href="#conclusion" class="lvl1">Conclusion</a>
+        </nav>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">© NetDAG — Whitepaper</footer>
+
+  <!-- Shared site logic -->
+  <script src="../script.js"></script>
+
+  <!-- Invisible mount for Google Translate (kept hidden) -->
+  <div id="google_translate_element" style="display:none"></div>
+
+  <!-- Lazy Google Translate loader: load only for non-EN or on demand -->
+  <script>
+    function ndgGetLang(){ try{return localStorage.getItem('ndg_lang')||'en';}catch{return'en';} }
+    function ndgSetLang(c){ try{localStorage.setItem('ndg_lang',c);}catch{} }
+
+    function ndgLoadTranslate(cb){
+      if (window.google && window.google.translate) { cb && cb(); return; }
+      window.googleTranslateElementInit = function(){
+        new google.translate.TranslateElement(
+          { pageLanguage:'en', autoDisplay:false },
+          'google_translate_element'
+        );
+        cb && cb();
+      };
+      if (!document.getElementById('ndg-gt-script')) {
+        var s = document.createElement('script');
+        s.id = 'ndg-gt-script';
+        s.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        s.defer = true;
+        document.body.appendChild(s);
+      }
+    }
+
+    function ndgApplyGoogleLang(lang){
+      var map = { en:'en', de:'de', fr:'fr' };
+      var target = map[lang] || 'en';
+      function setCombo(){
+        var sel = document.querySelector('select.goog-te-combo');
+        if (!sel) { setTimeout(setCombo, 120); return; }
+        if (sel.value !== target) {
+          sel.value = target;
+          sel.dispatchEvent(new Event('change'));
+        }
+      }
+      setCombo();
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      var lang = ndgGetLang();
+      if (lang !== 'en') {
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(function(){ ndgLoadTranslate(function(){ ndgApplyGoogleLang(lang); }); });
+        } else {
+          setTimeout(function(){ ndgLoadTranslate(function(){ ndgApplyGoogleLang(lang); }); }, 400);
+        }
+      }
+    });
+
+    window.addEventListener('pageshow', function(){
+      var lang = ndgGetLang();
+      if (lang !== 'en' && !(window.google && window.google.translate)) {
+        ndgLoadTranslate(function(){ ndgApplyGoogleLang(lang); });
+      } else if (lang !== 'en') {
+        ndgApplyGoogleLang(lang);
+      }
+    });
+
+    // Hook into your language panel clicks (.lang-item[data-code])
+    document.addEventListener('click', function(e){
+      var item = e.target.closest('.lang-item');
+      if (!item) return;
+      var code = item.dataset.code || 'en';
+      ndgSetLang(code);
+      if (code === 'en') {
+        if (window.google && window.google.translate) ndgApplyGoogleLang('en');
+        return;
+      }
+      ndgLoadTranslate(function(){ ndgApplyGoogleLang(code); });
+    });
+
+    // Cross-tab sync
+    window.addEventListener('storage', function(e){
+      if (e.key === 'ndg_lang') {
+        var code = ndgGetLang();
+        if (code === 'en') {
+          if (window.google && window.google.translate) ndgApplyGoogleLang('en');
+        } else {
+          ndgLoadTranslate(function(){ ndgApplyGoogleLang(code); });
+        }
+      }
+    });
+  </script>
+</body>
+</html>

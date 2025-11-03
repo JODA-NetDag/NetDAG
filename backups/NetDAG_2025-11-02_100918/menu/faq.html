@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — FAQ</title>
+  <meta name="description" content="Frequently asked questions about NetDAG: bonding curve, Guardian AI, Provenance, dVPN, tokenomics, presale, security, and more." />
+  <link rel="icon" href="../images/favicon.ico" />
+  <link rel="stylesheet" href="../style.css" />
+<style>
+    .faq-wrap{max-width:1100px;margin:0 auto;padding:40px 0;display:flex;flex-direction:column;gap:18px}
+    .faq-intro{border:1px solid var(--border);border-radius:12px;background:#0f1120;padding:22px 24px}
+    .faq-grid{display:grid;gap:14px}
+    @media(min-width:960px){.faq-grid{grid-template-columns:1fr 1fr}}
+    .disclose h3{margin:0 0 8px;color:#fff;font-size:1.05rem}
+    .faq-note{color:#aeb3c2;font-size:.95rem;margin-top:10px}
+  </style>
+</head>
+
+<body>
+<div id="ticker-placeholder"></div>
+<div id="nav-placeholder"></div>     <!-- add this line -->
+<div id="sidebar-placeholder"></div>
+
+  <!-- a11y: skip -->
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<!-- Drawer / Sidebar container (JS fills links) -->
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" type="button" aria-label="Close menu">✕</button>
+      <ul class="mobile-nav-links"><!-- populated by script.js --></ul>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <main id="main-content" class="hero-banner" role="main"
+        style="background-image:url('../images/ndg7.png'); background-position:center;">
+    <div class="hero__overlay">
+      <h1 class="hero-title">Frequently Asked Questions</h1>
+      <p class="hero-subtitle">Learn how the NetDAG ecosystem works — from bonding curves to AI-powered stability.</p>
+    </div>
+  </main>
+
+  <!-- Body -->
+  <section class="curve-section" style="padding-top:28px;">
+    <div class="faq-wrap">
+
+      <div class="faq-intro">
+        <p>
+          This page collects the most common questions from the community. If you don’t see what you need,
+          reach us via the <a href="partners.html">Partners</a> page or <a href="contact.html">Contact</a>.
+        </p>
+      </div>
+
+      <div class="faq-grid">
+
+        <!-- Bonding Curve -->
+        <details class="disclose" open>
+          <summary><strong>What is the NetDAG Bonding Curve?</strong></summary>
+          <div class="disclose-body">
+            <p>
+              The Bonding Curve is a mathematical pricing model where the token price is a function of circulating supply.
+              Buys mint along the curve and lock reserve backing; sells burn along the same curve, creating continuous,
+              predictable liquidity. This reduces sudden crashes caused by order-book panic.
+            </p>
+            <pre class="math">P(S) = a·S + b</pre>
+            <p class="faq-note">
+              Mint cost equals the area under the curve (integral of P). A portion is locked as backing, making NDG asset-backed from genesis.
+            </p>
+          </div>
+        </details>
+
+        <!-- Guardian -->
+        <details class="disclose">
+          <summary><strong>What is the NetDAG Guardian (AI layer)?</strong></summary>
+          <div class="disclose-body">
+            <p>
+              The Guardian is an AI stability layer that analyzes on-chain activity (volume, buy/sell pressure, node health,
+              dApp usage). It proposes adjustments (e.g., slope, reserve ratio, fee splits) to keep the system stable.
+              Proposals require on-chain multisig/DAO approval — the AI advises, the community decides.
+            </p>
+          </div>
+        </details>
+
+        <!-- dVPN -->
+        <details class="disclose">
+          <summary><strong>How does the decentralized VPN (dVPN) work?</strong></summary>
+          <div class="disclose-body">
+            <p>
+              A peer-to-peer network of community nodes provides bandwidth. Users pay per minute/GB in NDG; node operators
+              earn NDG. The Guardian optimizes routing, detects malicious nodes, and helps keep pricing predictable through
+              the bonding-curve model.
+            </p>
+          </div>
+        </details>
+
+        <!-- Provenance -->
+        <details class="disclose">
+          <summary><strong>What is NetDAG Provenance?</strong></summary>
+          <div class="disclose-body">
+            <p>
+              A proof-of-origin system: producers register batches, logistics events are recorded on-chain, and consumers
+              verify with a simple QR scan. Each scan strengthens liquidity (via tiny NDG flow) and contributes 2% to charity.
+            </p>
+          </div>
+        </details>
+
+        <!-- Tokenomics -->
+        <details class="disclose">
+          <summary><strong>What are the key tokenomics?</strong></summary>
+          <div class="disclose-body">
+            <ul class="math-notes">
+              <li>Max supply: <strong>1,000,000,000 NDG</strong></li>
+              <li>Presale starting price: <strong>$0.03</strong></li>
+              <li>Allocations include: Bonding-curve reserve, ecosystem incentives, team (with vesting), community programs, liquidity.</li>
+              <li>22% permanently locked for the bonding-curve reserve to act as a stability shock absorber.</li>
+              <li>2% of ecosystem revenues flow to charity.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Presale -->
+        <details class="disclose">
+          <summary><strong>When is the presale?</strong></summary>
+          <div class="disclose-body">
+            <p>
+              Target: <strong>30 Nov 2025</strong> for presale kickoff; the main site countdown targets <strong>14 Dec 2025, 00:00 CET</strong>
+              for public phase activation. Final timing will be announced via official channels on the site.
+            </p>
+          </div>
+        </details>
+
+        <!-- Security -->
+        <details class="disclose">
+          <summary><strong>How does NetDAG approach security?</strong></summary>
+          <div class="disclose-body">
+            <ul class="math-notes">
+              <li>DAG consensus with concurrent validation for throughput and resilience.</li>
+              <li>Smart-contract audits before critical launches.</li>
+              <li>Guardian anomaly detection and public dashboards for transparency.</li>
+              <li>Multisig/DAO oversight on parameter changes and treasury operations.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Wallets -->
+        <details class="disclose">
+          <summary><strong>Which wallets and networks are supported?</strong></summary>
+          <div class="disclose-body">
+            <p>
+              At launch, standard EVM wallets will be supported for presale participation and curve interaction.
+              Further integrations will be announced as the mainnet and apps (dVPN, Provenance) roll out.
+            </p>
+          </div>
+        </details>
+
+        <!-- Compliance -->
+        <details class="disclose">
+          <summary><strong>Is NetDAG compliant with regulations?</strong></summary>
+          <div class="disclose-body">
+            <p>
+              NetDAG is designed for transparency and utility. The project will follow a jurisdiction-appropriate path
+              for token distribution and disclosures. Always consult local laws before participating.
+            </p>
+          </div>
+        </details>
+
+        <!-- Charity -->
+        <details class="disclose">
+          <summary><strong>How does the charity model work?</strong></summary>
+          <div class="disclose-body">
+            <p>
+              2% of ecosystem revenue contributes to a dedicated on-chain charity pool. Allocations and disbursements
+              will be public; the community will help select vetted causes through governance.
+            </p>
+          </div>
+        </details>
+
+        <!-- Roadmap -->
+        <details class="disclose">
+          <summary><strong>What’s on the roadmap?</strong></summary>
+          <div class="disclose-body">
+            <p>
+              Presale → Public bonding-curve activation → Guardian beta → Provenance pilots → dVPN mobile/desktop →
+              DAO phase-in → global partner integrations. See the <a href="roadmap.html">Roadmap</a> page for details.
+            </p>
+          </div>
+        </details>
+
+        <!-- Support -->
+        <details class="disclose">
+          <summary><strong>How can I get involved or get help?</strong></summary>
+          <div class="disclose-body">
+            <p>
+              Join the community, apply as an <a href="ambassador.html">Ambassador</a>, or contact us from the
+              <a href="contact.html">Contact</a> page. Business collaborations can start on the <a href="partners.html">Partners</a> page.
+            </p>
+          </div>
+        </details>
+
+      </div>
+
+      <!-- Optional full-width image near page end -->
+      <section aria-label="Feature image" style="padding:0; margin:12px 0 0; border-top:1px solid var(--border);">
+        <img src="../images/faq-feature.jpg" alt="FAQ feature visual"
+             style="display:block; width:100%; height:auto; max-height:70vh; object-fit:cover;">
+      </section>
+     </div>
+   </section>
+
+<button class="back-to-top" aria-label="Back to top">↑</button>
+ <!-- room before PHN -->
+<div class="below-content-spacer"></div>
+
+<!-- PHN goes here (JS will build it) -->
+<div id="phn-placeholder"></div>
+
+<!-- footer include -->
+<div id="footer-placeholder"></div>
+
+<!-- unified site script -->
+<script src="script.js"></script>
+</body>
+</html>

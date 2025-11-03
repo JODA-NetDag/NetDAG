@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — Contact</title>
+  <meta name="description" content="Contact NetDAG — partnerships, media, support, and general inquiries." />
+  <link rel="icon" href="../images/favicon.ico" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* Minimal page-scoped helpers */
+    .c-wrap{max-width:1100px;margin:0 auto;padding:40px 0;display:flex;flex-direction:column;gap:26px}
+    .c-card{background:#0f1120;border:1px solid var(--border);border-radius:12px;padding:22px 24px;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+    .c-card h2{margin:0 0 10px;color:#fff}
+    .c-grid{display:grid;gap:16px}
+    @media(min-width:980px){.c-grid{grid-template-columns:1.1fr .9fr}}
+    .c-list{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}
+    .c-list li{background:#0f1120;border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+    .mini{opacity:.95}
+
+    /* Form */
+    .form{display:grid;gap:14px}
+    .row{display:grid;gap:12px}
+    @media(min-width:720px){.row.two{grid-template-columns:1fr 1fr}}
+    label{font-weight:700;color:#fff;display:block;margin-bottom:6px}
+    .input, .select, .textarea{
+      width:100%; background:#0e1329; color:#e9ebff; border:1px solid var(--border);
+      border-radius:10px; padding:12px 14px; outline:none;
+    }
+    .input:focus, .select:focus, .textarea:focus{border-color:var(--accent)}
+    .textarea{min-height:140px; resize:vertical}
+    .hint{font-size:.9rem;color:#aeb3c2;margin-top:4px}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:12px 18px;border-radius:10px;font-weight:800;text-decoration:none;
+      background:var(--accent);color:#000;border:1px solid var(--border);cursor:pointer
+    }
+    .btn.secondary{background:transparent;color:#fff}
+    .status{margin-top:10px;font-size:.95rem}
+    .status.ok{color:#7fffb5}
+    .status.err{color:#ff9aa2}
+
+    /* Cards */
+    .contact-cards{display:grid;gap:16px}
+    @media(min-width:900px){.contact-cards{grid-template-columns:repeat(3,1fr)}}
+    .contact-card{background:#0f1120;border:1px solid var(--border);border-radius:12px;padding:16px}
+    .contact-card h3{margin:0 0 6px;color:#fff}
+
+    /* Map placeholder */
+    .map{
+      width:100%; height:280px; border:1px dashed var(--border); border-radius:12px;
+      display:flex;align-items:center;justify-content:center;color:#aeb3c2
+    }
+  </style>
+</head>
+
+<body>
+<div id="footer-placeholder"></div>
+<div id="sidebar-placeholder"></div>
+<div id="ticker-placeholder"></div>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<!-- Header / Top Nav -->
+  <header class="main-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="../index.html" aria-label="Home">
+          <img src="../images/ndg-logo.png" alt="NetDAG Logo" class="logo" />
+        </a>
+        <a href="../index.html" class="nav-brand">NetDAG</a>
+      </div>
+
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../bonding-curve.html">Bonding Curve</a></li>
+          <li><a href="../guardian.html">NetDAG Guardian</a></li>
+          <li><a href="../provenance.html">Provenance</a></li>
+          <li><a href="../dvpn.html">dVPN</a></li>
+         </ul>
+        <button id="open-menu-btn" class="icon" type="button" aria-label="Open menu">≡</button>
+      </div>
+    </nav>
+  </header>
+
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" type="button" aria-label="Close menu">✕</button>
+      <ul class="mobile-nav-links"><!-- populated by script.js --></ul>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <main id="main-content" class="hero-banner" role="main"
+        style="background-image:url('../images/ndg15.png'); background-position:center;">
+    <div class="hero__overlay">
+      <h1 class="hero-title">Contact NetDAG</h1>
+      <p class="hero-subtitle">Partnerships, media, support, or general questions — we’re happy to hear from you.</p>
+    </div>
+  </main>
+
+  <!-- Body -->
+  <section class="ambassador-section" style="padding-top:28px;">
+    <div class="c-wrap">
+
+      <!-- Contact Form + Sidebar -->
+      <div class="c-grid">
+        <article class="c-card" aria-labelledby="contact-form-title">
+          <h2 id="contact-form-title">Send us a message</h2>
+
+          <!-- IMPORTANT:
+               - When your Zoho/Hostpoint email is ready, set the form `action` to your endpoint (serverless or backend).
+               - Until then, the form does nothing (prevents page reload) but keeps UI consistent. -->
+          <form id="contact-form" class="form" method="POST" action="#" novalidate>
+            <div class="row two">
+              <div>
+                <label for="full-name">Full name</label>
+                <input class="input" id="full-name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input class="input" id="email" name="email" type="email" placeholder="you@example.com" required />
+              </div>
+            </div>
+
+            <div class="row two">
+              <div>
+                <label for="topic">Topic</label>
+                <select class="select" id="topic" name="topic" required>
+                  <option value="">Select a topic…</option>
+                  <option value="partnerships">Partnerships</option>
+                  <option value="press">Press / Media</option>
+                  <option value="support">Support</option>
+                  <option value="general">General</option>
+                </select>
+              </div>
+              <div>
+                <label for="subject">Subject</label>
+                <input class="input" id="subject" name="subject" type="text" placeholder="Short summary" required />
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="message">Message</label>
+                <textarea class="textarea" id="message" name="message" placeholder="Tell us how we can help…" required></textarea>
+                <p class="hint">We typically reply within 3–5 business days.</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <label style="display:flex;gap:10px;align-items:center">
+                <input type="checkbox" id="consent" required />
+                <span>I agree to be contacted by the NetDAG team about my inquiry.</span>
+              </label>
+            </div>
+
+            <div class="actions">
+              <button class="btn" type="submit">Send message</button>
+              <a class="btn secondary" href="mailto:info@netdag.com">Or email: info@netdag.com</a>
+            </div>
+
+            <div id="form-status" class="status" aria-live="polite"></div>
+          </form>
+        </article>
+
+        <aside class="c-card" aria-labelledby="contact-sidebar-title">
+          <h2 id="contact-sidebar-title">Other ways to reach us</h2>
+          <ul class="c-list">
+            <li><strong>Partnerships:</strong> <a href="mailto:partners@netdag.com">partners@netdag.com</a></li>
+            <li><strong>Press / Media:</strong> <a href="mailto:press@netdag.com">press@netdag.com</a></li>
+            <li><strong>Ambassadors:</strong> <a href="mailto:ambassadors@netdag.com">ambassadors@netdag.com</a></li>
+            <li><strong>General:</strong> <a href="mailto:info@netdag.com">info@netdag.com</a></li>
+          </ul>
+          <div class="map" role="img" aria-label="Map placeholder">
+            Office / Remote-first — Worldwide
+          </div>
+          <p class="mini">For security, we don’t publish sensitive addresses. Verified partners receive details during onboarding.</p>
+        </aside>
+      </div>
+
+      <!-- Contact cards -->
+      <section class="contact-cards" aria-label="Contacts">
+        <div class="contact-card">
+          <h3>Partnerships</h3>
+          <p>Integrations, pilots, and co-development with exchanges, wallets, and enterprises.</p>
+          <p class="mini"><a href="mailto:partners@netdag.com">partners@netdag.com</a></p>
+        </div>
+        <div class="contact-card">
+          <h3>Press / Media</h3>
+          <p>Interview requests, materials, and speaking opportunities.</p>
+          <p class="mini"><a href="mailto:press@netdag.com">press@netdag.com</a></p>
+        </div>
+        <div class="contact-card">
+          <h3>Support</h3>
+          <p>Help with accounts, dApps, or documentation.</p>
+          <p class="mini"><a href="mailto:info@netdag.com">info@netdag.com</a></p>
+        </div>
+      </section>
+
+      <!-- Optional full-width image near page end -->
+      <section aria-label="Feature image" style="padding:0; margin:12px 0 0; border-top:1px solid var(--border);">
+        <img src="../images/contact-feature.jpg" alt="Contact feature visual"
+             style="display:block; width:100%; height:auto; max-height:70vh; object-fit:cover;">
+      </section>
+
+    </div>
+  </section>
+
+  <nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+   <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- Hidden Google Translate container -->
+  <div id="google_translate_element" aria-hidden="true"></div>
+
+  <script src="../script.js"></script>
+
+  <!-- Temporary client-side handler to prevent accidental reloads.
+       Replace with real endpoint once Zoho/Hostpoint email is live. -->
+  <script>
+    (function(){
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('form-status');
+      if(!form) return;
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault(); // remove this when wiring to backend
+
+        // Basic client-side checks (native required attributes already help)
+        const ok = form.reportValidity();
+        if(!ok) return;
+
+        status.textContent = 'Thanks — your message is ready to send. We will enable direct delivery as soon as email is live.';
+        status.className = 'status ok';
+
+        // If you want a mailto fallback until SMTP is ready, uncomment below:
+        // const name = encodeURIComponent(form.name.value.trim());
+        // const email = encodeURIComponent(form.email.value.trim());
+        // const subject = encodeURIComponent(form.subject.value.trim() || 'Contact form');
+        // const body = encodeURIComponent(
+        //   'Topic: ' + (form.topic.value || '-') + '\\n' +
+        //   'Name: ' + name + '\\n' +
+        //   'Email: ' + email + '\\n\\n' +
+        //   (form.message.value || '')
+        // );
+        // window.location.href = 'mailto:info@netdag.com?subject=' + subject + '&body=' + body;
+      });
+    })();
+  </script>
+
+
+<!-- Footer include -->
+<div id="footer-placeholder"></div>
+<script>
+(function () {
+  var isInMenu = location.pathname.replace(/\\/g,'/').includes('/menu/');
+  var footerPath = isInMenu ? '../includes/footer.html' : './includes/footer.html';
+
+  fetch(footerPath)
+    .then(r => r.text())
+    .then(html => {
+      var box = document.getElementById('footer-placeholder');
+      box.innerHTML = html;
+
+      // Fix relative paths automatically
+      var prefix = isInMenu ? '../' : './';
+      box.querySelectorAll('a[data-rel]').forEach(function(a){
+        var rel = a.getAttribute('data-rel');
+        if (rel) a.href = prefix + rel;
+      });
+    })
+    .catch(console.error);
+})();
+</script>
+<!-- Unified site script -->
+  <script src="../script.js"></script>
+</body>
+</html>

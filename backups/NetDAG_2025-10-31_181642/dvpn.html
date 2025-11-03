@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — dVPN (Decentralized VPN)</title>
+  <meta name="description" content="NetDAG dVPN: peer-to-peer privacy with multi-hop routing, no central logs, and pay-as-you-go rewards." />
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+ </head>
+
+<body>
+  
+<div id="ticker-placeholder"></div>
+<div id="sidebar-placeholder"></div>
+<a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Drawer / Sidebar container (JS fills links) -->
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" aria-label="Close menu" type="button">×</button>
+      <ul class="mobile-nav-links"></ul>
+    </div>
+  </div>
+
+ <!-- Hero -->
+  <section id="dvpn" class="hero-ovr">
+  <div class="dvpn-bg"></div>        <!-- background image -->
+  <div class="dvpn-ovr"></div>       <!-- dark overlay -->
+  <div class="hero-content" style="margin-top:120px;">
+    <h1>Your Privacy, <span>Powered by the People</span></h1>
+    <p class="hero-subtitle">A decentralized VPN for secure, censorship-resistant internet access.</p>
+  </div>
+</section>
+
+  <!-- Main -->
+  <main id="main">
+
+    <section class="curve-section">
+      <div class="curve-container">
+        <h2>What is a Decentralized VPN (dVPN)?</h2>
+        <p>A dVPN replaces a single, vulnerable company server with a global, peer-to-peer mesh. Node operators share bandwidth and earn NDG; users connect through encrypted, multi-hop routes; rewards are handled by smart contracts — no central logs, no single point of failure.</p>
+        <ul class="benefits">
+          <li><strong>Community-run nodes:</strong> Earn NDG by contributing bandwidth.</li>
+          <li><strong>Multi-hop privacy:</strong> Traffic is routed across independent nodes.</li>
+          <li><strong>On-chain payments:</strong> Usage is settled automatically and transparently.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="curve-section">
+      <div class="curve-container">
+        <h2>How It Works: Secure Browsing in 3 Steps</h2>
+        <div class="info-cards">
+          <article class="info-card">
+            <h3>1) Launch</h3>
+            <p>The app fetches a list of high-reputation nodes from the DAG network.</p>
+          </article>
+          <article class="info-card">
+            <h3>2) One-Click Connect</h3>
+            <p>The NetDAG Guardian selects a fast, trustworthy route across multiple nodes.</p>
+          </article>
+          <article class="info-card">
+            <h3>3) Pay-as-you-go</h3>
+            <p>Pay per minute or per-GiB in NDG; rewards flow to node operators and the ecosystem reserve.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="curve-section">
+      <div class="curve-container">
+        <h2>The NetDAG Advantage</h2>
+        <ul class="benefits">
+          <li><strong>Fast, real-time connections:</strong> DAG confirms keep session setup snappy.</li>
+          <li><strong>Fair, predictable pricing:</strong> Bonding curve smooths volatility for stable usage costs.</li>
+          <li><strong>Smart routing &amp; fraud prevention:</strong> Guardian scores node reliability and avoids malicious routes.</li>
+          <li><strong>True decentralization:</strong> P2P nodes; no central authority or single log store.</li>
+          <li><strong>Healthy node incentives:</strong> NDG rewards grow a robust, global network.</li>
+        </ul>
+        <p class="hero-caption">The dVPN showcases NetDAG’s pillars working together: DAG for speed, the Bonding Curve for economic stability, and the Guardian for predictive network health.</p>
+      </div>
+    </section>
+
+    <section class="curve-section">
+      <div class="curve-container">
+        <figure class="curve-figure">
+          <img class="home-figure-img" src="images/ndg27.png" alt="dVPN feature visual" />
+          <figcaption>dVPN feature visual</figcaption>
+        </figure>
+      </div>
+    </section>
+   </main>
+
+  <nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+
+<button class="back-to-top" aria-label="Back to top">↑</button>
+<div id="footer-placeholder"></div>
+  <script src="script.js"></script>
+</body>
+</html>

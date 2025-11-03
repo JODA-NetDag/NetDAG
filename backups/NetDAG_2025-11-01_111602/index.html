@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — A New Era of Trust and Stability</title>
+  <meta name="description" content="NetDAG is the first crypto built with a mathematical shock absorber—designed to reduce volatility and reward real-world use. Presale 14 Dec 2025." />
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Page-scoped tweaks (kept minimal) -->
+  <style>
+    /* Shared hero-overlays for readability */
+    .hero-ovr{
+      position: relative;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero-ovr::after{
+      content:"";
+      position:absolute; inset:0;
+      background: rgba(0,0,0,.55);
+      pointer-events:none;
+    }
+    .hero-content{
+      position: relative; z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px;
+      color: #fff;
+      text-shadow: 0 2px 6px rgba(0,0,0,.6);
+    }
+    .hero-title{ font-size: clamp(28px, 5vw, 54px); font-weight: 800; line-height:1.1; margin: 0 0 .4rem;}
+    .hero-accent{ color:#ffb31a; display:block; }
+    .hero-lead{ font-size: clamp(15px, 2.2vw, 18px); line-height:1.6; opacity:.95; }
+    .hero-btn{
+      display:inline-block; margin-top: 20px;
+      background:#ffb31a; color:#111; font-weight:700;
+      padding:10px 18px; border-radius:12px; text-decoration:none;
+    }
+    .hero-btn:hover{ filter: brightness(1.05); }
+
+    /* Provenance: a bit taller */
+    #provenance.hero-ovr { 
+      min-height: 130vh;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    #provenance .hero-content{ max-width: 1100px; padding: 60px 50px; }
+    #provenance .hero-title{ font-size: clamp(36px, 6vw, 68px); margin-bottom: 1rem; }
+    #provenance .hero-lead{ font-size: clamp(17px, 2vw, 21px); line-height: 1.75; margin-bottom: 1.5rem; }
+
+    /* Small index-only helper to position sidebar a touch lower if needed */
+    #sidebar-placeholder nav.side-menu{
+      position: fixed;
+      left: 16px;
+      top: 90px;
+      z-index: 60;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Includes (order matters): Ticker → Top Nav → Sidebar -->
+  <div id="ticker-placeholder"></div>
+  <div id="nav-placeholder"></div>
+  <div id="sidebar-placeholder"></div>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Mobile/desktop drawer (script.js fills links) -->
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" aria-label="Close menu" type="button">×</button>
+      <ul class="mobile-nav-links"></ul>
+    </div>
+  </div>
+
+  <!-- MAIN HERO -->
+  <main id="main-content">
+    <section class="hero-banner" role="region"
+             style="background-image:url('images/ndg30.png'); background-position:center;">
+      <div class="hero-overlay">
+        <h1 class="hero-title">
+          NetDAG is the first crypto built with a <strong>mathematical shock absorber</strong>.
+        </h1>
+        <p class="hero-subtitle">
+          Our next-gen technology is designed to protect your investment from market volatility,
+          reward real-world use, and build a Web3 economy you can finally trust.
+        </p>
+
+        <div class="hero-ctas">
+          <button id="connect-wallet" class="hero-cta" type="button">Connect Wallet</button>
+          <button id="buy-ndg-hero" class="hero-cta secondary" type="button">Buy NDG</button>
+        </div>
+
+        <!-- Presale Timer -->
+        <div class="presale-timer" id="presale-timer"
+            data-target="2025-12-14T00:00:00+01:00"
+            data-live-text="Presale is LIVE">
+          <h2>Presale begins on <strong>14 Dec 2025, 00:00 CET</strong></h2>
+          <div class="timer-display" role="timer" aria-live="polite">
+            <div><span id="t-days">00</span><div class="unit">Days</div></div>
+            <div><span id="t-hours">00</span><div class="unit">Hours</div></div>
+            <div><span id="t-mins">00</span><div class="unit">Mins</div></div>
+            <div><span id="t-secs">00</span><div class="unit">Sec</div></div>
+          </div>
+          <p class="timer-subtext" id="timer-subtext">
+            Join the ecosystem — early-bird rewards 10% every 2 weeks.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Presale Tracker -->
+    <section id="presale-tracker" class="curve-section" aria-label="Presale progress">
+      <div class="curve-container" style="text-align:center;">
+        <h2 style="font-size:1.8rem;margin-bottom:1rem;">Presale Progress</h2>
+
+        <!-- Progress Bar -->
+        <div style="background:#141622;border-radius:12px;padding:8px;box-shadow:0 0 10px rgba(0,255,255,0.15);">
+          <div style="background:linear-gradient(90deg,#00e5ff,#007bff);height:14px;border-radius:8px;width:18%;transition:width .6s;"></div>
+        </div>
+        <p style="margin-top:.5rem;font-size:.9rem;color:var(--muted);">18% of tokens sold</p>
+
+        <!-- Stats Grid -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-top:1.5rem;">
+          <div class="stat-card">
+            <h3 style="margin:0;font-size:1rem;color:var(--muted);">Current Stage</h3>
+            <p style="margin:0;font-weight:700;font-size:1.2rem;">Stage 1 / 10</p>
+          </div>
+          <div class="stat-card">
+            <h3 style="margin:0;font-size:1rem;color:var(--muted);">Token Price</h3>
+            <p style="margin:0;font-weight:700;font-size:1.2rem;">$0.025</p>
+          </div>
+          <div class="stat-card">
+            <h3 style="margin:0;font-size:1rem;color:var(--muted);">Total Raised</h3>
+            <p style="margin:0;font-weight:700;font-size:1.2rem;">$420,000</p>
+          </div>
+          <div class="stat-card">
+            <h3 style="margin:0;font-size:1rem;color:var(--muted);">Accepted</h3>
+            <p style="margin:0;font-weight:700;font-size:1.2rem;">BNB • USDT • USDC</p>
+          </div>
+        </div>
+
+        <!-- Contract Info -->
+        <div style="margin-top:1.5rem;background:#0f1120;border:1px solid rgba(0,255,255,0.2);border-radius:10px;padding:12px;">
+          <strong>Treasury Contract:</strong>
+          <code style="user-select:all;">0x8834Aa98987c170C0F36E087a7fFa08070C1aD4B</code>
+          <p style="color:var(--muted);margin-top:6px;font-size:.9rem;">Minimum buy $50</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bonding Curve (preview) -->
+    <section id="bonding-curve-preview" class="hero-banner" style="background-image:url('images/ndg31.png')">
+      <div class="hero-content">
+        <h2 class="hero-title">Stability by Design: <strong>The NetDAG Bonding Curve</strong></h2>
+        <p class="hero-subtitle">
+          Our Ecosystem is built on a blend of DAG architecture, AI Neuron Intelligence (Guardian) and the Bonding Curve economics.
+          It is a mathematical engine that turns hype-driven swings into smooth, predictable action.
+        </p>
+        <p class="hero-subtitle">
+          The Bonding Curve is more than a shock-absorber — it is the heartbeat of NetDAG’s economy. Each transaction subtly
+          recalibrates supply and demand, ensuring that value grows organically with community activity rather than speculation.
+        </p>
+        <p><a class="hero-cta" href="bonding-curve.html">Learn more</a></p>
+      </div>
+      <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Guardian (preview) -->
+    <section id="guardian" class="hero-ovr" style="background-image:url('images/ndg28.png');">
+      <div class="hero-content">
+        <h2 class="hero-title">NetDAG Guardian <strong>AI That Guards Value.</strong></h2>
+        <p class="hero-subtitle">
+          The NetDAG Guardian is the world’s first AI-driven sentinel built to protect digital economies in real time.
+        </p>
+        <p>
+          While others rely on static algorithms, Guardian learns, adapts, and defends — analyzing market behavior, liquidity
+          flow, and global sentiment 24/7. Its neural intelligence predicts volatility before it happens, stabilizing growth
+          and maximizing investor confidence.
+        </p>
+        <p>
+          As AI spending surges, Guardian positions NetDAG at the core of the next trillion-dollar revolution. Every transaction
+          strengthens its learning engine; every holder becomes part of its neural network.
+        </p>
+        <p class="hero-subtitle">
+          Our Guardian is AI layer built to complement the Bonding Curve and transforms it into a living equilibrium engine.
+        </p>
+        <p><a class="hero-btn" href="guardian.html">Learn more</a></p>
+      </div>
+    </section>
+
+    <div class="section-gap"></div>
+
+    <!-- Provenance (preview) -->
+    <section id="provenance" class="hero-ovr" style="background-image:url('images/ndg.29.png');">
+      <div class="hero-content">
+        <h2 class="hero-title">
+          Trust Written in Code:
+          <span class="hero-accent">On-Chain Provenance</span>
+        </h2>
+        <p class="hero-lead">NetDAG Provenance: We are solving the global crisis of commercial trust.</p>
+        <p>Built to bind every product — from your morning coffee to limited editions — to an immutable blockchain identity.</p>
+        <p>This is not a paper trait; it is guaranteed, instant authenticity.</p>
+        <p>
+          Our technology puts verification power directly into the customer's hands: the NetDAG Provenance App delivers
+          “AUTHENTIC” signal before they pay.
+        </p>
+        <p><a class="hero-cta" href="provenance.html">Learn more</a></p>
+      </div>
+    </section>
+
+    <div class="section-gap"></div>
+
+    <!-- Tokenomics (preview) -->
+    <section id="tokenomics" class="hero-ovr" style="background-image:url('images/ndg7.png');">
+      <div class="hero-content">
+        <h2 id="tokenomics-title" class="hero-title">Tokenomics</h2>
+        <p class="hero-subtitle">
+          <strong>Community-first distribution designed for stability and growth.</strong>
+        </p>
+        <p>Dynamic Tokenomics Built for Momentum, Not Speculation. NetDAG’s tokenomics isn’t static—it’s alive.</p>
+        <p>
+          Every transaction fuels equilibrium between growth and stability. Our adaptive bonding-curve mechanics convert volatility
+          into forward momentum, while 22% of liquidity is locked as a permanent buy-back reserve that strengthens the floor with
+          every move.
+        </p>
+        <p>
+          Holders don’t wait for hype; they profit from participation. With Guardian AI optimizing liquidity flow, NDG is not another token.
+          It’s a self-stabilizing economy engineered for the future.
+        </p>
+        <div class="hero-lead">
+          <a class="hero-btn" href="menu/tokenomics.html">View full Tokenomics</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-gap"></div>
+
+    <!-- What is NetDAG -->
+    <section class="curve-section" aria-label="About NetDAG">
+      <div class="curve-container">
+        <h2>What is NetDAG?</h2>
+        <p>
+          <strong>NetDAG</strong> is a next-gen stability-first crypto economy designed to smooth volatility, reward real use, and anchor
+          trust on-chain for real-world impact. We combine fast DAG technology, Adaptive Bonding Curve mathematics, the
+          <em>NetDAG Guardian</em> (AI), and a large permanently locked Bonding Curve Reserve to create a predictable, transparent
+          environment where value is protected by math, not speculation.
+        </p>
+        <ul class="benefits">
+          <li><strong>Shock Absorber:</strong> Our bonding curve links price to supply and locks reserve backing on every buy.</li>
+          <li><strong>Predictive Stability:</strong> The Guardian forecasts liquidity needs and proposes parameter updates via governance.</li>
+          <li><strong>Real Utility:</strong> dVPN for privacy, Provenance for product authenticity, and a charity-first model baked into activity.</li>
+          <li><strong>Product Authenticity:</strong> Proof-of-origin and instant verification at purchase.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Illustration -->
+    <section class="curve-section" aria-label="Illustration">
+      <div class="curve-container">
+        <figure class="curve-figure">
+          <img class="home-figure-img" src="images/BondingCurve.png" alt="NetDAG concept">
+          <figcaption>“You can’t crash what the math already controls.”</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section class="curve-section" aria-labelledby="home-blog-title">
+      <div class="curve-container">
+        <h2 id="home-blog-title">Latest from the Blog</h2>
+
+        <div class="info-cards">
+          <article class="info-card">
+            <h3><a href="blog/post-3.html">Bonding Curves vs. Order Books — Why Predictable Liquidity Wins</a></h3>
+            <p class="meta">Published · Oct 2025</p>
+            <p>How an always-on automated market (the curve) prevents panic crashes and keeps pricing rational in all conditions.</p>
+          </article>
+
+          <article class="info-card">
+            <h3><a href="blog/post-2.html">Inside NetDAG Guardian: Proactive Liquidity &amp; Risk Signals</a></h3>
+            <p class="meta">Published · Oct 2025</p>
+            <p>Our AI monitors flows, detects anomalies, and proposes curve parameter updates for smoother markets.</p>
+          </article>
+
+          <article class="info-card">
+            <h3><a href="blog/post-1.html">Why a “Mathematical Shock Absorber” Matters</a></h3>
+            <p class="meta">Published · Oct 2025</p>
+            <p>Reserve-backed pricing and supply-linked valuation to replace hype cycles with predictable progression.</p>
+          </article>
+        </div>
+
+        <p class="hero-caption" style="margin-top:12px;">
+          <a href="menu/blog.html"></a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Single Page navigation container (Prev • Home • Next) -->
+  <nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+
+  <!-- Back to top -->
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- Footer include -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

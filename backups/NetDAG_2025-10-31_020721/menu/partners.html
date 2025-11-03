@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — Partners</title>
+  <meta name="description" content="Partner with NetDAG to bring trust, stability, and real-world utility to your users. Technology, exchanges, brands, NGOs—build with us." />
+  <link rel="icon" href="../images/favicon.ico" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* Page-scoped helpers */
+    .p-wrap{max-width:1100px;margin:0 auto;padding:40px 0;display:flex;flex-direction:column;gap:26px}
+    .p-card{background:#0f1120;border:1px solid var(--border);border-radius:12px;padding:22px 24px;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+    .p-card h2{margin:0 0 10px;color:#fff}
+    .p-grid{display:grid;gap:16px}
+    @media(min-width:980px){.p-grid{grid-template-columns:1fr 1fr}}
+    .p-list{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}
+    .p-list li{background:#0f1120;border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+    .tier-grid{display:grid;gap:16px}
+    @media(min-width:980px){.tier-grid{grid-template-columns:repeat(3,1fr)}}
+    .tier{background:#0f1120;border:1px solid var(--border);border-radius:12px;padding:18px}
+    .tier h3{margin:0 0 8px;color:#fff}
+    .logos{display:grid;grid-template-columns:repeat(4,minmax(80px,1fr));gap:12px}
+    .logo-box{display:flex;align-items:center;justify-content:center;border:1px dashed var(--border);border-radius:10px;padding:14px;min-height:64px;opacity:.85}
+    .cta-box{display:flex;flex-wrap:wrap;gap:12px}
+    .cta{display:inline-flex;gap:10px;align-items:center;justify-content:center;padding:12px 18px;border-radius:10px;font-weight:800;text-decoration:none;background:var(--accent);color:#000;border:1px solid var(--border)}
+    .cta.alt{background:transparent;color:#fff;border:1px solid var(--border)}
+    .mini{opacity:.95}
+    .callout{border-left:4px solid var(--accent); padding:12px 14px; background:#10132a; border-radius:8px}
+  </style>
+</head>
+
+<body>
+<div id="sidebar-placeholder"></div>
+<div id="ticker-placeholder"></div>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<!-- Header / Top Nav -->
+  <header class="main-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="../index.html" aria-label="Home">
+          <img src="../images/ndg-logo.png" alt="NetDAG Logo" class="logo" />
+        </a>
+        <a href="../index.html" class="nav-brand">NetDAG</a>
+      </div>
+
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../bonding-curve.html">Bonding Curve</a></li>
+          <li><a href="../guardian.html">NetDAG Guardian</a></li>
+          <li><a href="../provenance.html">Provenance</a></li>
+          <li><a href="../dvpn.html">dVPN</a></li>
+         </ul>
+        <button id="open-menu-btn" class="icon" type="button" aria-label="Open menu">≡</button>
+      </div>
+    </nav>
+  </header>
+
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" type="button" aria-label="Close menu">✕</button>
+      <ul class="mobile-nav-links"><!-- populated by script.js --></ul>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <main id="main-content" class="hero-banner" role="main"
+        style="background-image:url('../images/ndg14.png'); background-position:center;">
+    <div class="hero__overlay">
+      <h1 class="hero-title">Partners & Integrations</h1>
+      <p class="hero-subtitle">Join us to bring trust, stability, and real utility to users worldwide — from exchanges and wallets to brands and NGOs.</p>
+    </div>
+  </main>
+
+  <!-- Body -->
+  <section class="ambassador-section" style="padding-top:28px;">
+    <div class="p-wrap">
+
+      <article class="p-card">
+        <h2>Why Partner with NetDAG</h2>
+        <div class="p-grid">
+          <div>
+            <ul class="p-list">
+              <li><strong>Predictable Economics:</strong> The bonding curve smooths volatility and embeds liquidity.</li>
+              <li><strong>AI Stability Layer:</strong> The NetDAG Guardian monitors activity and proposes optimizations.</li>
+              <li><strong>Real-World Utility:</strong> Provenance (authenticity), dVPN (privacy), and more to come.</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="p-list">
+              <li><strong>On-Chain Transparency:</strong> Asset-backed reserves, visible parameters, DAO oversight.</li>
+              <li><strong>Impact by Default:</strong> Protocol-level charity contributions from network usage.</li>
+              <li><strong>Global i18n:</strong> Multilingual front-end and documentation roadmap.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <section class="p-card">
+        <h2>Partner Tracks</h2>
+        <div class="tier-grid">
+          <div class="tier">
+            <h3>Technology</h3>
+            <p>Exchanges, wallets, node providers, and infra partners.</p>
+            <ul class="p-list">
+              <li>Listings, custody, staking/vesting hooks</li>
+              <li>SDKs & APIs for Provenance and dVPN</li>
+              <li>Co-dev pilots and research</li>
+            </ul>
+          </div>
+          <div class="tier">
+            <h3>Enterprise & Brands</h3>
+            <p>Supply chain, retail, pharma, luxury, food, and logistics.</p>
+            <ul class="p-list">
+              <li>Authenticity-as-a-Service (QR verifications)</li>
+              <li>Private data channels via dVPN</li>
+              <li>Custom dashboards & audits</li>
+            </ul>
+          </div>
+          <div class="tier">
+            <h3>NGOs & Foundations</h3>
+            <p>Social impact with on-chain transparency.</p>
+            <ul class="p-list">
+              <li>Charity pool disbursements</li>
+              <li>Program tracking & reporting</li>
+              <li>Co-branded initiatives</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-card">
+        <h2>How Integration Works</h2>
+        <div class="p-grid">
+          <div>
+            <ol class="p-list">
+              <li><strong>Discovery:</strong> Define goals, data flows, and milestones.</li>
+              <li><strong>Technical Plan:</strong> Select SDKs/APIs, authentication, and sandbox access.</li>
+              <li><strong>Pilot:</strong> Limited-scope rollout with metrics and reporting.</li>
+              <li><strong>Scale:</strong> Harden, optimize, and expand to new markets.</li>
+            </ol>
+          </div>
+          <div>
+            <div class="callout mini">
+              <strong>Security & Compliance:</strong> Key integrations go through security review, on-chain audits (where relevant),
+              and governance sign-off for parameter changes.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-card">
+        <h2>Featured & Ecosystem Logos</h2>
+        <p class="mini">Add your brand here — we’ll showcase featured partners and a broader ecosystem tile wall.</p>
+        <div class="logos" aria-label="Partner logos">
+          <div class="logo-box">Your Logo</div>
+          <div class="logo-box">Your Logo</div>
+          <div class="logo-box">Your Logo</div>
+          <div class="logo-box">Your Logo</div>
+          <div class="logo-box">Your Logo</div>
+          <div class="logo-box">Your Logo</div>
+          <div class="logo-box">Your Logo</div>
+          <div class="logo-box">Your Logo</div>
+        </div>
+      </section>
+
+      <section class="p-card">
+        <h2>Get in Touch</h2>
+        <p>
+          Ready to explore a partnership or pilot? Email us with your objectives and a brief overview of your
+          product or organization.
+        </p>
+        <div class="cta-box">
+          <a class="cta" href="mailto:partners@netdag.com?subject=NetDAG%20Partnership%20Inquiry">Email: info@netdag.com</a>
+          <a class="cta alt" href="../menu/contact.html">Go to Contact</a>
+        </div>
+        <p class="mini">We respond to most inquiries within 3–5 business days.</p>
+      </section>
+
+      <!-- Optional full-width image near page end -->
+      <section aria-label="Feature image" style="padding:0; margin:12px 0 0; border-top:1px solid var(--border);">
+        <img src="../images/ndg13.png" alt="Partners feature visual"
+             style="display:block; width:100%; height:auto; max-height:70vh; object-fit:cover;">
+      </section>
+
+    </div>
+  </section>
+
+  <nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+   <button class="back-to-top" aria-label="Back to top">↑</button>
+
+<div id="footer-placeholder"></div>
+  <!-- Unified site script -->
+  <script src="../script.js"></script>
+</body>
+</html>

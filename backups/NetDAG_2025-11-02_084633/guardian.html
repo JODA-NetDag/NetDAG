@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetDAG — Bonding Curve</title>
+  <meta name="description" content="Stability by design: the NetDAG Bonding Curve smooths volatility with predictable, math-driven pricing." />
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+ </head>
+
+<body>
+
+<div id="ticker-placeholder"></div>
+<div id="nav-placeholder"></div>     <!-- add this line -->
+<div id="sidebar-placeholder"></div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Drawer / Sidebar container (JS fills links) -->
+  <div id="mobile-menu-container" class="mobile-menu" aria-hidden="true" hidden>
+    <div class="mobile-menu-content" role="menu" aria-label="Mobile navigation">
+      <button id="close-menu-btn" class="close-btn" type="button" aria-label="Close menu">✕</button>
+      <ul class="mobile-nav-links"><!-- populated by script.js --></ul>
+    </div>
+  </div>
+
+<style>
+  /* --- Accent lines (no background) --- */
+  .accent-blue   { color:#5f3802; font-weight:700; }   /* sky blue */
+  .accent-yellow { color:#bec709; font-weight:700; }   /* bright yellow */
+  .accent-black  { color:#c7c705; font-weight:800; }   /* true black */
+
+  /* --- Badges (use on busy images for readability) --- */
+  .badge-blue{
+    color:#0a0a0a; background:rgba(37,99,235,.15); border:1px solid rgba(37,99,235,.45);
+    padding:6px 10px; border-radius:8px; display:inline-block;
+  }
+  .badge-yellow{
+    color:#111; background:rgba(250,204,21,.2); border:1px solid rgba(250,204,21,.55);
+    padding:6px 10px; border-radius:8px; display:inline-block;
+  }
+  .badge-black{
+    color:#111; background:#c5b806; border:1px solid #181515;
+    padding:6px 10px; border-radius:8px; display:inline-block;
+  }
+  /* Optional: subtle glow for dark scenes */
+  .glow { text-shadow:0 2px 10px rgba(73, 4, 4, 0.55); }
+</style>
+
+  <!-- HERO (change min-height to grow/shrink the hero) -->
+<section class="hero-banner"
+  style="
+    background-image:url('images/ndg-neuron1.png');
+    background-size:cover; background-position:center;
+    min-height:100vh;   /* 👈 change this (e.g., 100vh */
+">
+  <div class="hero-overlay">
+    <h1 class="hero-title">
+  NetDAG Guardian — <strong>AI That Guards Value</strong>
+</h1>
+    <p class="hero-subtitle">Financial intelligence with a human core — designed to think, predict, and protect.</p>
+  </div>
+</section>
+
+<section
+  id="guardian"
+  class="hero-ovr"
+  style="
+    background-image:url('images/BondingCurve1.png');
+    background-size: 40% auto;      /* smaller image (try 50–80%) */
+    background-repeat: no-repeat; 
+    background-position: center;
+    min-height: 70vh;                /* overall hero height; reduce if you want less tall */
+  "
+>
+
+<!-- MAIN CONTENT -->
+<section class="curve-section">
+  <div class="curve-container">
+
+    <p>In today’s hyper-volatile financial landscape, passive security is no longer enough. The NetDAG Guardian is a living layer of protection — an AI Neuron Intelligence that learns, adapts, and defends digital assets in real time.</p>
+
+    <p>Traditional smart contracts execute commands, but they do not <em>think</em>. They react after events, leaving assets exposed to sudden crashes or manipulative trades. The Guardian eliminates that delay. It anticipates — using deep neural analytics to predict instability before it forms.</p>
+
+    <!-- MID IMAGE (centered). Resize by changing width / max-height -->
+    <figure style="text-align:center; margin:36px 0;">
+      <img
+        src="images/ndg-neuron.png"
+        alt="Guardian AI network visualization"
+        style="
+          display:block; margin:0 auto; border-radius:12px;
+          width: 1200px;        /* 👈 60% smaller | 100% full container */
+          max-height:520px; /* 👈 set a cap (px or 100vh). Remove to let it grow */
+          height:auto;      /* keeps aspect ratio */
+          object-fit:contain; /* use 'cover' if you set a fixed height and want cropping */
+        ">
+      <figcaption style="color:var(--muted); margin-top:8px;">
+        The Guardian’s neural intelligence constantly monitors NDG’s global liquidity network.
+      </figcaption>
+    </figure>
+
+    <h2>The Humanized AI Neuron</h2>
+    <p>The Guardian is designed to think like an investor and act like a protector — 80% human intuition, 20% machine precision. It studies market sentiment and liquidity with emotional intelligence, learning from behavior to maintain equilibrium.</p>
+
+    <h2>The Guardian’s Core Defenses</h2>
+    <ul>
+      <li><strong>Vigilant Scanning:</strong> Identifies hidden risk patterns before they manifest, reacting instantly to preserve value.</li>
+      <li><strong>Decisive Action:</strong> Counters manipulation and volatility through automated rebalancing and reserve protection.</li>
+      <li><strong>Dynamic Bonding Curve Integration:</strong> Adjusts NDG’s core price engine for smooth, predictable liquidity and stable growth.</li>
+    </ul>
+    <p></p>
+    <p></p>
+    <p>
+    <!-- END IMAGE (centered). Same easy knobs -->
+    <figure style="text-align:center; margin:40px 0;">
+      <img
+        src="images/BondingCurve1.png"
+        alt="Guardian protecting the NDG ecosystem"
+        style="
+          display:block; margin:0 auto; border-radius:12px;
+          width: 88px;        /* 👈 change as needed */
+         max: height 130vh; /* 👈 use px or vh; try 480px if you prefer */
+          height:auto;
+          object-fit:contain; /* or 'cover' if you want edge-to-edge crop inside max-height */
+        ">
+      <figcaption style="color:var(--muted); margin-top:8px;">
+        <p class="accent-blue glow">
+       Guardian and the Bonding Curve — working together to build the world’s first self-defending economy.</p>
+      </figcaption>
+    </figure>
+
+    <p class="accent-blue glow">
+  By investing in NetDAG, you’re not just holding a token — you’re owning part of the world’s first self-defending economy…
+</p>
+  </div>
+</section>
+
+  <section class="curve-section">
+    <div class="curve-container">
+      <h3 class="accent-blue glow">A Practical Example</h3>
+      <p>Even with a 20% sell-off, the curve steps price down smoothly — no collapse to near zero.</p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Token Supply (S)</th>
+              <th>Price (USD)</th>
+              <th>Comment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>10,000</td><td>$2.10</td><td>Early growth</td></tr>
+            <tr><td>100,000</td><td>$20.10</td><td>Mature stage</td></tr>
+            <tr><td>80,000</td><td><strong>$16.10</strong></td><td>After 20% sell-off</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="curve-section">
+    <div class="curve-container">
+      <h2>The NetDAG Advantage</h2>
+      <p>
+        NetDAG enhances bonding curves with the <strong>NetDAG Guardian</strong> — an AI layer that forecasts liquidity
+        and proposes parameter updates (like slope or reserve ratio). Governance approves changes for transparent control.
+      </p>
+
+      <details class="disclose">
+        <summary><strong>[+] Advanced Curve Mechanics &amp; Parameters</strong></summary>
+        <div class="disclose-body">
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr><th>Parameter</th><th>What it does</th><th>Effect</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Reserve Ratio</strong></td><td>Portion of buys kept as locked backing.</td><td>Stronger price resilience; smoother moves.</td></tr>
+                <tr><td><strong>Fee Split</strong></td><td>Small % to treasury/staking.</td><td>Builds long-term reserves; funds growth.</td></tr>
+                <tr><td><strong>Dynamic Slope</strong></td><td>Adjusts “a” by volume/time.</td><td>Wide access early; more resistance later.</td></tr>
+                <tr><td><strong>Buy-Only Phase</strong></td><td>Disable sells during presale.</td><td>Fills reserve; creates a strong price floor.</td></tr>
+                <tr><td><strong>Vesting on Large Sells</strong></td><td>Rate-limit outsized redemptions.</td><td>Prevents rapid reserve drain.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">All proposals require multisig/DAO approval — community oversight built-in.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+<style>
+  @media (max-width: 640px){ #guardian{ background-size: 85% auto; min-height: 64vh; } }
+  @media (min-width:1024px){ #guardian{ background-size: 55% auto; min-height: 72vh; } }
+</style>
+
+  <!-- Optional full-width image near page end -->
+  <section aria-label="Feature image" style="padding:0; margin:0; border-top:1px solid var(--border);">
+    <img src="images/ndg-logo.png" alt="NDG coin"
+     style="display:block; margin:16px auto; width:clamp(220px,40vw,520px); height:auto;">
+  </section>
+
+  <!-- Page-to-page navigation -->
+   <nav id="page-nav" class="page-nav" aria-label="Page navigation"></nav>
+  <!-- Back to Top -->
+   <button class="back-to-top" aria-label="Back to top">↑</button>
+   <div id="phn-placeholder"></div>
+   <div id="footer-placeholder"></div>
+  <!-- Unified site script -->
+  <script src="script.js"></script>
+</body>
+</html>

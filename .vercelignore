@@ -1,0 +1,34 @@
+# Ignore backups / archives / temp
+backups/
+backup*/
+backup_*/
+restore_*/
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+
+# Local/editor/system stuff
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Scripts & logs not needed online
+*.cmd
+*.ps1
+*.bat
+*.log
+
+# Old styles & large sources
+style-archive*
+*archive*.css
+*.psd
+*.ai
+*.sketch
+
+# Any experimental folders you don't want on prod
+mainnet*/
+nextgen-mainnet*/
+NetDag_backup/
+%f/

@@ -12,24 +12,21 @@
   const IS_MENU = location.pathname.replace(/\\/g,'/').includes('/menu/');
   const PREFIX  = IS_MENU ? '../' : './';
 
-  /** ---------------- Includes Loader ---------------- */
-  const includes = [
-  { id: 'ticker-placeholder',  file: 'includes/ticker.html'  },
-  { id: 'nav-placeholder',     file: 'includes/topnav.html'  },  // <-- new
-  { id: 'sidebar-placeholder', file: 'includes/sidebar.html' },
-  { id: 'phn-placeholder',     file: 'includes/phn.html'  },
-  { id: 'footer-placeholder',  file: 'includes/footer.html'  },
-];
-Promise.all(includes.map(({id,file}) => {
+  // --- Root-absolute include loader (works in / and /menu/ on Vercel & localhost)
+const INC = '/includes'; // root-absolute!
+
+async function inject(id, file) {
   const el = document.getElementById(id);
-  if (!el) return Promise.resolve();
-  const url = PREFIX + file;
-  return fetch(url).then(r => r.ok ? r.text() : '').then(html => { if (html) el.innerHTML = html; });
-})).then(() => {
-  // After includes are in:
-  fixDataRelLinks(document.body);
-  initMobileMenu();
-  buildPHN();                 // <-- add this line
+  if (!el) return;
+  const res = await fetch(`${INC}/${file}?v=${Date.now()}`); // cache-bust
+  el.innerHTML = await res.text();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  inject('ticker-placeholder',  'ticker.html');
+  inject('nav-placeholder',     'topnav.html');
+  inject('sidebar-placeholder', 'sidebar.html');
+  inject('phn-placeholder',     'phn.html');     // 👈 PHN
 });
 
  function fixDataRelLinks(scope) {

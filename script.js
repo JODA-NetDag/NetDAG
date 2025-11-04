@@ -2,23 +2,22 @@
    NetDAG – Unified Client Script
    - Loads includes (ticker/nav/sidebar/PHN/footer)
    - Fixes relative links via data-rel / data-href
-   - Mobile drawer
+   - Mobile drawer + header hamburger
    - Back-to-top
    - Page Prev • Home • Next (PHN)
    - Simple marquee ticker
    =========================================== */
 
 (function () {
-  /* ---------- context & helpers ---------- */
+  // ---------- context & helpers ----------
   const IS_MENU = location.pathname.replace(/\\/g, '/').includes('/menu/');
-  const PREFIX  = IS_MENU ? '../' : './';      // for page links
-  const INC     = '/includes';                  // root-absolute includes
+  const PREFIX  = IS_MENU ? '../' : '/';     // for page links
+  const INC     = '/includes';               // root-absolute includes
 
   function stripIndex(p) {
     return (p || '')
-      .replace(/\\/g, '/')
-      .replace(/index\.html$/i, '')
-      .replace(/\/$/, '');
+      .replace(/\/\//g, '/')
+      .replace(/\/index\.html$/i, '/');
   }
 
   /* ---------- LINK FIX (data-rel / data-href) ---------- */
@@ -33,7 +32,7 @@
   /* ---------- INCLUDES LOADER ---------- */
   const INCLUDES = [
     { id: 'ticker-placeholder',  file: `${INC}/ticker.html`  },
-    { id: 'nav-placeholder',     file: `${INC}/topnav.html`  },
+    { id: 'nav-placeholder',     file: `${INC}/header.html`  },
     { id: 'sidebar-placeholder', file: `${INC}/sidebar.html` },
     { id: 'phn-placeholder',     file: `${INC}/phn.html`     },
     { id: 'footer-placeholder',  file: `${INC}/footer.html`  }
@@ -51,93 +50,98 @@
     );
   }
 
+  /* ---------- HEADER MENU (hamburger toggle inside header.html) ---------- */
+  function initHeaderMenu() {
+    const toggle = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (toggle && mobileNav) {
+      toggle.addEventListener('click', () => {
+        const open = mobileNav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  }
+
   /* ---------- PHN (Prev • Home • Next) ---------- */
-  function buildPHN(){
-  let nav = document.getElementById('page-nav');
-  if (!nav) {
-    const holder = document.getElementById('phn-placeholder');
-    if (!holder) return;
-    nav = document.createElement('nav');
-    nav.id = 'page-nav';
-    nav.className = 'page-nav';
-    nav.setAttribute('aria-label','Page navigation');
-    holder.appendChild(nav);
+  function buildPHN() {
+    let nav = document.getElementById('page-nav');
+    if (!nav) {
+      const holder = document.getElementById('phn-placeholder');
+      if (!holder) return;
+      nav = document.createElement('nav');
+      nav.id = 'page-nav';
+      nav.className = 'page-nav';
+      nav.setAttribute('aria-label', 'Page navigation');
+      holder.appendChild(nav);
+    }
+
+    const IS_MENU_LOCAL = location.pathname.replace(/\\/g, '/').includes('/menu/');
+    const PREFIX_LOCAL  = IS_MENU_LOCAL ? '../' : './';
+
+    const pages = [
+      { slug: 'index',            label: 'Home' },
+      { slug: 'bonding-curve',    label: 'Bonding Curve' },
+      { slug: 'guardian',         label: 'Guardian' },
+      { slug: 'provenance',       label: 'Provenance' },
+      { slug: 'dvpn',             label: 'dVPN' },
+      { slug: 'menu/whitepaper',  label: 'Whitepaper' },
+      { slug: 'menu/vision',      label: 'Vision' },
+      { slug: 'menu/faq',         label: 'FAQ' },
+      { slug: 'menu/tokenomics',  label: 'Tokenomics' },
+      { slug: 'menu/roadmap',     label: 'Roadmap' },
+      { slug: 'menu/ambassador',  label: 'Ambassador' },
+      { slug: 'menu/charity',     label: 'Charity' },
+      { slug: 'menu/blog',        label: 'Blog' },
+      { slug: 'menu/partners',    label: 'Partners' },
+      { slug: 'menu/legal',       label: 'Legal' },
+      { slug: 'menu/contact',     label: 'Contact' }
+    ];
+
+    function toSlug(pathname) {
+      const parts = pathname.replace(/\\/g, '/').split('/').filter(Boolean);
+      let take = parts.slice(-2).join('/');
+      if (take.endsWith('/')) take = take.slice(0, -1);
+      take = take.replace(/\.html?$/i, '');
+      if (take === '') return 'index';
+      return take;
+    }
+
+    const hereSlug = toSlug(location.pathname);
+    const idx = pages.findIndex(p => p.slug === hereSlug || ('menu/' + hereSlug) === p.slug);
+    if (idx === -1) return;
+
+    const prev = pages[idx - 1], next = pages[idx + 1];
+
+    nav.innerHTML = '';
+
+    if (prev) {
+      const a = document.createElement('a');
+      a.href = PREFIX_LOCAL + (prev.slug === 'index' ? 'index.html' : `${prev.slug}.html`);
+      a.innerHTML = '← ' + prev.label;
+      nav.appendChild(a);
+    }
+
+    const home = document.createElement('a');
+    home.href = PREFIX_LOCAL + 'index.html';
+    home.textContent = 'Home';
+    nav.appendChild(home);
+
+    if (next) {
+      const b = document.createElement('a');
+      b.href = PREFIX_LOCAL + (next.slug === 'index' ? 'index.html' : `${next.slug}.html`);
+      b.innerHTML = next.label + ' →';
+      nav.appendChild(b);
+    }
   }
-  
-  const IS_MENU = location.pathname.replace(/\\/g,'/').includes('/menu/');
-  const PREFIX  = IS_MENU ? '../' : './';
 
-  // List pages as slugs (no .html)
-  const pages = [
-    { slug: 'index',            label: 'Home' },
-    { slug: 'bonding-curve',    label: 'Bonding Curve' },
-    { slug: 'guardian',         label: 'Guardian' },
-    { slug: 'provenance',       label: 'Provenance' },
-    { slug: 'dvpn',             label: 'dVPN' },
-    { slug: 'menu/whitepaper',  label: 'Whitepaper' },
-    { slug: 'menu/vision',      label: 'Vision' },
-    { slug: 'menu/faq',         label: 'FAQ' },
-    { slug: 'menu/tokenomics',  label: 'Tokenomics' },
-    { slug: 'menu/roadmap',     label: 'Roadmap' },
-    { slug: 'menu/ambassador',  label: 'Ambassador' },
-    { slug: 'menu/charity',     label: 'Charity' },
-    { slug: 'menu/blog',        label: 'Blog' },
-    { slug: 'menu/partners',    label: 'Partners' },
-    { slug: 'menu/legal',       label: 'Legal' },
-    { slug: 'menu/contact',     label: 'Contact' },
-  ];
-
-  // Normalize current path to a slug (no .html, no trailing slash)
-  function toSlug(pathname){
-    const parts = pathname.replace(/\\/g,'/').split('/').filter(Boolean);
-    // keep possible 'menu' + file
-    let take = parts.slice(-2).join('/');
-    if (take.endsWith('/')) take = take.slice(0, -1);
-    take = take.replace(/\.html?$/i,'');      // strip .html if present
-    if (take === '') return 'index';
-    // if not in /menu/ but link record is menu/* we’ll handle via IS_MENU/PREFIX below
-    return take;
-  }
-
-  const hereSlug = toSlug(location.pathname);
-  const idx = pages.findIndex(p => p.slug === hereSlug || ('menu/'+hereSlug) === p.slug);
-  if (idx === -1) return;
-
-  const prev = pages[idx - 1], next = pages[idx + 1];
-
-  // Rebuild PHN
-  nav.innerHTML = '';
-
-  if (prev){
-    const a = document.createElement('a');
-    a.href = PREFIX + prev.slug + (prev.slug.endsWith('index') ? '.html' : '.html');
-    a.innerHTML = '← ' + prev.label;
-    if (prev.slug === 'index') a.href = PREFIX + 'index.html';
-    nav.appendChild(a);
-  }
-
-  const home = document.createElement('a');
-  home.href = PREFIX + 'index.html';
-  home.textContent = 'Home';
-  nav.appendChild(home);
-
-  if (next){
-    const b = document.createElement('a');
-    b.href = PREFIX + next.slug + (next.slug.endsWith('index') ? '.html' : '.html');
-    if (next.slug === 'index') b.href = PREFIX + 'index.html';
-    b.innerHTML = next.label + ' →';
-    nav.appendChild(b);
-  }
-}
-  /* ---------- MOBILE DRAWER ---------- */
+  /* ---------- MOBILE DRAWER (separate overlay drawer) ---------- */
   function initMobileMenu() {
     const drawer  = document.getElementById('mobile-menu-container');
     const openBtn = document.getElementById('open-menu-btn');
     const closeBtn = drawer ? drawer.querySelector('#close-menu-btn') : null;
     const list    = drawer ? drawer.querySelector('.mobile-nav-links') : null;
 
-    // Populate once from header+sidebar links if empty
-    if (drawer && list && list.childElementCount === 0) {
+     if (drawer && list && list.childElementCount === 0) {
       const links = [];
       document.querySelectorAll('#nav-placeholder .nav-links a').forEach(a => links.push(a));
       document.querySelectorAll('#sidebar-placeholder .sidenav a, #sidebar-placeholder .sidenav-links a')
@@ -238,29 +242,27 @@
 
     host.style.setProperty('--ticker-speed', '28s');
 
-     if (!document.getElementById('ndg-ticker-style')) {
+    if (!document.getElementById('ndg-ticker-style')) {
       const style = document.createElement('style');
       style.id = 'ndg-ticker-style';
       style.textContent = `
-        .announcement-ticker .ticker-text {
-          animation: ndg-marquee var(--ticker-speed,28s) linear infinite;
-        }
-        @keyframes ndg-marquee {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
+        .announcement-ticker .ticker-text { animation: ndg-marquee var(--ticker-speed,28s) linear infinite; }
+        @keyframes ndg-marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
       `;
       document.head.appendChild(style);
     }
   })();
 
   /* ---------- boot ---------- */
-  document.addEventListener('DOMContentLoaded', () => {
-    loadIncludes().then(() => {
+  document.addEventListener('DOMContentLoaded', function () {
+    loadIncludes().then(function () {
       // After includes are in place:
       fixDataRelLinks(document);
-      buildPHN();
-      initMobileMenu();
+      buildPHN();          // stays
+      initHeaderMenu();    // new: header hamburger
+      initMobileMenu();    // keep if it controls something else
     });
   });
-})(); 
+
+/* end of IIFE */
+})();

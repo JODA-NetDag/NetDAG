@@ -719,3 +719,191 @@ body > ul.nav-links{ display:none !important; }
 /* Accent words inside hero headings/subheads */
 .hero-title strong,
 .hero-subtitle strong { color: var(--accent); }
+
+/* =========================
+   Header / Navigation
+   ========================= */
+
+/* Show desktop nav on larger screens, hide on mobile */
+.desktop-nav { display: none; }
+.mobile-toggle { display: inline-flex; }
+
+@media (min-width: 900px){
+  .desktop-nav { display: flex; gap: 14px; }
+  .mobile-toggle { display: none; }
+  .mobile-nav { display: none !important; } /* never show the panel on desktop */
+}
+
+/* Mobile panel basic look */
+.mobile-nav {
+  position: fixed; inset: 64px 0 0 0; /* below header */
+  background: rgba(10,12,24,.98);
+  border-top: 1px solid var(--border);
+  display: grid; gap: 10px; padding: 16px;
+  z-index: 80;
+}
+.mobile-nav a {
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text);
+}
+.mobile-nav a:hover { background: rgba(255,255,255,.06); }
+.mobile-brand {
+  display:flex; align-items:center; gap:10px;
+  padding: 6px 4px 10px;
+  border-bottom:1px solid var(--border);
+  margin-bottom: 6px;
+}
+
+/* ===== Header (logo + desktop nav + mobile hamburger) ===== */
+
+/* base bar */
+.site-header { position: sticky; top: 0; z-index: 1000; background: #0a0a1a; border-bottom: 1px solid #2a2a3a; }
+.site-header-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; }
+
+/* brand */
+.brand { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+.site-logo { width: 28px; height: 28px; display: inline-block; }
+.brand-text { color: #e0e0e0; font-weight: 600; font-size: 16px; }
+
+/* desktop nav */
+.desktop-nav { display: flex; gap: 16px; }
+.desktop-nav a { color: #c0c0c0; text-decoration: none; }
+.desktop-nav a:hover { color: #ffffff; }
+
+/* mobile hamburger button (hidden on desktop) */
+.mobile-toggle { display: none; background: transparent; border: 0; color: #e0e0e0; padding: 6px; }
+
+/* mobile panel (collapsed by default) */
+.mobile-nav { 
+  max-height: 0; 
+  overflow: hidden; 
+  transition: max-height .3s ease; 
+  background: #0f1724; 
+  border-top: 1px solid #2a2a3a; 
+}
+.mobile-nav a { display: block; padding: 10px 16px; color: #e0e0e0; text-decoration: none; }
+.mobile-nav a + a { border-top: 1px solid #2a2a3a; }
+.mobile-nav.open { max-height: 320px; }  /* <-- opened state */
+
+/* responsive rules */
+@media (max-width: 768px) {
+  .desktop-nav { display: none; }         /* hide desktop menu on mobile */
+  .mobile-toggle { display: inline-flex; }/* show hamburger on mobile */
+}
+
+/* --- Make header / navbar links bold --- */
+.desktop-nav a {
+  font-weight: 1000;              /* 600 = semi-bold, 700 = full bold */
+}
+
+.desktop-nav a:hover {
+  font-weight: 1000;              /* optional: extra bold on hover */
+}
+
+/* Brand size: logo + "NetDAG" text in header */
+.site-header .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-header .site-logo {
+  width: 28px;
+  height: 28px;
+}
+
+.site-header .brand-text {
+  font-weight: 700;          /* bold */
+  font-size: 1.35rem;        /* ~20px on mobile */
+  line-height: 1.2;
+  color: #e0e0e0;
+  letter-spacing: 0.2px;
+}
+
+/* Make it larger on desktop */
+@media (min-width: 768px) {
+  .site-header .site-logo {
+    width: 32px;
+    height: 32px;
+  }
+  .site-header .brand-text {
+    font-size: 1.75rem;       /* ~24px on desktop */
+  }
+}
+/* Header nav spacing (desktop only) */
+@media (min-width: 768px) {
+  /* push content slightly away from the right edge */
+  .site-header .site-header-bar {
+    padding-right: 28px;      /* tweak: 24–40px as you like */
+  }
+
+  /* more gap between links */
+  .desktop-nav {
+    gap: 28px;                /* tweak: 18–28px */
+  }
+
+  /* optional extra left shift for the whole group */
+  .desktop-nav {
+    margin-right: 32px;        /* increase if you want even more left shift */
+  }
+}
+
+/* ===== Sidebar menu: icon controls ===== */
+:root{
+  --side-icon-size: 18px;        /* icon size */
+  --side-icon-gap: 12px;         /* space between icon & text */
+  --side-icon-color: #7c7258;    /* default icon color */
+  --side-icon-hover: #7c7258;    /* hover/active icon color */
+}
+
+/* layout */
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.side-link {
+  display: flex;
+  align-items: center;
+  gap: var(--side-icon-gap);
+  text-decoration: none;
+  color: #ebe3bef2;
+  font-weight: 200;          /* you wanted bold */
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+
+/* icon base */
+.side-icon {
+  width: var(--side-icon-size);
+  height: var(--side-icon-size);
+  background-color: var(--side-icon-color);
+  /* mask shorthand for Chrome/Edge; add -webkit- for Safari */
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+/* hover/active states */
+.side-link:hover .side-icon,
+.side-link[aria-current="page"] .side-icon {
+  background-color: var(--side-icon-hover);
+}
+.side-link:hover { color: #fff; }
+
+/* ===== Map icon classes to SVG files ===== */
+/* Put your SVGs in /images/icons/*.svg (or adjust paths) */
+.side-icon.home   { mask-image: url("/images/icons/home.svg");   -webkit-mask-image: url("/images/icons/home.svg"); }
+.side-icon.curve  { mask-image: url("/images/icons/curve.svg");  -webkit-mask-image: url("/images/icons/curve.svg"); }
+.side-icon.shield { mask-image: url("/images/icons/shield.svg"); -webkit-mask-image: url("/images/icons/shield.svg"); }
+.side-icon.chain  { mask-image: url("/images/icons/chain.svg");  -webkit-mask-image: url("/images/icons/chain.svg"); }
+.side-icon.vpn    { mask-image: url("/images/icons/vpn.svg");    -webkit-mask-image: url("/images/icons/vpn.svg"); }
+.side-icon.doc    { mask-image: url("/images/icons/doc.svg");    -webkit-mask-image: url("/images/icons/doc.svg"); }
+/* add more mappings as needed */
+ 

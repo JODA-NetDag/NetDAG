@@ -971,3 +971,34 @@ body > ul.nav-links{ display:none !important; }
 .site-header, .ticker {
   mix-blend-mode: normal;
 }
+/* --- Ensure header is above everything --- */
+header.site-header { position: sticky; top: 0; z-index: 9999; }
+.ticker, .topbar, .hero, .hero::before { z-index: 0 !important; }
+.site-header, .ticker { mix-blend-mode: normal; }
+
+/* --- MOBILE NAV: fully hidden when closed, full height when open --- */
+.mobile-nav {
+  /* CLOSED state */
+  display: none;            /* <— remove the black belt when closed */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #0f1724;
+  z-index: 9998;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+}
+
+.mobile-nav.open {
+  /* OPEN state */
+  display: block;           /* <— show only when opened */
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 8px 0;
+  border-top: 1px solid #2a2a3a;
+}
+
+#menu-toggle { position: relative; z-index: 10000; }

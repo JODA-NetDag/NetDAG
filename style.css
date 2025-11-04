@@ -907,3 +907,67 @@ body > ul.nav-links{ display:none !important; }
 .side-icon.doc    { mask-image: url("/images/icons/doc.svg");    -webkit-mask-image: url("/images/icons/doc.svg"); }
 /* add more mappings as needed */
  
+/* =====================================================
+   HEADER & MOBILE FIXES
+   ===================================================== */
+
+/* Keep ticker behind the header */
+.ticker,
+.ticker-bar,
+.ticker-wrapper {
+  position: relative;
+  z-index: 0 !important; /* forces it behind the header */
+}
+
+/* Make sure the header always sits on top */
+.site-header {
+  position: relative;
+  z-index: 9999 !important;
+}
+
+/* Ensure logo, brand text, and menu button stay visible */
+.site-header .brand,
+.site-header .site-logo,
+#menu-toggle {
+  position: relative;
+  z-index: 10000 !important;
+}
+
+/* ----- Mobile navigation (hamburger dropdown) ----- */
+.mobile-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #0f1724;
+  border-top: 1px solid #2a2a3a;
+  z-index: 9998;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+/* When menu is open */
+.mobile-nav.open {
+  max-height: 90vh;       /* full height */
+  overflow-y: auto;       /* scroll if long */
+  padding-bottom: 1rem;
+}
+
+/* Style links in mobile nav */
+.mobile-nav a {
+  display: block;
+  padding: 12px 16px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.mobile-nav a:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* keep ticker text and header text bright and visible */
+.site-header, .ticker {
+  mix-blend-mode: normal;
+}

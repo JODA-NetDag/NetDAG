@@ -52,67 +52,83 @@
   }
 
   /* ---------- PHN (Prev • Home • Next) ---------- */
-  function buildPHN() {
-    let nav = document.getElementById('page-nav');
-    if (!nav) {
-      const holder = document.getElementById('phn-placeholder');
-      if (!holder) return; // page doesn't want PHN
-      nav = document.createElement('nav');
-      nav.id = 'page-nav';
-      nav.className = 'page-nav';
-      nav.setAttribute('aria-label', 'Page navigation');
-      holder.appendChild(nav);
-    }
+  function buildPHN(){
+  let nav = document.getElementById('page-nav');
+  if (!nav) {
+    const holder = document.getElementById('phn-placeholder');
+    if (!holder) return;
+    nav = document.createElement('nav');
+    nav.id = 'page-nav';
+    nav.className = 'page-nav';
+    nav.setAttribute('aria-label','Page navigation');
+    holder.appendChild(nav);
+  }
+  
+  const IS_MENU = location.pathname.replace(/\\/g,'/').includes('/menu/');
+  const PREFIX  = IS_MENU ? '../' : './';
 
-    const pages = [
-      { href: 'index.html',           label: 'Home' },
-      { href: 'bonding-curve.html',   label: 'Bonding Curve' },
-      { href: 'guardian.html',        label: 'Guardian' },
-      { href: 'provenance.html',      label: 'Provenance' },
-      { href: 'dvpn.html',            label: 'dVPN' },
-      { href: 'menu/whitepaper.html', label: 'Whitepaper' },
-      { href: 'menu/vision.html',     label: 'Vision' },
-      { href: 'menu/faq.html',        label: 'FAQ' },
-      { href: 'menu/tokenomics.html', label: 'Tokenomics' },
-      { href: 'menu/roadmap.html',    label: 'Roadmap' },
-      { href: 'menu/ambassador.html', label: 'Ambassador' },
-      { href: 'menu/charity.html',    label: 'Charity' },
-      { href: 'menu/blog.html',       label: 'Blog' },
-      { href: 'menu/partners.html',   label: 'Partners' },
-      { href: 'menu/legal.html',      label: 'Legal' },
-      { href: 'menu/contact.html',    label: 'Contact' }
-    ];
+  // List pages as slugs (no .html)
+  const pages = [
+    { slug: 'index',            label: 'Home' },
+    { slug: 'bonding-curve',    label: 'Bonding Curve' },
+    { slug: 'guardian',         label: 'Guardian' },
+    { slug: 'provenance',       label: 'Provenance' },
+    { slug: 'dvpn',             label: 'dVPN' },
+    { slug: 'menu/whitepaper',  label: 'Whitepaper' },
+    { slug: 'menu/vision',      label: 'Vision' },
+    { slug: 'menu/faq',         label: 'FAQ' },
+    { slug: 'menu/tokenomics',  label: 'Tokenomics' },
+    { slug: 'menu/roadmap',     label: 'Roadmap' },
+    { slug: 'menu/ambassador',  label: 'Ambassador' },
+    { slug: 'menu/charity',     label: 'Charity' },
+    { slug: 'menu/blog',        label: 'Blog' },
+    { slug: 'menu/partners',    label: 'Partners' },
+    { slug: 'menu/legal',       label: 'Legal' },
+    { slug: 'menu/contact',     label: 'Contact' },
+  ];
 
-    const parts = location.pathname.replace(/\\/g, '/').split('/').filter(Boolean);
-    const here  = parts.slice(-2).join('/');
-    const key   = here.includes('/') ? here : (IS_MENU ? 'menu/' + here : here);
-
-    const idx = pages.findIndex(p => p.href === key);
-    if (idx === -1) return;
-
-    const prev = pages[idx - 1], next = pages[idx + 1];
-    nav.innerHTML = '';
-
-    if (prev) {
-      const a = document.createElement('a');
-      a.href = PREFIX + prev.href;
-      a.innerHTML = '← ' + prev.label;
-      nav.appendChild(a);
-    }
-
-    const home = document.createElement('a');
-    home.href = PREFIX + 'index.html';
-    home.textContent = 'Home';
-    nav.appendChild(home);
-
-    if (next) {
-      const b = document.createElement('a');
-      b.href = PREFIX + next.href;
-      b.innerHTML = next.label + ' →';
-      nav.appendChild(b);
-    }
+  // Normalize current path to a slug (no .html, no trailing slash)
+  function toSlug(pathname){
+    const parts = pathname.replace(/\\/g,'/').split('/').filter(Boolean);
+    // keep possible 'menu' + file
+    let take = parts.slice(-2).join('/');
+    if (take.endsWith('/')) take = take.slice(0, -1);
+    take = take.replace(/\.html?$/i,'');      // strip .html if present
+    if (take === '') return 'index';
+    // if not in /menu/ but link record is menu/* we’ll handle via IS_MENU/PREFIX below
+    return take;
   }
 
+  const hereSlug = toSlug(location.pathname);
+  const idx = pages.findIndex(p => p.slug === hereSlug || ('menu/'+hereSlug) === p.slug);
+  if (idx === -1) return;
+
+  const prev = pages[idx - 1], next = pages[idx + 1];
+
+  // Rebuild PHN
+  nav.innerHTML = '';
+
+  if (prev){
+    const a = document.createElement('a');
+    a.href = PREFIX + prev.slug + (prev.slug.endsWith('index') ? '.html' : '.html');
+    a.innerHTML = '← ' + prev.label;
+    if (prev.slug === 'index') a.href = PREFIX + 'index.html';
+    nav.appendChild(a);
+  }
+
+  const home = document.createElement('a');
+  home.href = PREFIX + 'index.html';
+  home.textContent = 'Home';
+  nav.appendChild(home);
+
+  if (next){
+    const b = document.createElement('a');
+    b.href = PREFIX + next.slug + (next.slug.endsWith('index') ? '.html' : '.html');
+    if (next.slug === 'index') b.href = PREFIX + 'index.html';
+    b.innerHTML = next.label + ' →';
+    nav.appendChild(b);
+  }
+}
   /* ---------- MOBILE DRAWER ---------- */
   function initMobileMenu() {
     const drawer  = document.getElementById('mobile-menu-container');

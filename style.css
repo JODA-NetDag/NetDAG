@@ -1002,3 +1002,45 @@ header.site-header { position: sticky; top: 0; z-index: 9999; }
 }
 
 #menu-toggle { position: relative; z-index: 10000; }
+
+/* ==== MOBILE HEADER BELT KILLER (safe) ==== */
+@media (max-width: 768px) {
+  /* Header must stay on top */
+  header.site-header { position: sticky; top: 0; z-index: 9999 !important; }
+  #menu-toggle { position: relative; z-index: 10000 !important; }
+
+  /* Hide any header separators/shadows/backdrops/pseudo-lines */
+  .site-header::before,
+  .site-header::after,
+  .site-header .divider,
+  .site-header .nav-divider,
+  .site-header .shadow,
+  .site-header .header-shadow,
+  .site-header .nav-shadow,
+  .site-header .backdrop,
+  .site-header .backdrop::before,
+  .site-header .backdrop::after,
+  .site-header hr {
+    display: none !important;
+    content: none !important;
+    height: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+
+  /* Catch generic “belt/line/rule” class names if used */
+  .site-header [class*="belt"],
+  .site-header [class*="line"],
+  .site-header [class*="rule"] {
+    display: none !important;
+    height: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+  }
+
+  /* Mobile dropdown: closed = invisible; open = full-height scrollable */
+  .mobile-nav { display: none; position: absolute; top: 100%; left: 0; right: 0;
+                background:#0f1724; z-index: 9998; max-height: 0; overflow: hidden; }
+  .mobile-nav.open { display: block; max-height: 90vh; overflow-y: auto; padding: 8px 0;
+                     border-top: 1px solid #2a2a3a; }
+}
